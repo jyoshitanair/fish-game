@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bn2rhg24qics0"]
+
+[ext_resource type="Script" uid="uid://7v7aqrfopauv" path="res://scripts/fish.gd" id="1_8g0i4"]
+[ext_resource type="Texture2D" uid="uid://l2ds404apf07" path="res://assets/images/fish/Male_0_Idle0.png" id="2_8g0i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6yr6"]
+size = Vector2(21, 44)
+
+[node name="fish" type="Area2D" unique_id=437780278]
+script = ExtResource("1_8g0i4")
+
+[node name="fish-sprite" type="Sprite2D" parent="." unique_id=2047489052]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8g0i4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852836949]
+position = Vector2(-1.5, 38)
+shape = SubResource("RectangleShape2D_n6yr6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1970115904]
+limit_enabled = false
+position_smoothing_enabled = true

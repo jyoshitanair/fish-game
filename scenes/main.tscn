@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cr4anb62dftit"]
+
+[ext_resource type="PackedScene" uid="uid://bn2rhg24qics0" path="res://scenes/fish.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bj435kbpkfqc1" path="res://scenes/shark.tscn" id="2_0wfyh"]
+
+[node name="main" type="Node2D" unique_id=1845494140]
+
+[node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_sugp2")]
+
+[node name="fish" parent="." unique_id=1777111467 instance=ExtResource("1_o5qli")]
+position = Vector2(705, -148)
+
+[node name="shark" parent="." unique_id=1622021026 instance=ExtResource("2_0wfyh")]
+position = Vector2(254, 301)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bj435kbpkfqc1"]
+
+[ext_resource type="Texture2D" uid="uid://dxeefd5sjcx3y" path="res://assets/images/shark/Illustration50 (1).png" id="1_8l5qy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5iaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8l5qy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l5qy"]
+size = Vector2(102, 46)
+
+[node name="shark" type="Node2D" unique_id=1622021026]
+
+[node name="shark-sprite" type="AnimatedSprite2D" parent="." unique_id=1109249740]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_v5iaq")
+
+[node name="hit-box" type="Area2D" parent="." unique_id=1021922771]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit-box" unique_id=1589191405]
+position = Vector2(3, -3)
+shape = SubResource("RectangleShape2D_8l5qy")
