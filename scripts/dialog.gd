@@ -5,6 +5,7 @@ extends Node2D
 	"The name's bob", 
 	"Nice to meet ya fishy"
 	]
+@export var fish_name = "bob"
 var tween 
 var duration
 var base_time = 0.5
@@ -15,10 +16,12 @@ var just_pressed = false
 ##GOAT ON READY
 @onready var text: RichTextLabel = $Panel/Panel/text
 @onready var timer: Timer = $Timer
+@onready var label: RichTextLabel = $"Panel/char-name/Label"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	label.text = fish_name
 	just_pressed = true
 	text.text = ""
 	await get_tree().create_timer(0.5).timeout

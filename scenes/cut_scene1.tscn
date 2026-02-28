@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_svexa"]
 
-[node name="test-scne" type="Node2D" unique_id=882033283]
+[node name="cut_scene1" type="Node2D" unique_id=882033283]
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_svexa")]
 position = Vector2(572, 546)
-dialog_array = ["djsfh jshlkjshdljkfksdf", "ghsdjklfgjfkdfg", "sdajfklsdfh akjsdfhajkdsf", "Nice to meet ya fishy"]
+dialog_array = ["HI I AM BOBUUUU ", "I really do need help with a question", "Do you think you happen to know the answer", "This is just some random testy text"]
+fish_name = "          bobu the crab fish"
