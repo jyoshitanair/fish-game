@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c3pgmv3lobd82"]
+
+[ext_resource type="Script" uid="uid://bcudl1p34rcu4" path="res://scripts/minimap.gd" id="1_0pgu0"]
+[ext_resource type="Texture2D" uid="uid://l2ds404apf07" path="res://assets/images/fish/Male_0_Idle0.png" id="2_0pgu0"]
+[ext_resource type="Script" uid="uid://dih37irsesvhr" path="res://scripts/circle-but-for-mini-map.gd" id="2_dsx0k"]
+[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="2_uxthi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxthi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0pgu0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsx0k"]
+radius = 126.0
+
+[node name="minimap" type="Control" unique_id=254945935]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0pgu0")
+
+[node name="erm-circle" type="Node2D" parent="." unique_id=317686812]
+clip_children = 2
+script = ExtResource("2_dsx0k")
+radius = 126.0
+width = 6.0
+
+[node name="where_the_circle_is" type="Marker2D" parent="erm-circle" unique_id=2046507937]
+position = Vector2(137, 135)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="erm-circle" unique_id=1270237052]
+custom_minimum_size = Vector2(200, 200)
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 264.0
+
+[node name="SubViewport" type="SubViewport" parent="erm-circle/SubViewportContainer" unique_id=1532250980]
+handle_input_locally = false
+size = Vector2i(257, 256)
+render_target_update_mode = 4
+
+[node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1051280580]
+
+[node name="world" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1752542113 instance=ExtResource("2_uxthi")]
+position = Vector2(4, -31)
+
+[node name="position_player" type="AnimatedSprite2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=824826023]
+z_index = 500
+position = Vector2(169.5, 156.5)
+scale = Vector2(0.28515625, 0.24804688)
+sprite_frames = SubResource("SpriteFrames_uxthi")
+
+[node name="Camera2D" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/position_player" unique_id=697846843]
+position_smoothing_enabled = true
+position_smoothing_speed = 35.0
+
+[node name="ColorRect" type="ColorRect" parent="erm-circle" unique_id=2130328952]
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 263.0
+offset_bottom = 264.0
+color = Color(0.6627451, 0.7490196, 0.9372549, 0.5529412)
+
+[node name="erm-circle2" type="Node2D" parent="." unique_id=463160212]
+clip_children = 2
+z_index = 200
+script = ExtResource("2_dsx0k")
+radius = 126.0
+width = 6.0
+
+[node name="where_the_circle_is" type="Marker2D" parent="erm-circle2" unique_id=1115121282]
+position = Vector2(137, 135)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1618638496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=472859291]
+position = Vector2(137, 135)
+shape = SubResource("CircleShape2D_dsx0k")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

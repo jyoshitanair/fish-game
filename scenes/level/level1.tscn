@@ -10,7 +10,7 @@
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_sugp2")]
 
 [node name="fish" parent="." unique_id=1777111467 instance=ExtResource("1_o5qli")]
-position = Vector2(705, -148)
+position = Vector2(580, 323)
 
 [node name="shark" parent="." unique_id=1622021026 instance=ExtResource("2_0wfyh")]
 position = Vector2(292, 267)

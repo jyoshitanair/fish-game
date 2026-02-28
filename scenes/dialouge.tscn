@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bmqawfow0lmf7"]
 
+[ext_resource type="Script" uid="uid://bsq5l3tcdd71v" path="res://scripts/dialog.gd" id="1_3ggh0"]
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="1_avunv"]
 [ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="2_hgtjj"]
 [ext_resource type="Script" uid="uid://c3qj5tq1q2ma5" path="res://scripts/circle.gd" id="3_3ggh0"]
@@ -17,12 +18,20 @@ animations = [{
 }]
 
 [node name="text" type="Node2D" unique_id=1734454769]
+script = ExtResource("1_3ggh0")
 
 [node name="Panel" type="Panel" parent="." unique_id=633472790]
-offset_left = -517.0
-offset_top = -87.0
-offset_right = 634.0
-offset_bottom = 118.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -102.5
+offset_right = 575.5
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 metadata/_edit_group_ = true
 
@@ -58,7 +67,7 @@ offset_right = 1142.0
 offset_bottom = 196.0
 metadata/_edit_group_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel" unique_id=700146816]
+[node name="text" type="RichTextLabel" parent="Panel/Panel" unique_id=700146816]
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -75,14 +84,20 @@ text = "this is some random text to see how the tet box works and if it will wor
 scroll_following = true
 scroll_following_visible_characters = true
 
-[node name="circle-whysohard" type="Node2D" parent="." unique_id=143621634]
+[node name="circle_why_so_hard" type="Node2D" parent="." unique_id=1837158979]
+position = Vector2(-57, -21)
 script = ExtResource("3_3ggh0")
 
-[node name="where-the-circle-is" type="Marker2D" parent="." unique_id=1170099963]
-position = Vector2(-476, -60)
+[node name="where_the_circle_is" type="Marker2D" parent="circle_why_so_hard" unique_id=801357590]
+position = Vector2(-481, -59)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=982056156]
 z_index = 144
-position = Vector2(-477, -96.99999)
+position = Vector2(-538.00006, -118)
 scale = Vector2(0.38867196, 0.31249997)
 sprite_frames = SubResource("SpriteFrames_svgti")
+
+[node name="Timer" type="Timer" parent="." unique_id=867401290]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

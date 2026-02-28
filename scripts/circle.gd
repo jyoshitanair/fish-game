@@ -1,7 +1,5 @@
 extends Node2D
-@onready var where_the_circle_is: Marker2D = $"../where-the-circle-is"
-
-
+@onready var where_the_circle_is: Marker2D = $where_the_circle_is
 
 func _draw() -> void:
 	z_index = 143

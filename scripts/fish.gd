@@ -1,6 +1,6 @@
 extends Node2D
 ##CONSTS
-const SPEED = 30.0
+const SPEED = 300.0
 ##VARS
 var new_spot = Vector2(0.0,0.0)
 var velocity = Vector2(0.0,0.0)

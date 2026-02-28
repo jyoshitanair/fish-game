@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://glhl6xhpy37x"]
 
 [ext_resource type="PackedScene" uid="uid://cr4anb62dftit" path="res://scenes/level/level1.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c3pgmv3lobd82" path="res://scenes/minimap.tscn" id="2_0wfyh"]
 
 [node name="main" type="Node2D" unique_id=295580096]
 
 [node name="level_root" parent="." unique_id=1845494140 instance=ExtResource("1_o5qli")]
 position = Vector2(119, -31)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=34110784]
+
+[node name="minimap" parent="HUD" unique_id=90750168 instance=ExtResource("2_0wfyh")]

@@ -5,4 +5,5 @@
 [node name="test-scne" type="Node2D" unique_id=882033283]
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_svexa")]
-position = Vector2(522, 532)
+position = Vector2(572, 546)
+dialog_array = ["djsfh jshlkjshdljkfksdf", "ghsdjklfgjfkdfg", "sdajfklsdfh akjsdfhajkdsf", "Nice to meet ya fishy"]
