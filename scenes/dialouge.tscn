@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bmqawfow0lmf7"]
+
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="1_avunv"]
+[ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="2_hgtjj"]
+[ext_resource type="Script" uid="uid://c3qj5tq1q2ma5" path="res://scripts/circle.gd" id="3_3ggh0"]
+[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="3_tc1v4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svgti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tc1v4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="text" type="Node2D" unique_id=1734454769]
+
+[node name="Panel" type="Panel" parent="." unique_id=633472790]
+offset_left = -517.0
+offset_top = -87.0
+offset_right = 634.0
+offset_bottom = 118.0
+size_flags_horizontal = 4
+metadata/_edit_group_ = true
+
+[node name="char-name" type="Panel" parent="Panel" unique_id=250364110]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1151.0
+offset_bottom = 39.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="RichTextLabel" parent="Panel/char-name" unique_id=1183826695]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 97.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_avunv")
+theme_override_font_sizes/normal_font_size = 18
+text = "            Hi, this is a test lamo"
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=669308246]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 46.0
+offset_right = 1142.0
+offset_bottom = 196.0
+metadata/_edit_group_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Panel" unique_id=700146816]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 22.0
+offset_right = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_hgtjj")
+theme_override_font_sizes/normal_font_size = 20
+text = "this is some random text to see how the tet box works and if it will work like how i want it sto blah balh . dahfjkdhsflahsdf asdljfhasdljkfhaldhflkjadshfjhskdjfhskldfhjsdhfaajklshfjkahlskdjfasdklhfjdshkfjlsd"
+scroll_following = true
+scroll_following_visible_characters = true
+
+[node name="circle-whysohard" type="Node2D" parent="." unique_id=143621634]
+script = ExtResource("3_3ggh0")
+
+[node name="where-the-circle-is" type="Marker2D" parent="." unique_id=1170099963]
+position = Vector2(-476, -60)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=982056156]
+z_index = 144
+position = Vector2(-477, -96.99999)
+scale = Vector2(0.38867196, 0.31249997)
+sprite_frames = SubResource("SpriteFrames_svgti")

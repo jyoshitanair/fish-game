@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c3pgmv3lobd82"]
+
+[ext_resource type="PackedScene" uid="uid://cr4anb62dftit" path="res://scenes/level/level1.tscn" id="1_cvo86"]
+[ext_resource type="Texture2D" uid="uid://l2ds404apf07" path="res://assets/images/fish/Male_0_Idle0.png" id="2_0pgu0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxthi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0pgu0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="minimap" type="Node2D" unique_id=90750168]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1270237052]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1532250980]
+
+[node name="level_root" parent="SubViewportContainer/SubViewport" unique_id=1845494140 instance=ExtResource("1_cvo86")]
+position = Vector2(-404, 496)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=824826023]
+z_index = 500
+position = Vector2(247, 300)
+scale = Vector2(0.578125, 0.5527344)
+sprite_frames = SubResource("SpriteFrames_uxthi")
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport/AnimatedSprite2D" unique_id=697846843]
+visible = false
+position_smoothing_enabled = true

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ctvc5jb6eoams"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_svexa"]
+
+[node name="test-scne" type="Node2D" unique_id=882033283]
+
+[node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_svexa")]
+position = Vector2(522, 532)

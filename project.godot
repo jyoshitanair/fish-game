@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="fish"
-run/main_scene="uid://cr4anb62dftit"
+run/main_scene="uid://glhl6xhpy37x"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://addons/icon.svg"
 

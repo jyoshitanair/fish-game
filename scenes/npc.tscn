@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://8612b26gvafl"]
+
+[ext_resource type="Script" uid="uid://ud5ex3owis0v" path="res://scripts/npc.gd" id="1_xxcha"]
+[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="2_kh24r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul7y6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kh24r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc6q4"]
+size = Vector2(733, 567)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(255, 158)
+
+[node name="npc" type="Node2D" unique_id=1818705560]
+script = ExtResource("1_xxcha")
+
+[node name="npc-sprite" type="AnimatedSprite2D" parent="." unique_id=968449032]
+sprite_frames = SubResource("SpriteFrames_ul7y6")
+
+[node name="alert-area" type="Area2D" parent="." unique_id=1237859537]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alert-area" unique_id=70055220]
+position = Vector2(-0.5, 99)
+shape = SubResource("RectangleShape2D_bc6q4")
+
+[node name="call-area" type="Area2D" parent="." unique_id=1421782738]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="call-area" unique_id=886706866]
+position = Vector2(8.5, 118)
+shape = SubResource("RectangleShape2D_xxcha")
+
+[connection signal="area_entered" from="alert-area" to="." method="_on_alertarea_area_entered"]
+[connection signal="area_exited" from="alert-area" to="." method="_on_alertarea_area_exited"]
