@@ -17,71 +17,67 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dsx0k"]
-radius = 126.0
+radius = 75.0
 
-[node name="minimap" type="Control" unique_id=254945935]
+[node name="minimap" type="Control" unique_id=1715375194]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("1_0pgu0")
 
 [node name="erm-circle" type="Node2D" parent="." unique_id=317686812]
 clip_children = 2
 script = ExtResource("2_dsx0k")
-radius = 126.0
+radius = 75.0
 width = 6.0
 
 [node name="where_the_circle_is" type="Marker2D" parent="erm-circle" unique_id=2046507937]
-position = Vector2(137, 135)
+position = Vector2(74, 76)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="erm-circle" unique_id=1270237052]
-custom_minimum_size = Vector2(200, 200)
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 264.0
-offset_bottom = 264.0
+custom_minimum_size = Vector2(150, 150)
+offset_right = 150.0
+offset_bottom = 150.0
 
 [node name="SubViewport" type="SubViewport" parent="erm-circle/SubViewportContainer" unique_id=1532250980]
 handle_input_locally = false
-size = Vector2i(257, 256)
+size = Vector2i(150, 150)
 render_target_update_mode = 4
-
-[node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1051280580]
-
-[node name="world" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1752542113 instance=ExtResource("2_uxthi")]
-position = Vector2(4, -31)
 
 [node name="position_player" type="AnimatedSprite2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=824826023]
 z_index = 500
-position = Vector2(169.5, 156.5)
-scale = Vector2(0.28515625, 0.24804688)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_uxthi")
 
-[node name="Camera2D" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/position_player" unique_id=697846843]
+[node name="Camera2D" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/position_player" unique_id=2089861196]
 position_smoothing_enabled = true
-position_smoothing_speed = 35.0
+position_smoothing_speed = 15.0
+
+[node name="world" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1752542113 instance=ExtResource("2_uxthi")]
+
+[node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=424898576]
 
 [node name="ColorRect" type="ColorRect" parent="erm-circle" unique_id=2130328952]
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 263.0
-offset_bottom = 264.0
+offset_right = 150.0
+offset_bottom = 149.0
+mouse_filter = 1
 color = Color(0.6627451, 0.7490196, 0.9372549, 0.5529412)
 
 [node name="erm-circle2" type="Node2D" parent="." unique_id=463160212]
 clip_children = 2
 z_index = 200
 script = ExtResource("2_dsx0k")
-radius = 126.0
+radius = 75.0
 width = 6.0
 
 [node name="where_the_circle_is" type="Marker2D" parent="erm-circle2" unique_id=1115121282]
-position = Vector2(137, 135)
+position = Vector2(74, 76)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1618638496]
+[node name="detection_for_mouse" type="Area2D" parent="." unique_id=470996347]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=472859291]
-position = Vector2(137, 135)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_for_mouse" unique_id=395920960]
+position = Vector2(74, 75)
 shape = SubResource("CircleShape2D_dsx0k")
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="detection_for_mouse" to="." method="_on_detection_for_mouse_mouse_entered"]
+[connection signal="mouse_exited" from="detection_for_mouse" to="." method="_on_detection_for_mouse_mouse_exited"]
