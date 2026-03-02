@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://c3pgmv3lobd82"]
 
 [ext_resource type="Script" uid="uid://bcudl1p34rcu4" path="res://scripts/minimap.gd" id="1_0pgu0"]
-[ext_resource type="Texture2D" uid="uid://l2ds404apf07" path="res://assets/images/fish/Male_0_Idle0.png" id="2_0pgu0"]
 [ext_resource type="Script" uid="uid://dih37irsesvhr" path="res://scripts/circle-but-for-mini-map.gd" id="2_dsx0k"]
 [ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="2_uxthi"]
+[ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="3_dsx0k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8tna"]
+atlas = ExtResource("3_dsx0k")
+region = Rect2(0, 0, 512, 288)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uxthi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0pgu0")
+"texture": SubResource("AtlasTexture_w8tna")
 }],
 "loop": false,
 "name": &"default",
@@ -46,7 +50,8 @@ render_target_update_mode = 4
 
 [node name="position_player" type="AnimatedSprite2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=824826023]
 z_index = 500
-scale = Vector2(0.3, 0.3)
+texture_filter = 1
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_uxthi")
 
 [node name="Camera2D" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/position_player" unique_id=2089861196]

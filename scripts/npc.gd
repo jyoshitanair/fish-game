@@ -26,6 +26,7 @@ func _on_alertarea_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		print("mc left")
 func dialog_enter() -> void: 
+	print("change")
 	get_tree().change_scene_to_packed(path)
 	
 	

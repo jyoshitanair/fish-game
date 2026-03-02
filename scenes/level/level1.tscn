@@ -13,7 +13,7 @@
 position = Vector2(580, 323)
 
 [node name="shark" parent="." unique_id=1622021026 instance=ExtResource("2_0wfyh")]
-position = Vector2(292, 267)
+position = Vector2(-702, 46)
 
 [node name="npc" parent="." unique_id=1818705560 instance=ExtResource("4_jyhfs")]
 position = Vector2(1901, -206)

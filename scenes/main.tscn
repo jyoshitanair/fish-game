@@ -11,3 +11,7 @@ position = Vector2(119, -31)
 [node name="HUD" type="CanvasLayer" parent="." unique_id=34110784]
 
 [node name="minimap" parent="HUD" unique_id=90750168 instance=ExtResource("2_0wfyh")]
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 31.0
+offset_bottom = 16.0

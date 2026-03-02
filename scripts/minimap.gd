@@ -23,8 +23,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	fish_node = get_tree().get_first_node_in_group("player")
-	print("fishy cords %s"%fish_node.position)
-	print("mini_map cords %s"%position_player.position)
 	##player following
 	if fish_node:
 		#position_player.position = Vector2(

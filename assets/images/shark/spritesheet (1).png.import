@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxeefd5sjcx3y"
-path="res://.godot/imported/Illustration50 (1).png-af09f453bda837106e7ee7ae5cfdacdf.ctex"
+uid="uid://bw67674oh7iyp"
+path="res://.godot/imported/spritesheet (1).png-b8864d17283099cb255b9f7478e0cd73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/shark/Illustration50 (1).png"
-dest_files=["res://.godot/imported/Illustration50 (1).png-af09f453bda837106e7ee7ae5cfdacdf.ctex"]
+source_file="res://assets/images/shark/spritesheet (1).png"
+dest_files=["res://.godot/imported/spritesheet (1).png-b8864d17283099cb255b9f7478e0cd73.ctex"]
 
 [params]
 

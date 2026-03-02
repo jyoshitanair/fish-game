@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l2ds404apf07"
-path="res://.godot/imported/Male_0_Idle0.png-dd81898f1653c3dd33356a2ec57235f5.ctex"
+uid="uid://cm873dyrs5j3b"
+path="res://.godot/imported/spritesheet (3).png-c7fb35f6f87eaec8c5da8c5b4accb0d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/fish/Male_0_Idle0.png"
-dest_files=["res://.godot/imported/Male_0_Idle0.png-dd81898f1653c3dd33356a2ec57235f5.ctex"]
+source_file="res://assets/images/shark/spritesheet (3).png"
+dest_files=["res://.godot/imported/spritesheet (3).png-c7fb35f6f87eaec8c5da8c5b4accb0d5.ctex"]
 
 [params]
 
