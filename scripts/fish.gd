@@ -9,6 +9,7 @@ var alive = true
 var old_flip = false
 var flip = false 
 var speed
+var health = 100.0
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -17,7 +18,9 @@ func _ready() -> void:
 	speed = SPEED
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	if health == 0.0:
+		alive = false
+		get_tree().quit()
 	velocity.x = direction.x * delta * speed #fps
 	velocity.y = direction.y * delta * speed #fps
 
@@ -52,7 +55,3 @@ func _process(delta: float) -> void:
 		speed = 500.0
 		await get_tree().create_timer(0.5).timeout
 		speed = SPEED
-
-func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("shark"):
-		get_tree().quit()

@@ -9,9 +9,17 @@ FEATURES
 	Player: 
 		- Movement using WASD/Arrow Keys
 		- Interact with NPCs using Enter (wait but i havn't done this YET)
+		- boost using space bar
 	Tiles:
 		- Isometric Design and randomly generated using probability: 
 			INSERT TILE DETAILS
+	Enemy:
+		- Attacks and swims smoothly using lerp
+		- Has a start Range and an end range
+		- Deals 5 damage per hit
+		[TO PATCH!!! STACKING ON TOP :(]
+	Health Bar:
+		- scales by 1.8 and displays as a ui bar and number
 ======================================================================================
 AI USAGE: 
    - ChatGPT for debugging

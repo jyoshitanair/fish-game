@@ -130,12 +130,10 @@ position = Vector2(-5.5, -0.5)
 shape = SubResource("RectangleShape2D_n6yr6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1970115904]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 position_smoothing_enabled = true
 
 [node name="boost_cooldown" type="Timer" parent="." unique_id=301918759]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=925168919]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

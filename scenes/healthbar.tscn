@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ipdlgl6iu36g"]
+
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="1_8wl12"]
+[ext_resource type="Script" uid="uid://b3q38n0wr02as" path="res://scripts/healthbar.gd" id="1_vjxg4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjxg4"]
+bg_color = Color(0.14117648, 0.14117648, 0.14117648, 0.7607843)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulkio"]
+bg_color = Color(0.40337572, 0.6331394, 0.3650086, 0.73333335)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[node name="healthbar" type="Node2D" unique_id=690976557]
+script = ExtResource("1_vjxg4")
+
+[node name="health" type="Panel" parent="." unique_id=599235806]
+offset_left = -9.0
+offset_top = -8.0
+offset_right = 201.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjxg4")
+
+[node name="bar" type="Panel" parent="." unique_id=434227993]
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 183.0
+offset_bottom = 35.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ulkio")
+
+[node name="Label" type="Label" parent="." unique_id=1545632905]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 194.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_8wl12")
+theme_override_font_sizes/font_size = 29
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
