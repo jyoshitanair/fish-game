@@ -91,7 +91,6 @@ func update_animations() -> void:
 func _on_idle_wait_timer_timeout() -> void:
 	can_chase = true
 
-
 func _on_jaw_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and is_attacking:
 		area.health -= 5.0

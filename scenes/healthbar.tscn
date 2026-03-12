@@ -24,7 +24,7 @@ script = ExtResource("1_vjxg4")
 [node name="health" type="Panel" parent="." unique_id=599235806]
 offset_left = -9.0
 offset_top = -8.0
-offset_right = 201.0
+offset_right = 198.0
 offset_bottom = 42.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vjxg4")
 
