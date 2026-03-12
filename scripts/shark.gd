@@ -25,7 +25,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_animations()
-	print(is_attacking)
 	##CONNECTING THE START CHASE ZONE
 	var starts = start_chase_zone.get_overlapping_areas()
 	for start in starts:
@@ -42,7 +41,6 @@ func _process(delta: float) -> void:
 	##CONNECTING THE CHASE ZONE
 	var chases = chase_zone.get_overlapping_areas()
 	if chases.size()==0:
-		print("epty0")
 		can_chase = false
 		o = 0
 	for chase in chases:
@@ -67,7 +65,6 @@ func _process(delta: float) -> void:
 				i = 0.1              
 					#jolt                                           
 			if is_attacking:  
-				print("attackign")
 				attack_timer += delta
 				i += (1.0 - i)*delta*0.07
 				global_position = lerp(global_position, attack_position, i)

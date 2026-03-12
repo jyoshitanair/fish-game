@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c2sphjvya6ptg"]
+
+[ext_resource type="Script" uid="uid://0o7244wbstx7" path="res://scripts/boost.gd" id="1_5w7mw"]
+[ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="2_ltddp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uklgq"]
+bg_color = Color(0.5192099, 0.65180457, 0.36206296, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0fc2"]
+bg_color = Color(1, 0.42352942, 0.36862746, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="boost" type="Control" unique_id=335986785]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w7mw")
+
+[node name="Panel" type="Panel" parent="." unique_id=1915487105]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uklgq")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1466740533]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 73.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j0fc2")
+
+[node name="Label" type="Label" parent="." unique_id=1101390903]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 93.0
+offset_bottom = 87.0
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_ltddp")
+theme_override_font_sizes/font_size = 22
+text = "boost"

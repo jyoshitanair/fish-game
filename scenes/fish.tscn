@@ -134,6 +134,10 @@ zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 position_smoothing_enabled = true
 
-[node name="boost_cooldown" type="Timer" parent="." unique_id=301918759]
-
 [node name="Node2D" type="Node2D" parent="." unique_id=925168919]
+
+[node name="boost_timer" type="Timer" parent="." unique_id=914203572]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]
