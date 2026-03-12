@@ -26,3 +26,12 @@ offset_left = 31.0
 offset_top = 16.0
 offset_right = 31.0
 offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="HUD" unique_id=901707725]
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.018000001
+offset_left = 205.0
+offset_top = 108.0
+offset_right = 277.416
+offset_bottom = 119.336
