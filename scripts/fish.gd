@@ -1,6 +1,9 @@
 extends Node2D
+#SIGNALS
+signal clicked
 ##CONSTS
 const SPEED = 300.0
+const CHARGE_SPEED = 800.0
 ##VARS
 var new_spot = Vector2(0.0,0.0)
 var velocity = Vector2(0.0,0.0)
@@ -10,8 +13,11 @@ var old_flip = false
 var flip = false 
 var speed
 var health = 100.0
+var boostbar = 0.0
+var can_boost = true
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var boost_timer: Timer = $boost_timer
 
 func _ready() -> void: 
 	add_to_group("player")
@@ -51,7 +57,26 @@ func _process(delta: float) -> void:
 		scale.x *= -1
 	flip = old_flip
 	#Speed up 
+	if can_boost == true:
+		emit_signal("clicked",false)
+	else:
+		emit_signal("clicked",true)
 	if Input.is_action_pressed("boost"):
-		speed = 500.0
-		await get_tree().create_timer(0.5).timeout
-		speed = SPEED
+		if can_boost:
+			print(speed)
+			speed = lerp(speed,500.0,delta*3)
+			if speed >=450:
+				can_boost= false
+				speed = SPEED
+				boost_timer.start()
+	if Input.is_action_pressed("charge"):
+		boostbar += delta
+		print(animated_sprite_2d.scale)
+		if animated_sprite_2d.scale < Vector2(0.5,0.5):
+			animated_sprite_2d.scale += Vector2(0.02,0.02)
+		if boostbar == 5.0:
+			print("full")
+		
+func _on_boost_timer_timeout() -> void:
+	print("timer out")
+	can_boost = true
