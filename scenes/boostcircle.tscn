@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b7jri8w3itdmx"]
+
+[ext_resource type="Script" uid="uid://dtujgs3ovitd8" path="res://scripts/boost_bar.gd" id="1_3p36r"]
+
+[sub_resource type="Gradient" id="Gradient_3p36r"]
+colors = PackedColorArray(0.4842754, 0.6807605, 0.34362784, 1, 0, 0.21960784, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7pwse"]
+gradient = SubResource("Gradient_3p36r")
+width = 128
+height = 128
+fill = 2
+fill_from = Vector2(0.47706422, 0.5091743)
+
+[sub_resource type="Gradient" id="Gradient_pfyer"]
+offsets = PackedFloat32Array(0, 0.012987013, 1)
+colors = PackedColorArray(0.1217048, 0.12170479, 0.12170479, 0.58431375, 0.4700758, 0.47007585, 0.47007567, 1, 0, 0, 0, 0.70980394)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4bmou"]
+gradient = SubResource("Gradient_pfyer")
+width = 128
+height = 128
+fill = 2
+fill_from = Vector2(0.5091743, 0.5229358)
+
+[node name="boostcircle" type="Node2D" unique_id=690976557]
+script = ExtResource("1_3p36r")
+
+[node name="Panel" type="Panel" parent="." unique_id=160580060]
+offset_left = 286.0
+offset_top = 259.0
+offset_right = 442.0
+offset_bottom = 418.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1419274262]
+clip_contents = true
+offset_left = 301.0
+offset_top = 273.0
+offset_right = 429.0
+offset_bottom = 402.0
+fill_mode = 5
+texture_under = SubResource("GradientTexture2D_7pwse")
+texture_progress = SubResource("GradientTexture2D_4bmou")

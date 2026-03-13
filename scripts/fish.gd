@@ -20,6 +20,7 @@ var can_tween = true
 var can_boost = true
 var can_charge = true
 var change_timer = false
+var attack = false
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
@@ -90,14 +91,21 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("charge"):
 		can_charge = false
 		can_boost = true
-		boostbar = 0.0
+		attack = true
 		can_tween = true
 		change_timer = true
 		attack_timer.start()
 		if tween != null: 
 			tween.kill()
 		tweeny(Vector2(0.25,0.25))
-			
+	####ATTACKING
+	if attack: 
+		if boostbar <=0.5:
+			boostbar = 0.0
+			attack = false
+		else:
+			speed = lerp(speed,500.0*boostbar,delta*3)
+			boostbar -= delta
 func _on_boost_timer_timeout() -> void:
 	print("timer done")
 	change_timer= false
@@ -113,3 +121,7 @@ func tweeny(vector) -> void:
 func _on_attack_timer_timeout() -> void:
 	can_charge = true 
 	print("timer done")
+
+
+func _on_detection_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
