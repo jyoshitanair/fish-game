@@ -21,6 +21,7 @@ var can_boost = true
 var can_charge = true
 var change_timer = false
 var attack = false
+var can_move = true
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
@@ -42,31 +43,32 @@ func _process(delta: float) -> void:
 	velocity.y = direction.y * delta * speed #fps
 
 ##MOVEVMENT INPUTS
-	if Input.is_action_pressed("left"):
-		new_spot = velocity.x - speed
-		velocity.x= lerp(velocity.x, new_spot,delta*3)
-		direction = Vector2(0.0,0.0)
-		#animated_sprite_2d.flip_h = false
-		old_flip = false
-	if Input.is_action_pressed("right"):
-		#animated_sprite_2d.flip_h = true
-		old_flip = true
-		new_spot = velocity.x + speed
-		velocity.x = lerp(velocity.x, new_spot, delta*3)
-		direction = Vector2(0.0,0.0)
-	##VELOCITY.Y woah mah god 
-	if Input.is_action_pressed("down"):
-		new_spot = velocity.y + speed
-		velocity.y= lerp(velocity.y, new_spot, delta*3)
-		direction = Vector2(0.0,0.0)
-	if Input.is_action_pressed("up"):
-		new_spot = velocity.y - speed
-		velocity.y = lerp(velocity.y, new_spot, delta*3)
-		direction = Vector2(0.0,0.0)
-	position += velocity
-	if flip != old_flip: 
-		scale.x *= -1
-	flip = old_flip
+	if can_move:
+		if Input.is_action_pressed("left"):
+			new_spot = velocity.x - speed
+			velocity.x= lerp(velocity.x, new_spot,delta*3)
+			direction = Vector2(0.0,0.0)
+			#animated_sprite_2d.flip_h = false
+			old_flip = false
+		if Input.is_action_pressed("right"):
+			#animated_sprite_2d.flip_h = true
+			old_flip = true
+			new_spot = velocity.x + speed
+			velocity.x = lerp(velocity.x, new_spot, delta*3)
+			direction = Vector2(0.0,0.0)
+		##VELOCITY.Y woah mah god 
+		if Input.is_action_pressed("down"):
+			new_spot = velocity.y + speed
+			velocity.y= lerp(velocity.y, new_spot, delta*3)
+			direction = Vector2(0.0,0.0)
+		if Input.is_action_pressed("up"):
+			new_spot = velocity.y - speed
+			velocity.y = lerp(velocity.y, new_spot, delta*3)
+			direction = Vector2(0.0,0.0)
+		position += velocity
+		if flip != old_flip: 
+			scale.x *= -1
+		flip = old_flip
 	#Speed up 
 	if can_boost == true:
 		emit_signal("clicked",false)
@@ -74,13 +76,13 @@ func _process(delta: float) -> void:
 		emit_signal("clicked",true)
 	if Input.is_action_pressed("boost"):
 		if can_boost:
-			print(speed)
 			speed = lerp(speed,500.0,delta*3)
 			if speed >=450:
 				can_boost= false
 				speed = SPEED
 				boost_timer.start()
 	if Input.is_action_pressed("charge") and can_charge:
+		can_move = false
 		if can_tween == true:
 			tweeny(Vector2(0.5,0.5))
 			can_tween = false
@@ -89,6 +91,7 @@ func _process(delta: float) -> void:
 		else: 
 			boostbar += delta
 	if Input.is_action_just_released("charge"):
+		can_move = true
 		can_charge = false
 		can_boost = true
 		attack = true
@@ -104,11 +107,13 @@ func _process(delta: float) -> void:
 			boostbar = 0.0
 			attack = false
 		else:
-			speed = lerp(speed,500.0*boostbar,delta*3)
+			speed = lerp(speed,500.0*boostbar,delta*(3*boostbar))
+			speed = clamp(speed,70.0,500.0)
+			print(speed)
 			boostbar -= delta
 func _on_boost_timer_timeout() -> void:
-	print("timer done")
 	change_timer= false
+	can_boost = true
 func tweeny(vector) -> void: 
 	var speed 
 	tween = create_tween()
@@ -120,8 +125,6 @@ func tweeny(vector) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	can_charge = true 
-	print("timer done")
-
 
 func _on_detection_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.
