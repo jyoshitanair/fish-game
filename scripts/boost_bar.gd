@@ -1,4 +1,8 @@
 extends Node2D
+<<<<<<< HEAD
+func _process(delta: float) -> void:
+	pass
+=======
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 var attack_timer
 func _ready() -> void:
@@ -9,3 +13,4 @@ func _process(delta: float) -> void:
 		#texture_progress_bar.value = 0
 	texture_progress_bar.value = attack_timer.time_left*40 #value from 0-2.5, scale by 40
 	print(texture_progress_bar.value )
+>>>>>>> a089e571352f8c7c2d3287e90a07cc1d22c28ea4
