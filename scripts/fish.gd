@@ -33,7 +33,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if change_timer: 
 		print(attack_timer.wait_time)
-		label.text = "%s"%attack_timer.wait_time
+		label.text = "%s"%attack_timer.time_left
 	if health == 0.0:
 		alive = false
 		get_tree().quit()
@@ -79,27 +79,27 @@ func _process(delta: float) -> void:
 				can_boost= false
 				speed = SPEED
 				boost_timer.start()
-	if Input.is_action_pressed("charge"):
+	if Input.is_action_pressed("charge") and can_charge:
 		if can_tween == true:
 			tweeny(Vector2(0.5,0.5))
 			can_tween = false
-		print(boostbar)
-		if boostbar >= 3.0 && boostbar <= 4.0: 
+		if boostbar >= 3.0: 
 			print("full")
-			can_charge = false
-			attack_timer.start()
-			change_timer = true
 		else: 
 			boostbar += delta
 	if Input.is_action_just_released("charge"):
+		can_charge = false
+		can_boost = true
 		boostbar = 0.0
 		can_tween = true
+		change_timer = true
+		attack_timer.start()
 		if tween != null: 
 			tween.kill()
 		tweeny(Vector2(0.25,0.25))
 			
 func _on_boost_timer_timeout() -> void:
-	can_boost = true
+	print("timer done")
 	change_timer= false
 func tweeny(vector) -> void: 
 	var speed 
