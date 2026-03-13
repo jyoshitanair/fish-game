@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7v7aqrfopauv" path="res://scripts/fish.gd" id="1_8g0i4"]
 [ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="2_8g0i4"]
+[ext_resource type="Script" uid="uid://k8xek2dbl2oq" path="res://scripts/detection.gd" id="3_nub35"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
 atlas = ExtResource("2_8g0i4")
@@ -110,7 +111,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6yr6"]
-size = Vector2(77, 67)
+size = Vector2(2298, 1296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgks6"]
+size = Vector2(73, 55)
 
 [node name="fish" type="Area2D" unique_id=437780278]
 collision_layer = 2
@@ -124,10 +128,6 @@ animation = &"idle"
 autoplay = "idle"
 frame = 7
 frame_progress = 0.38911006
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852836949]
-position = Vector2(-5.5, -0.5)
-shape = SubResource("RectangleShape2D_n6yr6")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1970115904]
 zoom = Vector2(0.5, 0.5)
@@ -144,5 +144,17 @@ one_shot = true
 wait_time = 2.5
 one_shot = true
 
+[node name="detection" type="Area2D" parent="." unique_id=218863475]
+script = ExtResource("3_nub35")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detection" unique_id=852836949]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_n6yr6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1584274954]
+position = Vector2(-5.5, -6.5)
+shape = SubResource("RectangleShape2D_pgks6")
+
 [connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="detection" to="detection" method="_on_area_entered"]
