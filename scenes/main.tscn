@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cr4anb62dftit" path="res://scenes/level/level1.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://c3pgmv3lobd82" path="res://scenes/minimap.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://c2sphjvya6ptg" path="res://boostbar.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c2sphjvya6ptg" path="res://scenes/boostbar.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://ipdlgl6iu36g" path="res://scenes/healthbar.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b7jri8w3itdmx" path="res://scenes/boostcircle.tscn" id="5_tbgi4"]
 
 [node name="main" type="Node2D" unique_id=295580096]
 
@@ -35,3 +36,7 @@ offset_left = 205.0
 offset_top = 108.0
 offset_right = 277.416
 offset_bottom = 119.336
+
+[node name="boostcircle" parent="HUD" unique_id=789100803 instance=ExtResource("5_tbgi4")]
+position = Vector2(-125, 424)
+scale = Vector2(0.5, 0.5)
