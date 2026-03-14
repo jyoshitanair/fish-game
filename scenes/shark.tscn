@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dle86wmuitgh5" path="res://scripts/shark.gd" id="1_po4rd"]
 [ext_resource type="Texture2D" uid="uid://cm873dyrs5j3b" path="res://assets/images/shark/spritesheet (3).png" id="2_inbs7"]
 [ext_resource type="Script" uid="uid://rumm0ptwmcsk" path="res://scripts/ray_cast_2d.gd" id="4_inbs7"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="5_f40hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inbs7"]
 size = Vector2(278, 89)
@@ -96,7 +97,11 @@ size = Vector2(67, 100)
 [sub_resource type="CircleShape2D" id="CircleShape2D_by2yj"]
 radius = 454.00992
 
-[node name="shark" type="Area2D" unique_id=1652370459]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f40hg"]
+size = Vector2(304, 108)
+
+[node name="shark" type="CharacterBody2D" unique_id=1486787028]
+collision_mask = 3
 script = ExtResource("1_po4rd")
 
 [node name="mainbody" type="CollisionShape2D" parent="." unique_id=540786599]
@@ -146,5 +151,35 @@ shape = SubResource("CircleShape2D_by2yj")
 wait_time = 0.4
 one_shot = true
 
-[connection signal="area_entered" from="jaw_zone" to="." method="_on_jaw_zone_area_entered"]
+[node name="Panel" type="Panel" parent="." unique_id=1094645914]
+offset_left = -37.0
+offset_top = -122.0
+offset_right = 18.0
+offset_bottom = -95.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=1628516108]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.5
+offset_top = 3.0
+offset_right = 44.5
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_f40hg")
+theme_override_font_sizes/font_size = 13
+text = "100.0
+"
+
+[node name="hitzone" type="Area2D" parent="." unique_id=977291191]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone" unique_id=709924869]
+position = Vector2(-9, -4)
+shape = SubResource("RectangleShape2D_f40hg")
+
+[connection signal="body_entered" from="jaw_zone" to="." method="_on_jaw_zone_body_entered"]
 [connection signal="timeout" from="idle_wait_timer" to="." method="_on_idle_wait_timer_timeout"]

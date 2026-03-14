@@ -1,12 +1,13 @@
-extends Node2D
+extends CharacterBody2D
 #ON READYS 
 @onready var chase_zone: Area2D = $chase_zone
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var start_chase_zone: Area2D = $start_chase_zone
 @onready var timer: Timer = $idle_wait_timer
-
+@onready var label: Label = $Panel/Label
 #VARS
+var health = 100.0
 var attack_animation_play = false
 var attack_timer = 0.0
 var speed = 0.9
@@ -23,10 +24,11 @@ var can_chase = false
 func _ready() -> void:
 	add_to_group("shark")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	label.text = "%s"%health
 	update_animations()
 	##CONNECTING THE START CHASE ZONE
-	var starts = start_chase_zone.get_overlapping_areas()
+	var starts = start_chase_zone.get_overlapping_bodies()
 	for start in starts:
 		if start.is_in_group("player") and start.alive:
 			if o == 0:
@@ -39,7 +41,7 @@ func _process(delta: float) -> void:
 			else: 
 				attack_position.x += 15.0
 	##CONNECTING THE CHASE ZONE
-	var chases = chase_zone.get_overlapping_areas()
+	var chases = chase_zone.get_overlapping_bodies()
 	if chases.size()==0:
 		can_chase = false
 		o = 0
@@ -48,7 +50,6 @@ func _process(delta: float) -> void:
 			##finding position 
 			##DISTANCE FORMULA = sqroot((x1-x2)^2 + (y1-y2)^2)
 			var distance = global_position.distance_to(chase.global_position)
-			print(distance)
 			speed = clamp(3.0/distance *400,0.3,2.5)
 			cur_speed = lerp(cur_speed,speed,delta*2)
 			global_position = lerp(global_position, chase.global_position, 1 - exp(-cur_speed *delta))
@@ -87,7 +88,6 @@ func update_animations() -> void:
 
 func _on_idle_wait_timer_timeout() -> void:
 	can_chase = true
-
-func _on_jaw_zone_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player") and is_attacking:
-		area.health -= 5.0
+func _on_jaw_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and is_attacking:
+		body.health -= 5.0

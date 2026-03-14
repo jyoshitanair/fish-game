@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 #SIGNALS
 signal clicked
 ##CONSTS
@@ -6,8 +6,7 @@ const SPEED = 300.0
 const CHARGE_SPEED = 800.0
 ##VARS
 var new_spot = Vector2(0.0,0.0)
-var velocity = Vector2(0.0,0.0)
-var direction = Vector2(0.0,0.0)
+var direction = Vector2(-1.0,0.0)
 var alive = true
 var old_flip = false
 var flip = false 
@@ -22,19 +21,22 @@ var can_charge = true
 var change_timer = false
 var attack = false
 var can_move = true
+var hitzone_valid = false
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
 @onready var attack_timer: Timer = $attack_timer
+@onready var hitonetimer: Timer = $hitonetimer
 @onready var label: Label = $"../../HUD/Label"
+
 func _ready() -> void: 
 	add_to_group("player")
 	speed = SPEED
 	label.text = "%s"%attack_timer.wait_time
+	velocity = Vector2(-1.0,0.0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if change_timer: 
-		print(attack_timer.wait_time)
 		label.text = "%s"%attack_timer.time_left
 	if health == 0.0:
 		alive = false
@@ -44,27 +46,26 @@ func _process(delta: float) -> void:
 
 ##MOVEVMENT INPUTS
 	if can_move:
+		velocity = Vector2.ZERO
 		if Input.is_action_pressed("left"):
 			new_spot = velocity.x - speed
 			velocity.x= lerp(velocity.x, new_spot,delta*3)
-			direction = Vector2(0.0,0.0)
-			#animated_sprite_2d.flip_h = false
+			direction = Vector2(-1.0,0.0)
 			old_flip = false
 		if Input.is_action_pressed("right"):
-			#animated_sprite_2d.flip_h = true
 			old_flip = true
 			new_spot = velocity.x + speed
 			velocity.x = lerp(velocity.x, new_spot, delta*3)
-			direction = Vector2(0.0,0.0)
+			direction = Vector2(1.0,0.0)
 		##VELOCITY.Y woah mah god 
 		if Input.is_action_pressed("down"):
 			new_spot = velocity.y + speed
 			velocity.y= lerp(velocity.y, new_spot, delta*3)
-			direction = Vector2(0.0,0.0)
+			direction = Vector2(0.0,1.0)
 		if Input.is_action_pressed("up"):
 			new_spot = velocity.y - speed
 			velocity.y = lerp(velocity.y, new_spot, delta*3)
-			direction = Vector2(0.0,0.0)
+			direction = Vector2(0.0,-1.0)
 		position += velocity
 		if flip != old_flip: 
 			scale.x *= -1
@@ -91,7 +92,6 @@ func _process(delta: float) -> void:
 		else: 
 			boostbar += delta
 	if Input.is_action_just_released("charge"):
-		can_move = true
 		can_charge = false
 		can_boost = true
 		attack = true
@@ -103,13 +103,21 @@ func _process(delta: float) -> void:
 		tweeny(Vector2(0.25,0.25))
 	####ATTACKING
 	if attack: 
+		if direction == Vector2(0.0,0.0):
+			direction = Vector2(-1.0,0.0)
 		if boostbar <=0.5:
 			boostbar = 0.0
 			attack = false
+			can_move = true
+			speed = SPEED
+			velocity = Vector2(0.0,0.0)
+			hitzone_valid = true
+			hitonetimer.start()
 		else:
 			speed = lerp(speed,500.0*boostbar,delta*(3*boostbar))
-			speed = clamp(speed,70.0,500.0)
-			print(speed)
+			speed = clamp(speed,650.0,1000.0)
+			new_spot = direction * speed
+			position += velocity
 			boostbar -= delta
 func _on_boost_timer_timeout() -> void:
 	change_timer= false
@@ -126,5 +134,15 @@ func tweeny(vector) -> void:
 func _on_attack_timer_timeout() -> void:
 	can_charge = true 
 
-func _on_detection_area_entered(area: Area2D) -> void:
+func _on_hitonetimer_timeout() -> void:
+	hitzone_valid = false
+
+
+func _on_detection_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_hitzone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy") and hitzone_valid:
+		print("hit")
+		body.health -= 5

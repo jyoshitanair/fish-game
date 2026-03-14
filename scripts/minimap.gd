@@ -52,7 +52,6 @@ func _process(_delta: float) -> void:
 			cur_zoom = new_zoom
 		##camera changer
 		if Input.is_action_just_pressed("right-click"):
-			print("right clickihg")
 			camera.global_position = player_camera.global_position
 			camera.zoom = Vector2(1.0,1.0)
 		##check for which cam is current
