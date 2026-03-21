@@ -22,6 +22,8 @@ var is_attacking = false
 var can_chase = false 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var hitzone = get_node("hitzone")
+	hitzone.add_to_group("shark")
 	add_to_group("shark")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -32,7 +34,6 @@ func _physics_process(delta: float) -> void:
 	for start in starts:
 		if start.is_in_group("player") and start.alive:
 			if o == 0:
-				print("timer start")
 				timer.start()
 				o = 1 
 			#going left
@@ -45,24 +46,24 @@ func _physics_process(delta: float) -> void:
 	if chases.size()==0:
 		can_chase = false
 		o = 0
-	for chase in chases:
+	for chase in chases: 
 		if chase.is_in_group("player") and chase.alive and can_chase:
 			##finding position 
 			##DISTANCE FORMULA = sqroot((x1-x2)^2 + (y1-y2)^2)
+			var direction = (chase.global_position - global_position).normalized()
 			var distance = global_position.distance_to(chase.global_position)
+			print(distance)
 			speed = clamp(3.0/distance *400,0.3,2.5)
 			cur_speed = lerp(cur_speed,speed,delta*2)
 			global_position = lerp(global_position, chase.global_position, 1 - exp(-cur_speed *delta))
 				##FLIPPING CALCS
 			var flipper = chase.global_position - global_position # negative means on the left, positive means on the right
-			if flipper.x <= 5.0: 
-				old_flip = false
-			else: 
-				old_flip = true
+			old_flip = flipper.x > 5.0
+			##ATTACK LOGIC
 			if distance <= 600.0 and not is_attacking:
 				attack_timer = 0.0
 				is_attacking = true
-				attack_position =Vector2(chase.global_position.x +100,chase.global_position.y)
+				#attack_position =Vector2(chase.global_position.x +100,chase.global_position.y)
 				i = 0.1              
 					#jolt                                           
 			if is_attacking:  
@@ -76,6 +77,7 @@ func _physics_process(delta: float) -> void:
 	if flip != old_flip: 
 		scale.x *= -1
 	flip = old_flip
+	move_and_slide()
 func update_animations() -> void: 
 	if attack_animation_play:      
 		sprite.play("attack")
@@ -89,5 +91,9 @@ func update_animations() -> void:
 func _on_idle_wait_timer_timeout() -> void:
 	can_chase = true
 func _on_jaw_zone_body_entered(body: Node2D) -> void:
+	###
+	pass
+func _on_hitzone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and is_attacking:
+		is_attacking = false
 		body.health -= 5.0

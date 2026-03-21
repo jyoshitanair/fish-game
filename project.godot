@@ -81,6 +81,11 @@ charge={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="fish"
+2d_physics/layer_2="fish-hitzone"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://k8xek2dbl2oq" path="res://scripts/detection.gd" id="3_nub35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgks6"]
-size = Vector2(73, 55)
+size = Vector2(71, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
 atlas = ExtResource("2_8g0i4")
@@ -117,15 +117,15 @@ animations = [{
 size = Vector2(2298, 1296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nub35"]
-size = Vector2(21, 50)
+size = Vector2(27, 50)
 
 [node name="fish" type="CharacterBody2D" unique_id=1129562997]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_8g0i4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1584274954]
-position = Vector2(-5.5, -6.5)
+[node name="mainbod" type="CollisionShape2D" parent="." unique_id=1584274954]
+position = Vector2(-6.5, -5.5)
 shape = SubResource("RectangleShape2D_pgks6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1987604956]
@@ -156,19 +156,19 @@ script = ExtResource("3_nub35")
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_n6yr6")
 
-[node name="hitzone" type="Area2D" parent="." unique_id=905929853]
+[node name="hitzone" type="Area2D" parent="." unique_id=905929853 groups=["player"]]
 collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone" unique_id=233018804]
-position = Vector2(-35.5, -7)
+position = Vector2(-38.5, -7)
 shape = SubResource("RectangleShape2D_nub35")
 
 [node name="hitonetimer" type="Timer" parent="." unique_id=1306644876]
-wait_time = 0.4
+wait_time = 1.6999999999999997
+one_shot = true
 
 [connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
-[connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
-[connection signal="body_entered" from="hitzone" to="." method="_on_hitzone_body_entered"]
+[connection signal="area_entered" from="hitzone" to="." method="_on_hitzone_area_entered"]
 [connection signal="timeout" from="hitonetimer" to="." method="_on_hitonetimer_timeout"]

@@ -30,6 +30,9 @@ var hitzone_valid = false
 @onready var label: Label = $"../../HUD/Label"
 
 func _ready() -> void: 
+	var hitzone = get_node("hitzone")
+	hitzone.add_to_group("player")
+	print(hitzone.get_groups())
 	add_to_group("player")
 	speed = SPEED
 	label.text = "%s"%attack_timer.wait_time
@@ -70,6 +73,7 @@ func _physics_process(delta: float) -> void:
 		if flip != old_flip: 
 			scale.x *= -1
 		flip = old_flip
+	move_and_slide()
 	#Speed up 
 	if can_boost == true:
 		emit_signal("clicked",false)
@@ -93,7 +97,6 @@ func _physics_process(delta: float) -> void:
 			boostbar += delta
 	if Input.is_action_just_released("charge"):
 		can_charge = false
-		can_boost = true
 		attack = true
 		can_tween = true
 		change_timer = true
@@ -105,14 +108,14 @@ func _physics_process(delta: float) -> void:
 	if attack: 
 		if direction == Vector2(0.0,0.0):
 			direction = Vector2(-1.0,0.0)
-		if boostbar <=0.5:
+		hitzone_valid = true
+		hitonetimer.start()
+		if boostbar <= 0:
 			boostbar = 0.0
 			attack = false
 			can_move = true
 			speed = SPEED
 			velocity = Vector2(0.0,0.0)
-			hitzone_valid = true
-			hitonetimer.start()
 		else:
 			speed = lerp(speed,500.0*boostbar,delta*(3*boostbar))
 			speed = clamp(speed,650.0,1000.0)
@@ -135,14 +138,16 @@ func _on_attack_timer_timeout() -> void:
 	can_charge = true 
 
 func _on_hitonetimer_timeout() -> void:
-	hitzone_valid = false
-
+	pass
+	#hitzone_valid = false 
 
 func _on_detection_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
-
-
-func _on_hitzone_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy") and hitzone_valid:
-		print("hit")
-		body.health -= 5
+func _on_hitzone_area_entered(area: Area2D) -> void:
+	print("area hit")
+	print(area.name)
+	print(area.get_groups())
+	print(hitzone_valid)
+	if area.is_in_group("shark") and hitzone_valid:
+		print("area hit")
+		area.get_parent().health -= 5
