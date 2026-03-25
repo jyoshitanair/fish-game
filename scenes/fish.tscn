@@ -117,7 +117,7 @@ animations = [{
 size = Vector2(2298, 1296)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nub35"]
-size = Vector2(27, 50)
+size = Vector2(37, 50)
 
 [node name="fish" type="CharacterBody2D" unique_id=1129562997]
 collision_layer = 2
@@ -161,12 +161,22 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone" unique_id=233018804]
-position = Vector2(-38.5, -7)
+position = Vector2(-43.5, -7)
 shape = SubResource("RectangleShape2D_nub35")
 
 [node name="hitonetimer" type="Timer" parent="." unique_id=1306644876]
-wait_time = 1.6999999999999997
+wait_time = 1.6999999999999995
 one_shot = true
+
+[node name="marker" type="Marker2D" parent="." unique_id=1605779321]
+position = Vector2(234, -5)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="marker" unique_id=2097824442]
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 21.0
+offset_bottom = 24.0
 
 [connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]

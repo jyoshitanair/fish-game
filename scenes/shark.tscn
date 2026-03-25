@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="5_f40hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inbs7"]
-size = Vector2(239, 63)
+size = Vector2(229, 63)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4m6ut"]
 atlas = ExtResource("2_inbs7")
@@ -85,77 +85,76 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l5qy"]
-size = Vector2(298.00003, 111.000015)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_inbs7"]
-radius = 1024.0
+radius = 3349.2043
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iruha"]
-size = Vector2(67, 100)
+size = Vector2(67, 94)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_by2yj"]
 radius = 926.6477
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f40hg"]
-size = Vector2(304, 108)
+size = Vector2(258, 77)
 
 [node name="shark" type="CharacterBody2D" unique_id=1486787028]
 collision_mask = 7
 script = ExtResource("1_po4rd")
 
 [node name="mainbody" type="CollisionShape2D" parent="." unique_id=540786599]
-position = Vector2(-3.5, -7.5)
+position = Vector2(-4.5, -7.5)
 shape = SubResource("RectangleShape2D_inbs7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1375269822]
+[node name="flip" type="Node2D" parent="." unique_id=754049674]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="flip" unique_id=1375269822]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_4m6ut")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="hit-box" type="Area2D" parent="." unique_id=1021922771]
-scale = Vector2(0.9999999, 0.9999999)
+[node name="chase_zone" type="Area2D" parent="flip" unique_id=1055648898]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hit-box" unique_id=1589191405]
-position = Vector2(-6.9999933, -4.499999)
-shape = SubResource("RectangleShape2D_8l5qy")
-
-[node name="chase_zone" type="Area2D" parent="." unique_id=1055648898]
-collision_mask = 2
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="chase_zone" unique_id=1523916492]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="flip/chase_zone" unique_id=1523916492]
 shape = SubResource("CircleShape2D_inbs7")
 
-[node name="jaw_zone" type="Area2D" parent="." unique_id=338865233]
+[node name="jaw_zone" type="Area2D" parent="flip" unique_id=338865233]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jaw_zone" unique_id=1623814215]
-position = Vector2(-129.5, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flip/jaw_zone" unique_id=1623814215]
+position = Vector2(-136.5, -2)
 shape = SubResource("RectangleShape2D_iruha")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=580728381]
+[node name="RayCast2D" type="RayCast2D" parent="flip" unique_id=580728381]
 collision_mask = 2
 collide_with_areas = true
 script = ExtResource("4_inbs7")
 
-[node name="start_chase_zone" type="Area2D" parent="." unique_id=1997087490]
+[node name="start_chase_zone" type="Area2D" parent="flip" unique_id=1997087490]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="start_chase_zone" unique_id=1661588479]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flip/start_chase_zone" unique_id=1661588479]
 position = Vector2(-6, -5)
 shape = SubResource("CircleShape2D_by2yj")
+
+[node name="hitzone" type="Area2D" parent="flip" unique_id=977291191]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flip/hitzone" unique_id=709924869]
+position = Vector2(-12, -7)
+shape = SubResource("RectangleShape2D_f40hg")
 
 [node name="idle_wait_timer" type="Timer" parent="." unique_id=462865372]
 wait_time = 0.4
 one_shot = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1094645914]
-offset_left = -37.0
-offset_top = -122.0
-offset_right = 18.0
-offset_bottom = -95.0
+offset_left = -108.0
+offset_top = -151.0
+offset_right = 83.0
+offset_bottom = -93.0
 metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="Panel" unique_id=1628516108]
@@ -163,24 +162,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.5
-offset_top = 3.0
-offset_right = 44.5
-offset_bottom = 52.0
+offset_left = -37.5
+offset_top = 7.0
+offset_right = 43.5
+offset_bottom = 102.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_f40hg")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 29
 text = "100.0
 "
 
-[node name="hitzone" type="Area2D" parent="." unique_id=977291191]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitzone" unique_id=709924869]
-position = Vector2(-9, -4)
-shape = SubResource("RectangleShape2D_f40hg")
-
-[connection signal="body_entered" from="jaw_zone" to="." method="_on_jaw_zone_body_entered"]
+[connection signal="body_entered" from="flip/jaw_zone" to="." method="_on_jaw_zone_body_entered"]
+[connection signal="body_entered" from="flip/hitzone" to="." method="_on_hitzone_body_entered"]
 [connection signal="timeout" from="idle_wait_timer" to="." method="_on_idle_wait_timer_timeout"]
-[connection signal="body_entered" from="hitzone" to="." method="_on_hitzone_body_entered"]

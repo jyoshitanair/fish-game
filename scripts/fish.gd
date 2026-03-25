@@ -150,4 +150,4 @@ func _on_hitzone_area_entered(area: Area2D) -> void:
 	print(hitzone_valid)
 	if area.is_in_group("shark") and hitzone_valid:
 		print("area hit")
-		area.get_parent().health -= 5
+		area.get_parent().get_parent().health -= 5
