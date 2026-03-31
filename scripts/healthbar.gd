@@ -7,7 +7,6 @@ var fish
 func _ready() -> void:
 	fish = get_tree().get_first_node_in_group("player")
 	old_health = fish.health
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if fish.health != old_health:

@@ -3,7 +3,11 @@ var tween
 @onready var panel_2: Panel = $Panel2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player = get_tree().get_first_node_in_group("player")
+	var player 
+	for p in get_tree().get_nodes_in_group("player"):
+		print(p)
+		if p is CharacterBody2D:
+			player = p
 	player.clicked.connect(Callable(self, "on_recieved"))
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

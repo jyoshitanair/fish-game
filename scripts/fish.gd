@@ -27,7 +27,7 @@ var hitzone_valid = false
 @onready var boost_timer: Timer = $boost_timer
 @onready var attack_timer: Timer = $attack_timer
 @onready var hitonetimer: Timer = $hitonetimer
-@onready var label: Label = $"../../HUD/Label"
+@onready var label: Label = get_node_or_null("../../HUD/Label")
 
 func _ready() -> void: 
 	var hitzone = get_node("hitzone")
@@ -35,7 +35,8 @@ func _ready() -> void:
 	print(hitzone.get_groups())
 	add_to_group("player")
 	speed = SPEED
-	label.text = "%s"%attack_timer.wait_time
+	if label:
+		label.text = "%s"%attack_timer.wait_time
 	velocity = Vector2(-1.0,0.0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jqvt5bo0jgdu"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_al7wj"]
+
+[node name="CutScene2" type="Node2D" unique_id=1815766796]
+
+[node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_al7wj")]
+position = Vector2(572, 546)
+dialog_array = ["Where...where am I?", "The last thing I remeber was being in my tank", "I need to get back to the city as soon as possible"]
+fish_name = "You "

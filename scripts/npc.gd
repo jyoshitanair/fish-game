@@ -1,14 +1,14 @@
 extends Node2D
 @onready var call_area: Area2D = $"call-area"
 var is_colliding_first_time = false
-@onready var path = preload("res://scenes/cut_scene1.tscn")
+@onready var path = preload("res://scenes/cutscenes/cut_scene1.tscn")
 @onready var level_root: Node2D = $".."
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
+var is_current = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	if self.is_in_group("npc2"):
+		print("ITS REALL THE ONE PEICE")
+		is_current = true
 func _process(_delta: float) -> void:
 	##FINDING PLAYER INTERACTIONS
 	var call_bodies = call_area.get_overlapping_areas()

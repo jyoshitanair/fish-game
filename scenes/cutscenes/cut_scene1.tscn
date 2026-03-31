@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ctvc5jb6eoams"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_m4y0v"]
+[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="2_ap4co"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0cye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ap4co")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cut_scene1" type="Node2D" unique_id=882033283]
+
+[node name="text" parent="." unique_id=1734454769 node_paths=PackedStringArray("sprite") instance=ExtResource("1_m4y0v")]
+position = Vector2(572, 546)
+dialog_array = ["HI I AM BOBUUUU ", "I really do need help with a question", "Do you think you happen to know the answer", "This is just some random testy text"]
+fish_name = "          bobu the crab fish"
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1239597935]
+z_index = 144
+position = Vector2(-538.00006, -118)
+scale = Vector2(0.38867196, 0.31249997)
+sprite_frames = SubResource("SpriteFrames_g0cye")

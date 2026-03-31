@@ -50,39 +50,35 @@ func _physics_process(delta: float) -> void:
 		if chase.is_in_group("player") and chase.alive and can_chase:
 			##finding position 
 			##DISTANCE FORMULA = sqroot((x1-x2)^2 + (y1-y2)^2)
+			var direction = (chase.global_position - global_position).normalized()
 			var distance = global_position.distance_to(chase.global_position)
-			speed = clamp(200/distance *400,650,1000)
-			cur_speed = lerp(cur_speed,speed,delta*5)
-			if not is_attacking:
-				var direction = (chase.global_position - global_position).normalized()
-				velocity = lerp(velocity, direction*speed, delta*10)
-					##FLIPPING CALCS
-				old_flip = direction.x > 0
-				##ATTACK LOGIC
-				if distance <= 600.0:
-					attack_timer = 0.0
-					is_attacking = true
-					i = 0.1              
-			#jolt                                           
-			else: 
+			print(distance)
+			speed = clamp(3.0/distance *400,0.3,2.5)
+			cur_speed = lerp(cur_speed,speed,delta*2)
+			global_position = lerp(global_position, chase.global_position, 1 - exp(-cur_speed *delta))
+				##FLIPPING CALCS
+			var flipper = chase.global_position - global_position # negative means on the left, positive means on the right
+			old_flip = flipper.x > 5.0
+			##ATTACK LOGIC
+			if distance <= 600.0 and not is_attacking:
+				attack_timer = 0.0
+				is_attacking = true
+				attack_position =chase.global_position +Vector2(sign(scale.x) *15, 0)
+				i = 0.1              
+					#jolt                                           
+			if is_attacking:  
 				attack_timer += delta
 				i += (1.0 - i)*delta*0.07
-				attack_position =chase.global_position +Vector2(sign(scale.x) *15, 0)
-				var attack_dir = (attack_position - global_position).normalized()
-				attack_dir.y = clamp(attack_dir.y, -0.3, 0.3)
-				print(attack_dir)
-				velocity = lerp(velocity, attack_dir*speed, i)
+				global_position = lerp(global_position, attack_position, i)
 				if global_position.distance_to(attack_position)<=20 || attack_timer >= 2.00:
-					print("no more attacking")
 					attack_animation_play = true
 					is_attacking = false
 					i = 0.1	  				
 	if flip != old_flip: 
 		scale.x *= -1
 	flip = old_flip
-	if is_attacking:
-		velocity.y = 0
 	move_and_slide()
+
 func update_animations() -> void: 
 	if attack_animation_play:      
 		sprite.play("attack")
@@ -103,6 +99,7 @@ func _on_hitzone_body_entered(body: Node2D) -> void:
 		is_attacking = false
 		body.health -= 5.0
 ###IN CASEEE I MEESSS UPPP
+
 #label.text = "%s"%health
 	#update_animations()
 	###CONNECTING THE START CHASE ZONE
@@ -126,31 +123,36 @@ func _on_hitzone_body_entered(body: Node2D) -> void:
 		#if chase.is_in_group("player") and chase.alive and can_chase:
 			###finding position 
 			###DISTANCE FORMULA = sqroot((x1-x2)^2 + (y1-y2)^2)
-			#var direction = (chase.global_position - global_position).normalized()
 			#var distance = global_position.distance_to(chase.global_position)
-			#print(distance)
-			#speed = clamp(3.0/distance *400,0.3,2.5)
-			#cur_speed = lerp(cur_speed,speed,delta*2)
-			#global_position = lerp(global_position, chase.global_position, 1 - exp(-cur_speed *delta))
-				###FLIPPING CALCS
-			#var flipper = chase.global_position - global_position # negative means on the left, positive means on the right
-			#old_flip = flipper.x > 5.0
-			###ATTACK LOGIC
-			#if distance <= 600.0 and not is_attacking:
-				#attack_timer = 0.0
-				#is_attacking = true
-				#attack_position =chase.global_position +Vector2(sign(scale.x) *15, 0)
-				#i = 0.1              
-					##jolt                                           
-			#if is_attacking:  
+			#speed = clamp(200/distance *400,650,1000)
+			#cur_speed = lerp(cur_speed,speed,delta*5)
+			#if not is_attacking:
+				#var direction = (chase.global_position - global_position).normalized()
+				#velocity = lerp(velocity, direction*speed, delta*10)
+					###FLIPPING CALCS
+				#old_flip = direction.x > 0
+				###ATTACK LOGIC
+				#if distance <= 600.0:
+					#attack_timer = 0.0
+					#is_attacking = true
+					#i = 0.1              
+			##jolt                                           
+			#else: 
 				#attack_timer += delta
 				#i += (1.0 - i)*delta*0.07
-				#global_position = lerp(global_position, attack_position, i)
+				#attack_position =chase.global_position +Vector2(sign(scale.x) *15, 0)
+				#var attack_dir = (attack_position - global_position).normalized()
+				#attack_dir.y = clamp(attack_dir.y, -0.3, 0.3)
+				#print(attack_dir)
+				#velocity = lerp(velocity, attack_dir*speed, i)
 				#if global_position.distance_to(attack_position)<=20 || attack_timer >= 2.00:
+					#print("no more attacking")
 					#attack_animation_play = true
 					#is_attacking = false
 					#i = 0.1	  				
 	#if flip != old_flip: 
 		#scale.x *= -1
 	#flip = old_flip
+	#if is_attacking:
+		#velocity.y = 0
 	#move_and_slide()

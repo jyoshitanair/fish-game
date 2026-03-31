@@ -6,6 +6,7 @@ extends Node2D
 	"Nice to meet ya fishy"
 	]
 @export var fish_name = "bob"
+@export var sprite: AnimatedSprite2D
 var tween 
 var duration
 var base_time = 0.5
@@ -48,6 +49,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					text.visible_ratio = 0.0
 					index += 1
 					load_next_text()
+				else:
+					_return()
 func load_next_text() -> void: 
 	tween = create_tween()
 	duration = base_time + (per_letter_time * text.text.length())
@@ -56,3 +59,6 @@ func load_next_text() -> void:
 
 func _on_timer_timeout() -> void:
 	just_pressed = false
+func _return() ->void: 
+	print("returning")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")

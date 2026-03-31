@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://o4fja0oj5800"]
+
+[ext_resource type="Script" uid="uid://8jpfexdhai1h" path="res://scripts/start.gd" id="1_1n0d2"]
+[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_qn1rc"]
+[ext_resource type="PackedScene" uid="uid://8612b26gvafl" path="res://scenes/npc.tscn" id="2_1n0d2"]
+[ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="4_oiuna"]
+[ext_resource type="Script" uid="uid://vxqxfsmlgco" path="res://scripts/trail.gd" id="5_4a3qj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g38d0"]
+bg_color = Color(0.36078432, 0.36078432, 0.36078432, 0.59607846)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="start" type="Node2D" unique_id=1876485158]
+script = ExtResource("1_1n0d2")
+
+[node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_qn1rc")]
+
+[node name="npc" parent="." unique_id=1818705560 groups=["npc1"] instance=ExtResource("2_1n0d2")]
+position = Vector2(-2968, -3410)
+
+[node name="npc2" parent="." unique_id=494204407 groups=["npc2"] instance=ExtResource("2_1n0d2")]
+position = Vector2(4168, -1875)
+
+[node name="npc3" parent="." unique_id=1973271730 groups=["npc3"] instance=ExtResource("2_1n0d2")]
+position = Vector2(-2916, 3395)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1697843219]
+
+[node name="popup" type="Panel" parent="HUD" unique_id=319903375]
+visible = false
+offset_left = 209.0
+offset_top = 8.0
+offset_right = 969.0
+offset_bottom = 61.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g38d0")
+
+[node name="text" type="Label" parent="HUD/popup" unique_id=1496671359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_oiuna")
+theme_override_font_sizes/font_size = 27
+text = "Goal: Talk to the Other Fish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="trail" type="Line2D" parent="." unique_id=500090791]
+script = ExtResource("5_4a3qj")
