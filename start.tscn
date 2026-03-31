@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://8jpfexdhai1h" path="res://scripts/start.gd" id="1_1n0d2"]
 [ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_qn1rc"]
 [ext_resource type="PackedScene" uid="uid://8612b26gvafl" path="res://scenes/npc.tscn" id="2_1n0d2"]
+[ext_resource type="PackedScene" uid="uid://cremv5riy1bd0" path="res://scenes/cutscenes/cut_scene3.tscn" id="4_4a3qj"]
 [ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="4_oiuna"]
 [ext_resource type="Script" uid="uid://vxqxfsmlgco" path="res://scripts/trail.gd" id="5_4a3qj"]
+
+[sub_resource type="PackedScene" id="PackedScene_g38d0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g38d0"]
 bg_color = Color(0.36078432, 0.36078432, 0.36078432, 0.59607846)
@@ -20,9 +23,11 @@ script = ExtResource("1_1n0d2")
 
 [node name="npc" parent="." unique_id=1818705560 groups=["npc1"] instance=ExtResource("2_1n0d2")]
 position = Vector2(-2968, -3410)
+path = SubResource("PackedScene_g38d0")
 
 [node name="npc2" parent="." unique_id=494204407 groups=["npc2"] instance=ExtResource("2_1n0d2")]
 position = Vector2(4168, -1875)
+path = ExtResource("4_4a3qj")
 
 [node name="npc3" parent="." unique_id=1973271730 groups=["npc3"] instance=ExtResource("2_1n0d2")]
 position = Vector2(-2916, 3395)
