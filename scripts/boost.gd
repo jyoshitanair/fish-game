@@ -5,7 +5,6 @@ var tween
 func _ready() -> void:
 	var player 
 	for p in get_tree().get_nodes_in_group("player"):
-		print(p)
 		if p is CharacterBody2D:
 			player = p
 	player.clicked.connect(Callable(self, "on_recieved"))

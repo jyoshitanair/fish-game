@@ -15,7 +15,6 @@ func _ready() -> void:
 		if playeret is CharacterBody2D:
 			player = playeret
 func _process(delta: float) -> void:
-	print("player %s"%player)
 	if player and target:
 		points = [ player.global_position,target.global_position]
 			

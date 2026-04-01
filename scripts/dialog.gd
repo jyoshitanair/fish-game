@@ -59,5 +59,4 @@ func load_next_text() -> void:
 func _on_timer_timeout() -> void:
 	just_pressed = false
 func _return() ->void: 
-	print("returning")
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
