@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://cremv5riy1bd0"]
 
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_e0g7e"]
+[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="2_8p21a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjsiw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8p21a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="CutScene3" type="Node2D" unique_id=1997501665]
+
+[node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_e0g7e")]
+dialog_array = ["npc2", "HI", "The name's bob", "Nice to meet ya fishy"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=206717818]
+z_index = 144
+position = Vector2(-538.00006, -118)
+scale = Vector2(0.38867196, 0.31249997)
+sprite_frames = SubResource("SpriteFrames_yjsiw")

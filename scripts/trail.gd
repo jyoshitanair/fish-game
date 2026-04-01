@@ -1,5 +1,5 @@
 extends Line2D
-@onready var target_1: Node2D = $"../npc"
+@onready var target_1: Node2D = $"../npc1"
 @onready var target_2: Node2D = $"../npc2"
 @onready var target_3: Node2D = $"../npc3"
 var target_array = []
