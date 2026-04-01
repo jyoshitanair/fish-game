@@ -6,7 +6,6 @@ extends Node2D
 	"Nice to meet ya fishy"
 	]
 @export var fish_name = "bob"
-@export var sprite: AnimatedSprite2D
 var tween 
 var duration
 var base_time = 0.5

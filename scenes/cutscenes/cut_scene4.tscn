@@ -1,29 +1,9 @@
 [gd_scene format=3 uid="uid://7bmfgain7d4s"]
 
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_68m4d"]
-[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="2_2r6m2"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g0cye"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_2r6m2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[node name="CutScene4" type="Node2D" unique_id=1589395661]
 
-[node name="cut_scene1" type="Node2D" unique_id=882033283]
-
-[node name="text" parent="." unique_id=1734454769 node_paths=PackedStringArray("sprite") instance=ExtResource("1_68m4d")]
-position = Vector2(572, 546)
-dialog_array = ["npc1", "I really do need help with a question", "Do you think you happen to know the answer", "This is just some random testy text"]
-fish_name = "          bobu the crab fish"
-sprite = NodePath("../AnimatedSprite2D")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1239597935]
-z_index = 144
-position = Vector2(-538.00006, -118)
-scale = Vector2(0.38867196, 0.31249997)
-sprite_frames = SubResource("SpriteFrames_g0cye")
+[node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_68m4d")]
+position = Vector2(572, 542)
+dialog_array = ["npc1", "HI", "The name's bob", "Nice to meet ya fishy"]

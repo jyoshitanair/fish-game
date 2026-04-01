@@ -1,19 +1,21 @@
 extends Line2D
-@onready var target_1: Node2D = $"../npc1"
-@onready var target_2: Node2D = $"../npc2"
-@onready var target_3: Node2D = $"../npc3"
-var target_array = []
+var target_array = ["npc1",'npc2','npc3']
 var target
 var player
-
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
-	target_array += [target_1,target_2,target_3]
-func _process(delta: float) -> void:
 	width = 6
 	for i in target_array:
-		if i.is_current:
-			target = i
+		var path = i + "_is_current"
+		if Manager.get(path) == true:
+			print(i)
+			target = get_tree().get_first_node_in_group(i)
+			print(target)
+	var players = get_tree().get_nodes_in_group("player")
+	for playeret in players:
+		if playeret is CharacterBody2D:
+			player = playeret
+func _process(delta: float) -> void:
+	print("player %s"%player)
 	if player and target:
 		points = [ player.global_position,target.global_position]
 			
