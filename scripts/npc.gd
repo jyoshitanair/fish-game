@@ -1,8 +1,7 @@
 extends Node2D
 @onready var call_area: Area2D = $"call-area"
-var is_colliding_first_time = false
 @export var path = preload("res://scenes/cutscenes/cut_scene1.tscn")
-@onready var level_root: Node2D = $".."
+
 var is_current = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
@@ -27,3 +26,15 @@ func dialog_enter() -> void:
 	get_tree().change_scene_to_packed(path)
 	
 	
+
+
+func _on_alertarea_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_alertarea_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_callarea_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

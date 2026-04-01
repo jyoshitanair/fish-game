@@ -57,3 +57,5 @@ vertical_alignment = 1
 
 [node name="trail" type="Line2D" parent="." unique_id=500090791]
 script = ExtResource("5_4a3qj")
+
+[editable path="npc"]

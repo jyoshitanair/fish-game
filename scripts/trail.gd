@@ -15,6 +15,5 @@ func _process(delta: float) -> void:
 		if i.is_current:
 			target = i
 	if player and target:
-		print("found!")
 		points = [ player.global_position,target.global_position]
 			
