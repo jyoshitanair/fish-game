@@ -1,7 +1,204 @@
 [gd_scene format=3 uid="uid://dwl5iq330xb56"]
 
-[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_snhvf"]
+[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_lmkgc"]
+[ext_resource type="Texture2D" uid="uid://bw67674oh7iyp" path="res://assets/images/shark/spritesheet (1).png" id="2_0gcsj"]
+[ext_resource type="Script" uid="uid://c7d1cffkj5s6s" path="res://scripts/shark_music.gd" id="3_3kuml"]
+[ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="4_3kuml"]
+[ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="5_v2cs6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2cs6"]
+atlas = ExtResource("2_0gcsj")
+region = Rect2(0, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_burph"]
+atlas = ExtResource("2_0gcsj")
+region = Rect2(1024, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd6k8"]
+atlas = ExtResource("2_0gcsj")
+region = Rect2(0, 576, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svrvl"]
+atlas = ExtResource("2_0gcsj")
+region = Rect2(1024, 576, 1024, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sn1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2cs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_burph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd6k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svrvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eps0w"]
+radius = 1168.9435
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eps0w"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ovyi"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1024, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1hth"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1536, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwlb5"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(0, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymo0w"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(512, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u61i"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1024, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ffr"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1536, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0claj"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(0, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qt0f"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(512, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er3xn"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1024, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm4gt"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(1536, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55kta"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(0, 864, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e86o"]
+atlas = ExtResource("4_3kuml")
+region = Rect2(512, 864, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6da8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sn1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eps0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ovyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1hth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwlb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymo0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u61i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ffr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0claj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qt0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er3xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm4gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55kta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e86o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyaih"]
+radius = 163.32445
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8wev"]
+radius = 347.0222
 
 [node name="mini_game" type="Node2D" unique_id=440806270]
 
-[node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_snhvf")]
+[node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
+
+[node name="shark-music" type="AnimatedSprite2D" parent="." unique_id=1158745138]
+position = Vector2(1397.0001, -125.000015)
+scale = Vector2(0.4375, 0.4201389)
+sprite_frames = SubResource("SpriteFrames_2sn1h")
+script = ExtResource("3_3kuml")
+
+[node name="Area2D" type="Area2D" parent="shark-music" unique_id=1280573379]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shark-music/Area2D" unique_id=499747693]
+shape = SubResource("CircleShape2D_eps0w")
+
+[node name="Camera2D" type="Camera2D" parent="shark-music" unique_id=1566310328]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Timer" type="Timer" parent="shark-music" unique_id=53139599]
+one_shot = true
+
+[node name="fish-music" type="AnimatedSprite2D" parent="." unique_id=68199348]
+position = Vector2(670, -99.99999)
+scale = Vector2(0.453125, 0.4652778)
+sprite_frames = SubResource("SpriteFrames_6da8y")
+script = ExtResource("5_v2cs6")
+
+[node name="die" type="Area2D" parent="fish-music" unique_id=991020628]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fish-music/die" unique_id=1660175860]
+position = Vector2(-6.6207275, -10.746277)
+shape = SubResource("CircleShape2D_eyaih")
+
+[node name="emit" type="Area2D" parent="fish-music" unique_id=2058744415]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fish-music/emit" unique_id=857963671]
+shape = SubResource("CircleShape2D_m8wev")
+
+[node name="music" type="Panel" parent="fish-music" unique_id=636119384]
+offset_left = -470.06897
+offset_top = -227.82089
+offset_right = -231.72406
+offset_bottom = -49.43283
+
+[connection signal="timeout" from="shark-music/Timer" to="shark-music" method="_on_timer_timeout"]

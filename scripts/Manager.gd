@@ -1,4 +1,7 @@
 extends Node
+#signals 
+signal change_pos
+#vars
 var first_time = true
 var npc1_is_current = true
 var npc2_is_current = false
