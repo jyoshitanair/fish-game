@@ -13,14 +13,20 @@ func _process(_delta: float) -> void:
 		var call_bodies = call_area.get_overlapping_bodies()
 		for body in call_bodies:
 			if body.is_in_group("player"):
-				dialog_enter()
-func dialog_enter() -> void: 
+				dialog_enter(body)
+func dialog_enter(player) -> void: 
 	##setting up the next
 	var rest = group_name.substr(0,group_name.length()-1)
 	var num:int = int(group_name.substr(group_name.length()-1,group_name.length()))
 	num += 1
+	if num == 2:
+		Manager.text = "Goal: Find Finnegan"
+	if num == 3:
+		Manager.text = "Goal: Find the grumpy crab"
 	if num == 4:
-		num = 1
+		Manager.text = "Goal: Find Bobu's Wife"
+	if num ==5:
+		num =1
 	group_name = rest + str(num)
 	print(group_name)
 	var name = "" +group_name + "_is_current"
@@ -28,6 +34,7 @@ func dialog_enter() -> void:
 	print(cur_name)
 	Manager.set(name,true)
 	Manager.set(cur_name,false)
+	Manager.fish_position = player.global_position
 	get_tree().change_scene_to_packed(path)
 func _on_alertarea_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

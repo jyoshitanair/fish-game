@@ -1,5 +1,5 @@
 extends Line2D
-var target_array = ["npc1",'npc2','npc3']
+var target_array = ["npc1",'npc2','npc3','npc4']
 var target
 var player
 func _ready() -> void:

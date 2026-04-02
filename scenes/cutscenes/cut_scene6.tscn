@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://biea00otmgddn"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_4iyo7"]
+
+[node name="CutScene6" type="Node2D" unique_id=1001116550]
+
+[node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_4iyo7")]
+position = Vector2(572, 546)
+dialog_array = ["AHH! Oh my god I though you were going to eat me but thank god you're just a fish...are you here to save me?", "Aw Bobu sent you to save me? That jerk was too jelly to save me himself? I bet he gave some stupid excuse like it's too far or he doesn't have fins..", "ugh you poor thing! I will yell at him when we get home! But thank you - you're really brave for coming out here with all the sharks just to save..me. Someone you don't know", "Well now what's the plan to escape? There are sharks everywhere!"]
+fish_name = "Kailani the Crab"

@@ -6,4 +6,5 @@
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_68m4d")]
 position = Vector2(572, 542)
-dialog_array = ["npc1", "HI", "The name's bob", "Nice to meet ya fishy"]
+dialog_array = ["Oh hi there! Wow I love your scales so orange and pretty!", "You want to go to the city?", "But why...it's so dangerous and far?", "Oh no you're lost? Okay I suppose I'll try to help...but I really don't know much", "Well you should ask Finnegan then! He's really smart - very grumpy for sure- but I bet he'll know!", "Oh and if he's being a royal jerk as usually just tell him Dash sent you!"]
+fish_name = "Dash"

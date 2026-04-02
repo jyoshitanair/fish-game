@@ -5,5 +5,6 @@
 [node name="CutScene3" type="Node2D" unique_id=1997501665]
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_e0g7e")]
-position = Vector2(579, 544)
-dialog_array = ["npc2", "HI", "The name's bob", "Nice to meet ya fishy"]
+position = Vector2(572, 542)
+dialog_array = ["Another punk here to bother me?!", "Oh you say Dash sent you? Okay then what do you want? ", "You want to go to the ...city? The filthy, stinky, LAND city?", "Fine I'll help you but this is for Dash not for you punk! ", "Upsteam look for a grumpy looking crab", "He's been to the city before for some dumb reason. Now shoo..."]
+fish_name = "Finnegan"

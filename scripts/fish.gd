@@ -30,6 +30,7 @@ var hitzone_valid = false
 @onready var label: Label = get_node_or_null("../../HUD/Label")
 
 func _ready() -> void: 
+	global_position = Manager.fish_position
 	var hitzone = get_node("hitzone")
 	hitzone.add_to_group("player")
 	print(hitzone.get_groups())
