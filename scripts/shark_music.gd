@@ -1,11 +1,13 @@
 extends AnimatedSprite2D
 var target_pos = null
-var speed = 5
+var speed = 6
 var can_lerp = false
+var player
 @onready var timer: Timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	timer.wait_time = randf_range(0.3,0.5)
 	Manager.connect("change_pos",_change_target_pos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,6 +21,7 @@ func _change_target_pos(new_pos):
 	timer.start()
 	target_pos = new_pos 
 	print(target_pos)
+
 func _on_timer_timeout() -> void:
-	timer.wait_time = randf_range(1,2)
+	timer.wait_time = randf_range(0.3,0.5)
 	can_lerp = true
