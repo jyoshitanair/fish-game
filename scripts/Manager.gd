@@ -9,10 +9,10 @@ var npc3_is_current = false
 var npc4_is_current = false
 var fish_position = Vector2(903,399)
 var text = "Goal: Talk to the Other Fish"
+var music
 func _ready() -> void:
-	pass
-
-
+	music = get_tree().get_first_node_in_group("music")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if !music.playing and music:
+		music.play()

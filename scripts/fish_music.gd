@@ -1,6 +1,8 @@
 extends Node2D
 @onready var music: Panel = $music
 @onready var timer: Timer = $Timer
+@onready var shell_spawn: Marker2D = $shell_spawn
+var shell_path  = preload("res://scenes/shell.tscn")
 var new_spot = Vector2(0.0,0.0)
 var direction = Vector2(0.0,0.0)
 var velocity = Vector2(0.0,0.0)
@@ -15,11 +17,15 @@ func _ready() -> void:
 	music.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("music"):
+	if Input.is_action_just_pressed("music"):
 		music.show()
-		Manager.emit_signal("change_pos",global_position)
+		var shell = shell_path.instantiate()
+		shell.global_position = shell_spawn.global_position
+		get_parent().add_child(shell)
+		Manager.emit_signal("change_pos",shell.global_position)
 		can_move = false
 		timer.start()
+		shell.get_node("bubbles").playing = true
 ##MOVEVMENT INPUTS
 	if can_move:
 		velocity.x = direction.x * delta * SPEED #fps

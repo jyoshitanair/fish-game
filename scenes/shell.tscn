@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://bn3mpijh1std3"]
 
 [ext_resource type="Texture2D" uid="uid://dlib5lxp4dldp" path="res://addons/icon.svg" id="1_bo4bk"]
+[ext_resource type="AudioStream" uid="uid://beq7wa174pfcv" path="res://assets/music/bubbling.ogg" id="2_sb42f"]
 
-[node name="Node2D" type="Node2D" unique_id=1556653456]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb42f"]
+size = Vector2(38, 38)
+
+[node name="shell" type="Node2D" unique_id=1556653456]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1934409183]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_bo4bk")
+
+[node name="bubbles" type="AudioStreamPlayer2D" parent="." unique_id=2043844435]
+stream = ExtResource("2_sb42f")
+autoplay = true
+max_distance = 290.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1060159265 groups=["shell"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=140093972]
+shape = SubResource("RectangleShape2D_sb42f")

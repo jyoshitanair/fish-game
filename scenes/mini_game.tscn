@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c7d1cffkj5s6s" path="res://scripts/shark_music.gd" id="3_3kuml"]
 [ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="4_3kuml"]
 [ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="5_v2cs6"]
+[ext_resource type="AudioStream" uid="uid://cnkrauesbqrxo" path="res://assets/music/base-mini-game-music.ogg" id="6_v2cs6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2cs6"]
 atlas = ExtResource("2_0gcsj")
@@ -43,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eps0w"]
-radius = 1168.9435
+radius = 2872.91
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
 atlas = ExtResource("4_3kuml")
@@ -205,5 +206,16 @@ position_smoothing_enabled = true
 
 [node name="Timer" type="Timer" parent="fish-music" unique_id=2106811224]
 
+[node name="shell_spawn" type="Marker2D" parent="fish-music" unique_id=1892394722]
+position = Vector2(-72.82754, -8.597039)
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=737318929 groups=["music"]]
+stream = ExtResource("6_v2cs6")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="area_entered" from="shark-music/Area2D" to="shark-music" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="shark-music/Area2D" to="shark-music" method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="shark-music/Timer" to="shark-music" method="_on_timer_timeout"]
 [connection signal="timeout" from="fish-music/Timer" to="fish-music" method="_on_timer_timeout"]
