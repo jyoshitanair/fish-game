@@ -21,36 +21,37 @@ var direction
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_position = global_position
-	player = get_tree().get_first_node_in_group("player").get_parent()
+	player = get_tree().get_first_node_in_group("player")
 	timer.wait_time = randf_range(0.3,0.5)
 	Manager.connect("change_pos",_change_target_pos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if can_lerp:                                          
-		if is_attacking and raycast.can_see:  
-			attack_timer += delta
-			i += (1.0 - i)*delta*0.07
-			global_position = lerp(global_position, attack_position, i)
-			if global_position.distance_to(attack_position)<=20 || attack_timer >= 7.00:
-				#attack_animation_play = true
-				is_attacking = false	
-				direction = (player.global_position - global_position).normalized()
-				retreating = true
-				first_time = false
-		elif retreating and raycast.can_see: 
-			direction = (player.global_position - global_position).normalized()
-			global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
-			if global_position.distance_to(start_position) <15:
-				global_position = start_position
-				retreating = false
-		else: 
-			global_position = lerp(global_position,target_pos,1 - exp(-6 *delta))
+	#if can_lerp:                                          
+		#if is_attacking and raycast.can_see:  
+			#attack_timer += delta
+			#i += (1.0 - i)*delta*0.07
+			#global_position = lerp(global_position, attack_position, i)
+			#if abs(global_position.distance_to(attack_position))<=20 || attack_timer >= 7.00:
+				##attack_animation_play = true
+				#is_attacking = false	
+				#direction = (player.global_position - global_position).normalized()
+				#retreating = true
+				#first_time = false
+		#elif retreating and raycast.can_see: 
+			#direction = (player.global_position - global_position).normalized()
+			#global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
+			#if global_position.distance_to(start_position) <15:
+				#global_position = start_position
+				#retreating = false
+		#else: 
+			#global_position = lerp(global_position,target_pos,1 - exp(-6 *delta))
 	if raycast.can_see:
+		print("i can see")
 		direction = (player.global_position - global_position).normalized()
 		var distance = global_position.distance_to(player.global_position)
 		speed = clamp(3.0/distance *400,0.3,2.5)
 		cur_speed = lerp(cur_speed,speed,delta*2)
-		#global_position = lerp(global_position, player.global_position, 1 - exp(-cur_speed *delta))
+		global_position = lerp(global_position, player.global_position, 1 - exp(-cur_speed *delta))
 			##FLIPPING CALCS
 		var flipper = player.global_position - global_position # negative means on the left, positive means on the right
 		old_flip = flipper.x > 5.0
@@ -65,21 +66,22 @@ func _process(delta: float) -> void:
 			i = 0.1              
 			
 		if flip != old_flip: 
-			scale.x *= -1
+			scale.x = - abs(scale.x)
 		flip = old_flip
 	if target_pos != null and can_hear:
 		if global_position.distance_to(target_pos)< 10.0:
 			global_position = target_pos
-			start_position = global_position
+			#start_position = global_position
 			can_lerp = false
 func _change_target_pos(new_pos):
+	print("hi")
 	timer.start()
 	target_pos = new_pos 
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.3,0.5)
 	can_lerp = true
-
+	print("you can lerp now")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shell"):
@@ -87,7 +89,3 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("shell"):
 		can_hear = false
-
-
-func _on_world_boundary_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

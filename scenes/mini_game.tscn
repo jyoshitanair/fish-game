@@ -7,25 +7,21 @@
 [ext_resource type="Script" uid="uid://rumm0ptwmcsk" path="res://scripts/ray_cast_2d.gd" id="4_burph"]
 [ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="5_v2cs6"]
 [ext_resource type="AudioStream" uid="uid://cnkrauesbqrxo" path="res://assets/music/base-mini-game-music.ogg" id="6_v2cs6"]
-[ext_resource type="Script" uid="uid://cpobdm8nmpoty" path="res://scripts/world_boundary.gd" id="8_hd6k8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_burph"]
 normal = Vector2(-0.9999839, 0.0056736674)
-distance = -1420.8153
+distance = -2626.782
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hd6k8"]
 normal = Vector2(0.99999714, 0.0023937693)
 distance = -1702.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svrvl"]
-distance = -558.0
+distance = -1099.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2sn1h"]
 normal = Vector2(0, 1)
-distance = -909.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_eyaih"]
-radius = 163.32445
+distance = -1517.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
 atlas = ExtResource("4_3kuml")
@@ -136,9 +132,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd6k8"]
 size = Vector2(138, 96)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m8wev"]
-radius = 347.0222
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2cs6"]
 atlas = ExtResource("2_0gcsj")
 region = Rect2(0, 0, 1024, 576)
@@ -192,10 +185,9 @@ volume_db = -30.0
 autoplay = true
 parameters/looping = true
 
-[node name="world boundary" type="Area2D" parent="." unique_id=1094184621]
+[node name="world boundary" type="StaticBody2D" parent="." unique_id=1312075799]
 disable_mode = 1
 collision_mask = 3
-script = ExtResource("8_hd6k8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary" unique_id=1506630928]
 shape = SubResource("WorldBoundaryShape2D_burph")
@@ -212,47 +204,29 @@ shape = SubResource("WorldBoundaryShape2D_svrvl")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="world boundary" unique_id=1875450372]
 shape = SubResource("WorldBoundaryShape2D_2sn1h")
 
-[node name="fish" type="RigidBody2D" parent="." unique_id=1837158465]
-gravity_scale = 0.0
+[node name="fish" type="CharacterBody2D" parent="." unique_id=652144146 groups=["player"]]
 script = ExtResource("5_v2cs6")
 metadata/_edit_group_ = true
 
-[node name="die" type="Area2D" parent="fish" unique_id=991020628 groups=["player"]]
-position = Vector2(13, 5)
-scale = Vector2(0.453125, 0.4652778)
-collision_layer = 2
+[node name="to_flip" type="Node2D" parent="fish" unique_id=2115456036]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fish/die" unique_id=1660175860]
-position = Vector2(-4.4138184, -10.746277)
-shape = SubResource("CircleShape2D_eyaih")
-
-[node name="fish-music" type="AnimatedSprite2D" parent="fish" unique_id=68199348]
+[node name="fish-music" type="AnimatedSprite2D" parent="fish/to_flip" unique_id=68199348]
 position = Vector2(13, 5)
 scale = Vector2(0.453125, 0.4652778)
 sprite_frames = SubResource("SpriteFrames_6da8y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fish" unique_id=123080438]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_hd6k8")
-
-[node name="emit" type="Area2D" parent="fish" unique_id=2058744415]
-position = Vector2(13, 5)
+[node name="shell_spawn" type="Marker2D" parent="fish/to_flip" unique_id=1892394722]
+position = Vector2(-20, 1)
 scale = Vector2(0.453125, 0.4652778)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="fish/emit" unique_id=857963671]
-shape = SubResource("CircleShape2D_m8wev")
-
-[node name="music" type="Panel" parent="fish" unique_id=636119384]
+[node name="music" type="Panel" parent="fish/to_flip" unique_id=636119384]
 offset_left = -297.0
 offset_top = -259.0
 offset_right = -58.65509
 offset_bottom = -80.61194
 
 [node name="Timer" type="Timer" parent="fish" unique_id=2106811224]
-
-[node name="shell_spawn" type="Marker2D" parent="fish" unique_id=1892394722]
-position = Vector2(-20, 1)
-scale = Vector2(0.453125, 0.4652778)
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="fish" unique_id=1591420859]
 position = Vector2(-300, 0)
@@ -261,6 +235,10 @@ zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fish" unique_id=123080438]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_hd6k8")
 
 [node name="shark" type="RigidBody2D" parent="." unique_id=997194432]
 position = Vector2(993, -188)
@@ -280,8 +258,6 @@ shape = SubResource("RectangleShape2D_svrvl")
 position = Vector2(1397.0001, -125.000015)
 scale = Vector2(0.4375, 0.4201389)
 target_position = Vector2(-1698.2861, 30.94217)
-collision_mask = 2
-collide_with_areas = true
 script = ExtResource("4_burph")
 
 [node name="Timer" type="Timer" parent="shark" unique_id=53139599]
@@ -295,8 +271,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shark/Area2D" unique_id=499747693]
 shape = SubResource("CircleShape2D_eps0w")
 
-[connection signal="area_entered" from="world boundary" to="world boundary" method="_on_area_entered"]
-[connection signal="timeout" from="fish/Timer" to="fish/fish-music" method="_on_timer_timeout"]
-[connection signal="timeout" from="shark/Timer" to="shark/shark-music" method="_on_timer_timeout"]
-[connection signal="area_entered" from="shark/Area2D" to="shark/shark-music" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="shark/Area2D" to="shark/shark-music" method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
+[connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
+[connection signal="area_entered" from="shark/Area2D" to="shark" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="shark/Area2D" to="shark" method="_on_area_2d_area_exited"]

@@ -15,7 +15,8 @@ texture = ExtResource("1_bo4bk")
 [node name="bubbles" type="AudioStreamPlayer2D" parent="." unique_id=2043844435]
 stream = ExtResource("2_sb42f")
 autoplay = true
-max_distance = 290.0
+max_distance = 1350.0
+parameters/looping = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1060159265 groups=["shell"]]
 

@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="1_3q32f"]
 [ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="2_k7lyy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_eyaih"]
-radius = 163.32445
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
 atlas = ExtResource("2_k7lyy")
 region = Rect2(0, 0, 512, 288)
@@ -115,49 +112,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd6k8"]
 size = Vector2(138, 96)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m8wev"]
-radius = 347.0222
-
-[node name="fish" type="RigidBody2D" unique_id=531317586]
-gravity_scale = 0.0
+[node name="fish" type="CharacterBody2D" unique_id=867276979 groups=["player"]]
 script = ExtResource("1_3q32f")
 metadata/_edit_group_ = true
 
-[node name="die" type="Area2D" parent="." unique_id=1087866422 groups=["player"]]
-position = Vector2(13, 5)
-scale = Vector2(0.453125, 0.4652778)
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="die" unique_id=161175839]
-position = Vector2(-4.4138184, -10.746277)
-shape = SubResource("CircleShape2D_eyaih")
-
-[node name="fish-music" type="AnimatedSprite2D" parent="." unique_id=1000781339]
+[node name="fish-music" type="AnimatedSprite2D" parent="." unique_id=1845665146]
 position = Vector2(13, 5)
 scale = Vector2(0.453125, 0.4652778)
 sprite_frames = SubResource("SpriteFrames_6da8y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302046044]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2062108841]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hd6k8")
 
-[node name="emit" type="Area2D" parent="." unique_id=51606897]
-position = Vector2(13, 5)
-scale = Vector2(0.453125, 0.4652778)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="emit" unique_id=691638370]
-shape = SubResource("CircleShape2D_m8wev")
-
-[node name="music" type="Panel" parent="." unique_id=1903624059]
+[node name="music" type="Panel" parent="." unique_id=1231996445]
 offset_left = -297.0
 offset_top = -259.0
 offset_right = -58.65509
 offset_bottom = -80.61194
 
-[node name="Timer" type="Timer" parent="." unique_id=147783202]
+[node name="Timer" type="Timer" parent="." unique_id=1389222924]
+one_shot = true
 
-[node name="shell_spawn" type="Marker2D" parent="." unique_id=1306212531]
+[node name="shell_spawn" type="Marker2D" parent="." unique_id=517002381]
 position = Vector2(-20, 1)
 scale = Vector2(0.453125, 0.4652778)
 
-[connection signal="timeout" from="Timer" to="fish-music" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
