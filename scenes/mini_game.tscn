@@ -240,22 +240,22 @@ position_smoothing_speed = 8.0
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hd6k8")
 
-[node name="shark" type="RigidBody2D" parent="." unique_id=997194432]
-position = Vector2(993, -188)
-gravity_scale = 0.0
+[node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
+position = Vector2(1174, -20)
 script = ExtResource("3_3kuml")
+metadata/_edit_group_ = true
 
 [node name="shark-music" type="AnimatedSprite2D" parent="shark" unique_id=1158745138]
-position = Vector2(1397.0001, -125.000015)
+position = Vector2(15, 10)
 scale = Vector2(0.4375, 0.4201389)
 sprite_frames = SubResource("SpriteFrames_2sn1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shark" unique_id=1901085390]
-position = Vector2(1391.5, -154)
+position = Vector2(9.499878, -18.999985)
 shape = SubResource("RectangleShape2D_svrvl")
 
 [node name="RayCast2D" type="RayCast2D" parent="shark" unique_id=851466798]
-position = Vector2(1397.0001, -125.000015)
+position = Vector2(15, 10)
 scale = Vector2(0.4375, 0.4201389)
 target_position = Vector2(-1698.2861, 30.94217)
 script = ExtResource("4_burph")
@@ -264,7 +264,7 @@ script = ExtResource("4_burph")
 one_shot = true
 
 [node name="Area2D" type="Area2D" parent="shark" unique_id=1280573379]
-position = Vector2(1397.0001, -125.000015)
+position = Vector2(15, 10)
 scale = Vector2(0.4375, 0.4201389)
 collision_mask = 2
 
