@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dhcii6iya70ek"]
+
+[ext_resource type="Script" uid="uid://c7d1cffkj5s6s" path="res://scripts/shark_music.gd" id="1_12gjs"]
+[ext_resource type="Texture2D" uid="uid://bw67674oh7iyp" path="res://assets/images/shark/spritesheet (1).png" id="2_qyfja"]
+[ext_resource type="Script" uid="uid://rumm0ptwmcsk" path="res://scripts/ray_cast_2d.gd" id="3_4wc3r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2cs6"]
+atlas = ExtResource("2_qyfja")
+region = Rect2(0, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_burph"]
+atlas = ExtResource("2_qyfja")
+region = Rect2(1024, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd6k8"]
+atlas = ExtResource("2_qyfja")
+region = Rect2(0, 576, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svrvl"]
+atlas = ExtResource("2_qyfja")
+region = Rect2(1024, 576, 1024, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sn1h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2cs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_burph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd6k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svrvl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svrvl"]
+size = Vector2(373, 180)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eps0w"]
+radius = 2872.91
+
+[node name="shark" type="RigidBody2D" unique_id=373722890]
+gravity_scale = 0.0
+script = ExtResource("1_12gjs")
+
+[node name="shark-music" type="AnimatedSprite2D" parent="." unique_id=295663959]
+position = Vector2(1397.0001, -125.000015)
+scale = Vector2(0.4375, 0.4201389)
+sprite_frames = SubResource("SpriteFrames_2sn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=722774853]
+position = Vector2(1391.5, -154)
+shape = SubResource("RectangleShape2D_svrvl")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1881120715]
+position = Vector2(1397.0001, -125.000015)
+scale = Vector2(0.4375, 0.4201389)
+target_position = Vector2(-1698.2861, 30.94217)
+collision_mask = 2
+collide_with_areas = true
+script = ExtResource("3_4wc3r")
+
+[node name="Timer" type="Timer" parent="." unique_id=1638073817]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=288450821]
+position = Vector2(1397.0001, -125.000015)
+scale = Vector2(0.4375, 0.4201389)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1876486865]
+shape = SubResource("CircleShape2D_eps0w")
+
+[connection signal="timeout" from="Timer" to="shark-music" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="shark-music" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="shark-music" method="_on_area_2d_area_exited"]

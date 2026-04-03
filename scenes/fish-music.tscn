@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://t1y5dlmqetc"]
+
+[ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="1_3q32f"]
+[ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="2_k7lyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eyaih"]
+radius = 163.32445
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eps0w"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ovyi"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1024, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1hth"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1536, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwlb5"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(0, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymo0w"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(512, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u61i"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1024, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ffr"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1536, 288, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0claj"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(0, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qt0f"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(512, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er3xn"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1024, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm4gt"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(1536, 576, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55kta"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(0, 864, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e86o"]
+atlas = ExtResource("2_k7lyy")
+region = Rect2(512, 864, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6da8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sn1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eps0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ovyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1hth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwlb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymo0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u61i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ffr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0claj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qt0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er3xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm4gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55kta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e86o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd6k8"]
+size = Vector2(138, 96)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8wev"]
+radius = 347.0222
+
+[node name="fish" type="RigidBody2D" unique_id=531317586]
+gravity_scale = 0.0
+script = ExtResource("1_3q32f")
+metadata/_edit_group_ = true
+
+[node name="die" type="Area2D" parent="." unique_id=1087866422 groups=["player"]]
+position = Vector2(13, 5)
+scale = Vector2(0.453125, 0.4652778)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="die" unique_id=161175839]
+position = Vector2(-4.4138184, -10.746277)
+shape = SubResource("CircleShape2D_eyaih")
+
+[node name="fish-music" type="AnimatedSprite2D" parent="." unique_id=1000781339]
+position = Vector2(13, 5)
+scale = Vector2(0.453125, 0.4652778)
+sprite_frames = SubResource("SpriteFrames_6da8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302046044]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_hd6k8")
+
+[node name="emit" type="Area2D" parent="." unique_id=51606897]
+position = Vector2(13, 5)
+scale = Vector2(0.453125, 0.4652778)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emit" unique_id=691638370]
+shape = SubResource("CircleShape2D_m8wev")
+
+[node name="music" type="Panel" parent="." unique_id=1903624059]
+offset_left = -297.0
+offset_top = -259.0
+offset_right = -58.65509
+offset_bottom = -80.61194
+
+[node name="Timer" type="Timer" parent="." unique_id=147783202]
+
+[node name="shell_spawn" type="Marker2D" parent="." unique_id=1306212531]
+position = Vector2(-20, 1)
+scale = Vector2(0.453125, 0.4652778)
+
+[connection signal="timeout" from="Timer" to="fish-music" method="_on_timer_timeout"]

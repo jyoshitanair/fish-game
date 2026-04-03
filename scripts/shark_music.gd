@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends RigidBody2D
 var target_pos = null
 var speed = 0.6
 var can_lerp = false
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			print("hi")
 			attack_timer = 0.0
 			is_attacking = true
-			attack_position =player.global_position +Vector2(sign(scale.x) *15, 0)
+			attack_position =player.global_position +Vector2(-sign(scale.x) *15, 0)
 			i = 0.1              
 			
 		if flip != old_flip: 
@@ -70,6 +70,7 @@ func _process(delta: float) -> void:
 	if target_pos != null and can_hear:
 		if global_position.distance_to(target_pos)< 10.0:
 			global_position = target_pos
+			start_position = global_position
 			can_lerp = false
 func _change_target_pos(new_pos):
 	timer.start()
@@ -86,3 +87,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("shell"):
 		can_hear = false
+
+
+func _on_world_boundary_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
