@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bw67674oh7iyp" path="res://assets/images/shark/spritesheet (1).png" id="2_0gcsj"]
 [ext_resource type="Script" uid="uid://c7d1cffkj5s6s" path="res://scripts/shark_music.gd" id="3_3kuml"]
 [ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="4_3kuml"]
+[ext_resource type="Script" uid="uid://rumm0ptwmcsk" path="res://scripts/ray_cast_2d.gd" id="4_burph"]
 [ext_resource type="Script" uid="uid://bpjmskdeih5ge" path="res://scripts/fish_music.gd" id="5_v2cs6"]
 [ext_resource type="AudioStream" uid="uid://cnkrauesbqrxo" path="res://assets/music/base-mini-game-music.ogg" id="6_v2cs6"]
 
@@ -169,6 +170,7 @@ sprite_frames = SubResource("SpriteFrames_2sn1h")
 script = ExtResource("3_3kuml")
 
 [node name="Area2D" type="Area2D" parent="shark-music" unique_id=1280573379]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shark-music/Area2D" unique_id=499747693]
 shape = SubResource("CircleShape2D_eps0w")
@@ -176,16 +178,23 @@ shape = SubResource("CircleShape2D_eps0w")
 [node name="Timer" type="Timer" parent="shark-music" unique_id=53139599]
 one_shot = true
 
+[node name="RayCast2D" type="RayCast2D" parent="shark-music" unique_id=851466798]
+target_position = Vector2(-1698.2861, 30.94217)
+collision_mask = 2
+collide_with_areas = true
+script = ExtResource("4_burph")
+
 [node name="fish-music" type="AnimatedSprite2D" parent="." unique_id=68199348]
 position = Vector2(670, -99.99999)
 scale = Vector2(0.453125, 0.4652778)
 sprite_frames = SubResource("SpriteFrames_6da8y")
 script = ExtResource("5_v2cs6")
 
-[node name="die" type="Area2D" parent="fish-music" unique_id=991020628]
+[node name="die" type="Area2D" parent="fish-music" unique_id=991020628 groups=["player"]]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fish-music/die" unique_id=1660175860]
-position = Vector2(-6.6207275, -10.746277)
+position = Vector2(-4.4138184, -10.746277)
 shape = SubResource("CircleShape2D_eyaih")
 
 [node name="emit" type="Area2D" parent="fish-music" unique_id=2058744415]
