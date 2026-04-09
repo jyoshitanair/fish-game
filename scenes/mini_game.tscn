@@ -231,7 +231,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="fish" unique_id=1591420859]
 position = Vector2(-300, 0)
 scale = Vector2(0.453125, 0.4652778)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.1, 0.1)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
@@ -263,15 +263,15 @@ script = ExtResource("4_burph")
 [node name="Timer" type="Timer" parent="shark" unique_id=53139599]
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="shark" unique_id=1280573379]
+[node name="detect" type="Area2D" parent="shark" unique_id=1280573379]
 position = Vector2(15, 10)
 scale = Vector2(0.4375, 0.4201389)
-collision_mask = 2
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shark/Area2D" unique_id=499747693]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shark/detect" unique_id=499747693]
 shape = SubResource("CircleShape2D_eps0w")
 
 [connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
 [connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
-[connection signal="area_entered" from="shark/Area2D" to="shark" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="shark/Area2D" to="shark" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="shark/detect" to="shark" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="shark/detect" to="shark" method="_on_area_2d_area_exited"]

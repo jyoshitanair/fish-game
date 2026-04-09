@@ -14,9 +14,15 @@ var i = 0.1
 var flip = false  
 var retreating = false
 var first_time = true
-var direction
+var direction = Vector2(-1.0,1.0)
+var can_detect = false
+var normal = true
+#defaults
+var moving_timer = 0
+var switcher = false
 @onready var timer: Timer = $Timer
 @onready var raycast: RayCast2D = $RayCast2D
+@onready var detect: Area2D = $detect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,11 +32,18 @@ func _ready() -> void:
 	Manager.connect("change_pos",_change_target_pos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void: 
+	normal = false
 	if target_pos and can_hear:
 		if global_position.distance_to(target_pos)< 10.0:
 			global_position = target_pos
 			can_lerp = false      
-	if raycast.can_see and player:    
+	var chases = detect.get_overlapping_bodies()
+	can_detect = false
+	for chase in chases:
+		var groups  = chase.get_groups()
+		if groups.size()>0 and groups[0] == "player":
+			can_detect = true
+	if raycast.can_see and player  and can_detect:    
 		direction = (player.global_position - global_position).normalized()
 		var distance = global_position.distance_to(player.global_position)
 		speed = clamp(3.0/distance *400,0.3,2.5)
@@ -45,6 +58,7 @@ func _process(delta: float) -> void:
 			attack_position =player.global_position +Vector2(sign(scale.x) *15, 0)
 			i = 0.1                           
 		if is_attacking:  
+			print("attack")
 			attack_timer += delta
 			i += (1.0 - i)*delta*0.07
 			global_position = lerp(global_position, attack_position, i)
@@ -56,23 +70,37 @@ func _process(delta: float) -> void:
 				retreating = true
 				first_time = false
 		elif retreating: 
+			print("retreat")
 			direction = (player.global_position - global_position).normalized()
 			global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
 			if global_position.distance_to(start_position) <15:
 				global_position = start_position
 				retreating = false
-		else:
-			direction = (player.global_position - global_position).normalized()
-			global_position = lerp(global_position,player.global_position,1 - exp(-6 *delta))
-		##FLIPPING CALCS
-		var flipper = player.global_position - global_position # negative means on the left, positive means on the right
+	else:
+		normal = true
+		moving_timer += 1
+		print(sign(direction))
+		print(global_position.x + cur_speed)
+		global_position.x = lerp(global_position.x,sign(direction.x)*(global_position.x + 30), 1 - exp(-cur_speed *moving_timer))
+		switcher = false
+		if moving_timer > 100:
+			print("Swiching")
+			switcher = true
+			direction.x = -direction.x
+			moving_timer = 0 
+		#print("normal")
+	##FLIPPING CALCS
+	var flipper = player.global_position - global_position # negative means on the left, positive means on the right
+	if switcher ==  true:
+		old_flip = !flip
+	elif normal:
+		return
+	else:
 		old_flip = flipper.x > 5.0            	
-		if flip != old_flip: 
-			print(self)
-			self.scale.x *= -1
-		flip = old_flip
+	if flip != old_flip: 
+		self.scale.x *= -1
+	flip = old_flip
 func _change_target_pos(new_pos):
-	print("hi")
 	timer.start()
 	target_pos = new_pos 
 
