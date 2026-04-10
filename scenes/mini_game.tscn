@@ -14,10 +14,10 @@ distance = -4069.4282
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hd6k8"]
 normal = Vector2(0.99999714, 0.0023937693)
-distance = -2563.8372
+distance = -3116.84
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svrvl"]
-distance = -2170.0
+distance = -2871.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2sn1h"]
 normal = Vector2(0, 1)
@@ -177,7 +177,6 @@ radius = 2872.91
 [node name="mini_game" type="Node2D" unique_id=440806270]
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
-position = Vector2(744, 922)
 
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=737318929 groups=["music"]]
 stream = ExtResource("6_v2cs6")
@@ -190,21 +189,24 @@ disable_mode = 1
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary" unique_id=1506630928]
+position = Vector2(0, -969)
 shape = SubResource("WorldBoundaryShape2D_burph")
 debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="world boundary" unique_id=1381973441]
-position = Vector2(67, 0)
+position = Vector2(1150, 0)
 shape = SubResource("WorldBoundaryShape2D_hd6k8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="world boundary" unique_id=1415013090]
-position = Vector2(0, 300)
+position = Vector2(0, 813)
 shape = SubResource("WorldBoundaryShape2D_svrvl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="world boundary" unique_id=1875450372]
+position = Vector2(-1185, 0)
 shape = SubResource("WorldBoundaryShape2D_2sn1h")
 
 [node name="fish" type="CharacterBody2D" parent="." unique_id=652144146 groups=["player"]]
+position = Vector2(88, 395)
 script = ExtResource("5_v2cs6")
 metadata/_edit_group_ = true
 
@@ -241,7 +243,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hd6k8")
 
 [node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
-position = Vector2(1174, -71)
+position = Vector2(-671, 19)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -274,7 +276,7 @@ shape = SubResource("CircleShape2D_eps0w")
 [node name="Timer2" type="Timer" parent="shark" unique_id=7049540]
 
 [node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291]
-position = Vector2(-1367, -108)
+position = Vector2(854, -3)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
