@@ -10,18 +10,18 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_burph"]
 normal = Vector2(-0.9999839, 0.0056736674)
-distance = -2626.782
+distance = -4069.4282
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hd6k8"]
 normal = Vector2(0.99999714, 0.0023937693)
-distance = -1702.0
+distance = -2563.8372
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svrvl"]
-distance = -1099.0
+distance = -2170.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2sn1h"]
 normal = Vector2(0, 1)
-distance = -1517.0
+distance = -2254.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
 atlas = ExtResource("4_3kuml")
@@ -231,7 +231,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="fish" unique_id=1591420859]
 position = Vector2(-300, 0)
 scale = Vector2(0.453125, 0.4652778)
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(0.3, 0.3)
 limit_enabled = false
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
@@ -241,7 +241,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hd6k8")
 
 [node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
-position = Vector2(1174, -20)
+position = Vector2(1174, -71)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -271,7 +271,47 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shark/detect" unique_id=499747693]
 shape = SubResource("CircleShape2D_eps0w")
 
+[node name="Timer2" type="Timer" parent="shark" unique_id=7049540]
+
+[node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291]
+position = Vector2(-1367, -108)
+script = ExtResource("3_3kuml")
+metadata/_edit_group_ = true
+
+[node name="shark-music" type="AnimatedSprite2D" parent="shark2" unique_id=651662361]
+position = Vector2(15, 10)
+scale = Vector2(0.4375, 0.4201389)
+sprite_frames = SubResource("SpriteFrames_2sn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shark2" unique_id=1467960298]
+position = Vector2(9.499878, -18.999985)
+shape = SubResource("RectangleShape2D_svrvl")
+
+[node name="RayCast2D" type="RayCast2D" parent="shark2" unique_id=707272376]
+position = Vector2(15, 10)
+scale = Vector2(0.4375, 0.4201389)
+target_position = Vector2(-1698.2861, 30.94217)
+script = ExtResource("4_burph")
+
+[node name="Timer" type="Timer" parent="shark2" unique_id=1453814320]
+one_shot = true
+
+[node name="detect" type="Area2D" parent="shark2" unique_id=488806988]
+position = Vector2(15, 10)
+scale = Vector2(0.4375, 0.4201389)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shark2/detect" unique_id=1266140784]
+shape = SubResource("CircleShape2D_eps0w")
+
+[node name="Timer2" type="Timer" parent="shark2" unique_id=518437581]
+
 [connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
 [connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
 [connection signal="area_entered" from="shark/detect" to="shark" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="shark/detect" to="shark" method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="shark/Timer2" to="shark" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="shark2/Timer" to="shark2" method="_on_timer_timeout"]
+[connection signal="area_entered" from="shark2/detect" to="shark2" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="shark2/detect" to="shark2" method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="shark2/Timer2" to="shark2" method="_on_timer_2_timeout"]
