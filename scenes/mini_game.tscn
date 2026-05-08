@@ -182,32 +182,51 @@ radius = 176.78235
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
 
+[node name="detectopetronious" type="Area2D" parent="." unique_id=906821431]
+
+[node name="world boundary" type="StaticBody2D" parent="detectopetronious" unique_id=1348275334]
+disable_mode = 1
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1506630928]
+position = Vector2(0, -969)
+shape = SubResource("WorldBoundaryShape2D_burph")
+debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1381973441]
+position = Vector2(1150, 0)
+shape = SubResource("WorldBoundaryShape2D_hd6k8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1415013090]
+position = Vector2(0, 813)
+shape = SubResource("WorldBoundaryShape2D_svrvl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1875450372]
+position = Vector2(-1185, 0)
+shape = SubResource("WorldBoundaryShape2D_2sn1h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious" unique_id=672809536]
+position = Vector2(0, -969)
+shape = SubResource("WorldBoundaryShape2D_burph")
+debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious" unique_id=1481108877]
+position = Vector2(1150, 0)
+shape = SubResource("WorldBoundaryShape2D_hd6k8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious" unique_id=558132120]
+position = Vector2(0, 813)
+shape = SubResource("WorldBoundaryShape2D_svrvl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="detectopetronious" unique_id=1040928913]
+position = Vector2(-1185, 0)
+shape = SubResource("WorldBoundaryShape2D_2sn1h")
+
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=737318929 groups=["music"]]
 stream = ExtResource("6_v2cs6")
 volume_db = -30.0
 autoplay = true
 parameters/looping = true
-
-[node name="world boundary" type="StaticBody2D" parent="." unique_id=1312075799]
-disable_mode = 1
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="world boundary" unique_id=1506630928]
-position = Vector2(0, -969)
-shape = SubResource("WorldBoundaryShape2D_burph")
-debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="world boundary" unique_id=1381973441]
-position = Vector2(1150, 0)
-shape = SubResource("WorldBoundaryShape2D_hd6k8")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="world boundary" unique_id=1415013090]
-position = Vector2(0, 813)
-shape = SubResource("WorldBoundaryShape2D_svrvl")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="world boundary" unique_id=1875450372]
-position = Vector2(-1185, 0)
-shape = SubResource("WorldBoundaryShape2D_2sn1h")
 
 [node name="fish" type="CharacterBody2D" parent="." unique_id=652144146 groups=["player"]]
 position = Vector2(88, 395)
@@ -332,6 +351,8 @@ script = ExtResource("8_hd6k8")
 position = Vector2(2184, 1302)
 shape = SubResource("CircleShape2D_svrvl")
 
+[connection signal="body_entered" from="detectopetronious" to="shark" method="_on_detectopetronious_body_entered"]
+[connection signal="body_exited" from="detectopetronious" to="shark" method="_on_detectopetronious_body_exited"]
 [connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
 [connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
 [connection signal="area_entered" from="shark/detect" to="shark" method="_on_area_2d_area_entered"]
@@ -342,3 +363,4 @@ shape = SubResource("CircleShape2D_svrvl")
 [connection signal="area_entered" from="shark2/detect" to="shark2" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="shark2/detect" to="shark2" method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="shark2/Timer2" to="shark2" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="shark2/shell_timer" to="shark2" method="_on_shell_timer_timeout"]

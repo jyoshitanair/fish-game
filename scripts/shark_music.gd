@@ -4,9 +4,9 @@ var shell_move = false
 var time
 var target_pos = null
 var speed = 0.6
-var can_hear = false
 var player
 var cur_speed = 0.0
+var norm_speed = 200.0
 var old_flip = false
 var is_attacking = false
 var attack_timer = 0.0
@@ -22,6 +22,7 @@ var can_chase = true
 var in_loop_timer = 0 
 var shell_mode = false
 var can_move = true
+var hit_dat_wall = false
 #defaults
 var moving_timer = 0
 var switcher = false
@@ -44,20 +45,21 @@ func _process(delta: float) -> void:
 	##split up after like 3 seconds
 	if shell_mode: 
 		shell_mode = false
-		print("starting")
+
 		shell_timer.start()
 	##SHELL
 	if shell_move: 
-		print("shell move") 
 		var lerper = lerp(global_position,global_position*direction*time1,1 - exp(-speed *delta))
 		velocity = (lerper - global_position)/delta
 		move_and_slide()
 		time -= delta
+
 		if time <= 0:
 			shell_move = false
 			can_move = true
 		move_and_slide()
 	if can_move:
+
 		if target_pos:
 			in_loop_timer += 1 
 			var lerper = lerp(global_position,target_pos,1 - exp(-speed *delta))
@@ -80,7 +82,7 @@ func _process(delta: float) -> void:
 			if raycast.can_see and player and can_detect:    
 				direction = (player.global_position - global_position).normalized()
 				var distance = global_position.distance_to(player.global_position)
-				speed = clamp(3.0/distance *400,0.3,2.5)
+				speed = clamp(3.0/distance *400,0.3,3.5)
 				cur_speed = lerp(cur_speed,speed,delta*2)   
 				##ATTACK LOGIC
 				if distance <= 600.0 and not is_attacking and not retreating:
@@ -110,13 +112,25 @@ func _process(delta: float) -> void:
 						global_position = start_position
 						retreating = false
 			else:
+				#first this dumb ahh needs to check if it's touching a wall. 
+				if hit_dat_wall: 
+					print("I hit it")
 				normal = true
 				moving_timer += 1
-				global_position.x = lerp(global_position.x,global_position.x+direction.x*90, 1 - exp(-cur_speed *delta))
+				var normallerper = lerp(global_position, global_position+direction*90, delta*7)  
+				velocity = (normallerper - global_position)/delta  
+				move_and_slide() 
 				switcher = false
-				if moving_timer > 100:
-					switcher = true
-					direction.x = -direction.x
+				if moving_timer > 200:
+					match randi_range(1,4):
+						1:
+							direction = Vector2.LEFT 
+							switcher = true
+						2:
+							direction = Vector2.RIGHT 
+							switcher = true
+						3:direction = Vector2.UP
+						4:direction = Vector2.DOWN
 					moving_timer = 0 
 			##FLIPPING CALCS
 			var flipper = player.global_position - global_position # negative means on the left, positive means on the right
@@ -133,17 +147,9 @@ func _change_target_pos(new_pos):
 	timer.start()
 	target_pos = new_pos
 	shell_mode = true 
-	print("activate")
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.3,0.5)
-#func _on_area_2d_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("shell"):
-		#can_hear = true
-#func _on_area_2d_area_exited(area: Area2D) -> void:
-	#if area.is_in_group("shell"):
-		#can_hear = false
-
 func _on_timer_2_timeout() -> void:
 	can_chase = true
 
@@ -158,7 +164,13 @@ func _on_shell_timer_timeout() -> void:
 	time = randf_range(0.5,2.5)
 	time1 = randf_range(80,160)
 	shell_move = true
-			
+
 		
-		
-	
+
+func _on_detectopetronious_body_entered(body: Node2D) -> void:
+	if body.is_in_group("shark"):
+		hit_dat_wall = true
+
+func _on_detectopetronious_body_exited(body: Node2D) -> void:
+	if body.is_in_group("shark"):
+		hit_dat_wall = false
