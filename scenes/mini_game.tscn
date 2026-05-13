@@ -272,7 +272,7 @@ position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_hd6k8")
 
 [node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
-position = Vector2(-671, 19)
+position = Vector2(-1686, 83)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -305,10 +305,11 @@ shape = SubResource("CircleShape2D_eps0w")
 [node name="Timer2" type="Timer" parent="shark" unique_id=7049540]
 
 [node name="shell_timer" type="Timer" parent="shark" unique_id=116814933]
+wait_time = 5.0
 one_shot = true
 
 [node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291]
-position = Vector2(854, -3)
+position = Vector2(2164, 144)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -341,6 +342,7 @@ shape = SubResource("CircleShape2D_eps0w")
 [node name="Timer2" type="Timer" parent="shark2" unique_id=518437581]
 
 [node name="shell_timer" type="Timer" parent="shark2" unique_id=431902324]
+wait_time = 5.0
 one_shot = true
 
 [node name="sark1" type="Area2D" parent="." unique_id=1717063217 groups=["load_1"]]
@@ -360,13 +362,13 @@ shape = SubResource("CircleShape2D_svrvl")
 [connection signal="body_entered" from="detectopetronious" to="shark" method="_on_detectopetronious_body_entered"]
 [connection signal="body_exited" from="detectopetronious" to="shark" method="_on_detectopetronious_body_exited"]
 [connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
-[connection signal="body_entered" from="fish/oohibeingdetected" to="shark" method="_on_oohibeingdetected_body_entered"]
-[connection signal="body_entered" from="fish/oohibeingdetected" to="shark2" method="_on_oohibeingdetected_body_entered"]
-[connection signal="body_exited" from="fish/oohibeingdetected" to="shark" method="_on_oohibeingdetected_body_exited"]
-[connection signal="body_exited" from="fish/oohibeingdetected" to="shark2" method="_on_oohibeingdetected_body_exited"]
 [connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
 [connection signal="area_entered" from="shark/detect" to="shark" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="shark/detect" to="shark" method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="shark/detect" to="shark" method="_on_detect_body_entered"]
+[connection signal="body_entered" from="shark/detect" to="shark2" method="_on_detect_body_entered"]
+[connection signal="body_exited" from="shark/detect" to="shark" method="_on_detect_body_exited"]
+[connection signal="body_exited" from="shark/detect" to="shark2" method="_on_detect_body_exited"]
 [connection signal="timeout" from="shark/Timer2" to="shark" method="_on_timer_2_timeout"]
 [connection signal="timeout" from="shark/shell_timer" to="shark" method="_on_shell_timer_timeout"]
 [connection signal="timeout" from="shark2/Timer" to="shark2" method="_on_timer_timeout"]

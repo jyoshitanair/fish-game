@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var time1
-var shell_move = false
+var after_shell_move = false
 var time
 var target_pos = null
 var speed = 0.6
@@ -20,9 +20,10 @@ var can_detect = false
 var normal = true
 var can_chase = true
 var in_loop_timer = 0 
-var shell_mode = false
 var can_move = true
 var hit_dat_wall = false
+var new_target_pos
+var shell_mode = false
 #defaults
 var moving_timer = 0
 var switcher = false
@@ -41,22 +42,21 @@ func _ready() -> void:
 	Manager.connect("change_pos",_change_target_pos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void: 
-	##split up after like 3 seconds
-	if shell_mode: 
-		shell_mode = false
-
-		shell_timer.start()
 	##SHELL
-	if shell_move: 
-		var lerper = lerp(global_position,global_position*direction*time1,1 - exp(-speed *delta))
+	if shell_mode: 
+		print("going to shell!")
+		var lerper = lerp(global_position,new_target_pos,1 - exp(-speed *delta))
 		velocity = (lerper - global_position)/delta
+		move_and_slide()
+	if after_shell_move: 
+		print("after shell move shell!")
+		velocity = velocity.lerp(direction*400, 1.0 - exp(-speed*delta))
 		move_and_slide()
 		time -= delta
 		if time <= 0:
-			shell_move = false
+			after_shell_move = false
 			can_move = true
 	if can_move:
-
 		if target_pos:
 			in_loop_timer += 1 
 			var lerper = lerp(global_position,target_pos,1 - exp(-speed *delta))
@@ -70,14 +70,7 @@ func _process(delta: float) -> void:
 				in_loop_timer = 0 
 		##CHASE
 		if can_chase:
-			print("chasing")
-			#var chases = detect.get_overlapping_bodies()
-			#can_detect = false
-			#for chase in chases:
-				#var groups  = chase.get_groups()
-				#if groups.size()>0 and groups[0] == "player":
-					#can_detect = true
-			if raycast.can_see and player and can_detect:    
+			if raycast.can_see and player and can_detect:   
 				direction = (player.global_position - global_position).normalized()
 				var distance = global_position.distance_to(player.global_position)
 				speed = clamp(3.0/distance *400,0.3,10.5)
@@ -90,10 +83,12 @@ func _process(delta: float) -> void:
 					attack_position =player.global_position +Vector2(sign(scale.x) *15, 0)
 					i = 0.1      
 				elif not is_attacking and not retreating: 
-					var lerper2 = lerp(global_position, player.global_position, delta*0.3)    
+					print("chasing")  
+					var lerper2 = lerp(global_position, player.global_position, delta*0.8)    
 					velocity = (lerper2 - global_position)/delta
 					move_and_slide()                  
-				if is_attacking:  
+				if is_attacking: 
+					print("attack")   
 					attack_timer += delta
 					i += (1.0 - i)*delta*0.07
 					global_position = lerp(global_position, attack_position, i)
@@ -104,6 +99,7 @@ func _process(delta: float) -> void:
 						direction = (player.global_position - global_position).normalized()
 						retreating = true
 				elif retreating: 
+					print("retreat")  
 					direction = (player.global_position - global_position).normalized()
 					global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
 					if global_position.distance_to(start_position) <15:
@@ -145,16 +141,17 @@ func _process(delta: float) -> void:
 			flip = old_flip
 func _change_target_pos(new_pos):
 	timer.start()
-	target_pos = new_pos
-	shell_mode = true 
+	new_target_pos = new_pos
+	shell_mode = true
+	shell_timer.start()
+	can_move = false
 
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.3,0.5)
 func _on_timer_2_timeout() -> void:
 	can_chase = true
-
 func _on_shell_timer_timeout() -> void:
-	can_move = false
+	shell_mode = false
 	#random direction
 	match randi_range(1,4):
 		1:direction = Vector2.LEFT
@@ -163,20 +160,17 @@ func _on_shell_timer_timeout() -> void:
 		4:direction = Vector2.DOWN
 	time = randf_range(0.5,2.5)
 	time1 = randf_range(80,160)
-	shell_move = true
-
+	after_shell_move = true
+#SIGNALS
 func _on_detectopetronious_body_entered(body: Node2D) -> void:
 	if body.is_in_group("shark"):
 		hit_dat_wall = true
-
 func _on_detectopetronious_body_exited(body: Node2D) -> void:
 	if body.is_in_group("shark"):
 		hit_dat_wall = false
-
-
-func _on_oohibeingdetected_body_entered(body: Node2D) -> void:
+func _on_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_detect = true
-func _on_oohibeingdetected_body_exited(body: Node2D) -> void:
+func _on_detect_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_detect = false
