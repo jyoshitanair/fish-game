@@ -265,6 +265,12 @@ position_smoothing_speed = 8.0
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hd6k8")
 
+[node name="oohibeingdetected" type="Area2D" parent="fish" unique_id=1213853105]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fish/oohibeingdetected" unique_id=154074812]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_hd6k8")
+
 [node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
 position = Vector2(-671, 19)
 script = ExtResource("3_3kuml")
@@ -354,6 +360,10 @@ shape = SubResource("CircleShape2D_svrvl")
 [connection signal="body_entered" from="detectopetronious" to="shark" method="_on_detectopetronious_body_entered"]
 [connection signal="body_exited" from="detectopetronious" to="shark" method="_on_detectopetronious_body_exited"]
 [connection signal="timeout" from="fish/Timer" to="fish" method="_on_timer_timeout"]
+[connection signal="body_entered" from="fish/oohibeingdetected" to="shark" method="_on_oohibeingdetected_body_entered"]
+[connection signal="body_entered" from="fish/oohibeingdetected" to="shark2" method="_on_oohibeingdetected_body_entered"]
+[connection signal="body_exited" from="fish/oohibeingdetected" to="shark" method="_on_oohibeingdetected_body_exited"]
+[connection signal="body_exited" from="fish/oohibeingdetected" to="shark2" method="_on_oohibeingdetected_body_exited"]
 [connection signal="timeout" from="shark/Timer" to="shark" method="_on_timer_timeout"]
 [connection signal="area_entered" from="shark/detect" to="shark" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="shark/detect" to="shark" method="_on_area_2d_area_exited"]

@@ -41,7 +41,6 @@ func _ready() -> void:
 	Manager.connect("change_pos",_change_target_pos)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void: 
-	normal = false
 	##split up after like 3 seconds
 	if shell_mode: 
 		shell_mode = false
@@ -53,11 +52,9 @@ func _process(delta: float) -> void:
 		velocity = (lerper - global_position)/delta
 		move_and_slide()
 		time -= delta
-
 		if time <= 0:
 			shell_move = false
 			can_move = true
-		move_and_slide()
 	if can_move:
 
 		if target_pos:
@@ -73,16 +70,17 @@ func _process(delta: float) -> void:
 				in_loop_timer = 0 
 		##CHASE
 		if can_chase:
-			var chases = detect.get_overlapping_bodies()
-			can_detect = false
-			for chase in chases:
-				var groups  = chase.get_groups()
-				if groups.size()>0 and groups[0] == "player":
-					can_detect = true
+			print("chasing")
+			#var chases = detect.get_overlapping_bodies()
+			#can_detect = false
+			#for chase in chases:
+				#var groups  = chase.get_groups()
+				#if groups.size()>0 and groups[0] == "player":
+					#can_detect = true
 			if raycast.can_see and player and can_detect:    
 				direction = (player.global_position - global_position).normalized()
 				var distance = global_position.distance_to(player.global_position)
-				speed = clamp(3.0/distance *400,0.3,3.5)
+				speed = clamp(3.0/distance *400,0.3,10.5)
 				cur_speed = lerp(cur_speed,speed,delta*2)   
 				##ATTACK LOGIC
 				if distance <= 600.0 and not is_attacking and not retreating:
@@ -122,7 +120,7 @@ func _process(delta: float) -> void:
 				move_and_slide() 
 				switcher = false
 				if moving_timer > 200:
-					match randi_range(1,4):
+					match randi_range(1,6):
 						1:
 							direction = Vector2.LEFT 
 							switcher = true
@@ -131,6 +129,8 @@ func _process(delta: float) -> void:
 							switcher = true
 						3:direction = Vector2.UP
 						4:direction = Vector2.DOWN
+						5:direction = Vector2(-1,-1)
+						6:direction = Vector2(1,1)
 					moving_timer = 0 
 			##FLIPPING CALCS
 			var flipper = player.global_position - global_position # negative means on the left, positive means on the right
@@ -165,8 +165,6 @@ func _on_shell_timer_timeout() -> void:
 	time1 = randf_range(80,160)
 	shell_move = true
 
-		
-
 func _on_detectopetronious_body_entered(body: Node2D) -> void:
 	if body.is_in_group("shark"):
 		hit_dat_wall = true
@@ -174,3 +172,11 @@ func _on_detectopetronious_body_entered(body: Node2D) -> void:
 func _on_detectopetronious_body_exited(body: Node2D) -> void:
 	if body.is_in_group("shark"):
 		hit_dat_wall = false
+
+
+func _on_oohibeingdetected_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		can_detect = true
+func _on_oohibeingdetected_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		can_detect = false
