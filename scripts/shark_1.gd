@@ -1,29 +1,42 @@
 extends Area2D
-var _1_on_pos = false
-var _2_on_pos = false
-var identity 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if self.get_groups()[0] == "load_1":
-		identity = 1
-	else:
-		identity = 2
-
+var alr_won = false
+@onready var mini_game: Node2D = $".."
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var whatscolliding = get_overlapping_bodies()
-	for collider in whatscolliding:
-		var groups  = collider.get_groups()
-		if groups.size()>0 and groups[0] == "shell":
-			print("well well")
-			if identity == 1:
-				_1_on_pos = true
-				print("on one")
-			else:
-				_2_on_pos = true
-				print("on two")
-				
-		else:
-			_1_on_pos = false
-			_2_on_pos = false
-	#verify
+	print(
+	"P1:", Manager._1_on_pos_player,
+	" S1:", Manager._1_on_pos_shell,
+	" P2:", Manager._2_on_pos_player,
+	" S2:", Manager._2_on_pos_shell
+	)
+	if ((Manager._1_on_pos_player and Manager._2_on_pos_shell) or (Manager._2_on_pos_player and Manager._1_on_pos_shell)) and !alr_won:
+		get_tree().change_scene_to_file("res://scenes/MiniGameRulesReturning.tscn")
+		alr_won = true
+#sark1
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Manager._1_on_pos_player = true
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Manager._1_on_pos_player = false
+#sarkdos
+func _on_body_entered_2(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Manager._2_on_pos_player = true
+func _on_body_exited_2(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Manager._2_on_pos_player = false
+#sark1
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("shell"):
+		Manager._1_on_pos_shell = true
+func _on_area_exited(area: Area2D) -> void:
+	if area.is_in_group("shell"):
+		Manager._1_on_pos_shell = false
+#sark2
+func _on_area_entered_2(area: Area2D) -> void:
+	if area.is_in_group("shell"):
+		Manager._2_on_pos_shell = true
+func _on_area_exited_2(area: Area2D) -> void:
+	if area.is_in_group("shell"):
+		Manager._2_on_pos_shell = false

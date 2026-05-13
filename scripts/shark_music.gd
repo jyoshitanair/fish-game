@@ -44,12 +44,10 @@ func _ready() -> void:
 func _process(delta: float) -> void: 
 	##SHELL
 	if shell_mode: 
-		print("going to shell!")
 		var lerper = lerp(global_position,new_target_pos,1 - exp(-speed *delta))
 		velocity = (lerper - global_position)/delta
 		move_and_slide()
 	if after_shell_move: 
-		print("after shell move shell!")
 		velocity = velocity.lerp(direction*400, 1.0 - exp(-speed*delta))
 		move_and_slide()
 		time -= delta
@@ -83,12 +81,10 @@ func _process(delta: float) -> void:
 					attack_position =player.global_position +Vector2(sign(scale.x) *15, 0)
 					i = 0.1      
 				elif not is_attacking and not retreating: 
-					print("chasing")  
 					var lerper2 = lerp(global_position, player.global_position, delta*0.8)    
 					velocity = (lerper2 - global_position)/delta
 					move_and_slide()                  
 				if is_attacking: 
-					print("attack")   
 					attack_timer += delta
 					i += (1.0 - i)*delta*0.07
 					global_position = lerp(global_position, attack_position, i)
@@ -108,7 +104,8 @@ func _process(delta: float) -> void:
 			else:
 				#first this dumb ahh needs to check if it's touching a wall. 
 				if hit_dat_wall: 
-					print("I hit it")
+					print("hit")
+					direction = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized()
 				normal = true
 				moving_timer += 1
 				var normallerper = lerp(global_position, global_position+direction*90, delta*7)  
@@ -125,8 +122,8 @@ func _process(delta: float) -> void:
 							switcher = true
 						3:direction = Vector2.UP
 						4:direction = Vector2.DOWN
-						5:direction = Vector2(-1,-1)
-						6:direction = Vector2(1,1)
+						5:direction = Vector2(-1,-1).normalized()
+						6:direction = Vector2(1,1).normalized()
 					moving_timer = 0 
 			##FLIPPING CALCS
 			var flipper = player.global_position - global_position # negative means on the left, positive means on the right

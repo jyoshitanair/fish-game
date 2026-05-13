@@ -59,4 +59,13 @@ func load_next_text() -> void:
 func _on_timer_timeout() -> void:
 	just_pressed = false
 func _return() ->void: 
+	if is_in_group("minigame_rules"):
+		get_tree().change_scene_to_file("res://scenes/mini_game.tscn")	
+		return
+	if is_in_group("minigame_rules_returning"):
+		get_tree().change_scene_to_file("res://scenes/main.tscn")	
+		return
+	if is_in_group("minigame"):
+		get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	
+		return
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

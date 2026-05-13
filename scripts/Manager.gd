@@ -1,6 +1,11 @@
 extends Node
 #signals 
 signal change_pos
+#sark 
+var _1_on_pos_player = false
+var _1_on_pos_shell = false
+var _2_on_pos_player = false
+var _2_on_pos_shell = false
 #vars
 var first_time = true
 var npc1_is_current = true
@@ -14,5 +19,6 @@ func _ready() -> void:
 	music = get_tree().get_first_node_in_group("music")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if !music.playing and music:
-		music.play()
+	#if !music.playing and music:
+		#music.play()
+	pass

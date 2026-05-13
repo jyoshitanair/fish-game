@@ -28,10 +28,7 @@ func dialog_enter(player) -> void:
 	if num ==5:
 		num =1
 	group_name = rest + str(num)
-	print(group_name)
 	var name = "" +group_name + "_is_current"
-	print(name)
-	print(cur_name)
 	Manager.set(name,true)
 	Manager.set(cur_name,false)
 	Manager.fish_position = player.global_position

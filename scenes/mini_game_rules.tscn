@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://3oqok57k2bjh"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_2m0jg"]
+
+[node name="MiniGameRules" type="Node2D" unique_id=1107454379]
+
+[node name="text" parent="." unique_id=1734454769 groups=["minigame_rules"] instance=ExtResource("1_2m0jg")]
+position = Vector2(575, 547)
+dialog_array = ["rules rules rules", "more rules rules rules", "even more rules rules rules", "hey now ur ready!"]
+fish_name = "Welcome to the Mini Game!"
+
+[node name="Panel" parent="text" index="0" unique_id=633472790]
+offset_top = -546.0
+
+[node name="Label" parent="text/Panel/char-name" parent_id_path=PackedInt32Array(1734454769, 250364110) index="0" unique_id=1183826695]
+offset_left = 0.5
+offset_top = 2.0
+offset_right = -340.0
+offset_bottom = 2.0
+
+[node name="Panel" parent="text/Panel" index="1" unique_id=669308246]
+offset_bottom = 638.0
+
+[node name="text" parent="text/Panel/Panel" index="0" unique_id=700146816]
+offset_bottom = 435.0
+
+[node name="circle_why_so_hard" parent="text" index="1" unique_id=1837158979]
+visible = false
+
+[node name="AnimatedSprite2D" parent="text" index="2" unique_id=982056156]
+visible = false
+
+[editable path="text"]
