@@ -26,8 +26,12 @@ func dialog_enter(player) -> void:
 	if num == 4:
 		Manager.text = "Goal: Find Bobu's Wife"
 	if num ==5:
+		Manager.text = "Goal: Return Bobu's Wife"
+	if num == 6:
 		num =1
 	group_name = rest + str(num)
+	if group_name == "npc3" and Manager.first_crab:
+		group_name = "npc5"
 	var name = "" +group_name + "_is_current"
 	Manager.set(name,true)
 	Manager.set(cur_name,false)
@@ -36,14 +40,18 @@ func dialog_enter(player) -> void:
 func _on_alertarea_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("mc detected")
+		_get_groups()
 func _on_alertarea_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		print("mc left")
 func _get_groups() -> void:
 	group_name = self.get_groups()[0]
 	##setting up the current
+	if group_name == "npc3" and Manager.npc5_is_current:
+		group_name = "npc5"
 	cur_name = group_name + "_is_current"
 	if Manager.get(cur_name) == true:
+		print(cur_name)
 		alert_area.monitoring = true
 		call_area.monitoring = true
 	else:

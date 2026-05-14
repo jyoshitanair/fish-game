@@ -7,11 +7,13 @@ var _1_on_pos_shell = false
 var _2_on_pos_player = false
 var _2_on_pos_shell = false
 #vars
+var first_crab = false
 var first_time = true
 var npc1_is_current = true
 var npc2_is_current = false
 var npc3_is_current = false
 var npc4_is_current = false
+var npc5_is_current
 var fish_position = Vector2(903,399)
 var text = "Goal: Talk to the Other Fish"
 var music

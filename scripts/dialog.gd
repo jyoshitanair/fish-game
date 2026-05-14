@@ -21,6 +21,14 @@ var just_pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Manager.npc5_is_current:
+		dialog_array = [
+			"Oh! You actually made it back! I thought the sharks wouldduve gotten you for sure",
+			"Perhaps...you won't die out there. But just PERHAPS",
+			"Alright then. Here's a map for you. I hope you don't die ...or whatever. Not like I care.",
+			"Good luck I guess."
+		]
+		Manager.first_crab = false
 	label.text = fish_name
 	just_pressed = true
 	text.text = ""
@@ -49,6 +57,8 @@ func _unhandled_input(event: InputEvent) -> void:
 					index += 1
 					load_next_text()
 				else:
+					if dialog_array[1] == "AHH! Oh my god I though you were going to eat me but thank god you're just a fish...are you here to save me?":
+						Manager.first_crab = true
 					_return()
 func load_next_text() -> void: 
 	tween = create_tween()
@@ -66,6 +76,9 @@ func _return() ->void:
 		get_tree().change_scene_to_file("res://scenes/main.tscn")	
 		return
 	if is_in_group("minigame"):
-		get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	
+		if Manager.npc5_is_current:
+			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	
 		return
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

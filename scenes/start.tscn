@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://7bmfgain7d4s" path="res://scenes/cutscenes/cut_scene4.tscn" id="5_pob1m"]
 [ext_resource type="PackedScene" uid="uid://biea00otmgddn" path="res://scenes/cutscenes/cut_scene6.tscn" id="7_p0nl4"]
 [ext_resource type="PackedScene" uid="uid://bj435kbpkfqc1" path="res://scenes/shark.tscn" id="9_gophc"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="9_pgjjs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g38d0"]
 bg_color = Color(0.36078432, 0.36078432, 0.36078432, 0.59607846)
@@ -18,10 +19,24 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="Theme" id="Theme_1nvso"]
+default_font = ExtResource("9_pgjjs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsp51"]
+bg_color = Color(0.45490196, 0.6392157, 0.654902, 0.8117647)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8uic"]
+size = Vector2(20624.223, 16356.544)
+
 [node name="start" type="Node2D" unique_id=1876485158]
 script = ExtResource("1_1n0d2")
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_qn1rc")]
+position = Vector2(-25, 54)
 
 [node name="npc2" parent="." unique_id=1818705560 groups=["npc2"] instance=ExtResource("2_1n0d2")]
 position = Vector2(-2968, -3410)
@@ -35,7 +50,7 @@ position = Vector2(-2916, 3395)
 path = ExtResource("5_g38d0")
 
 [node name="npc4" parent="." unique_id=1911182180 groups=["npc4"] instance=ExtResource("2_1n0d2")]
-position = Vector2(17852, -3196)
+position = Vector2(27033, -2142)
 path = ExtResource("7_p0nl4")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1697843219]
@@ -60,13 +75,61 @@ text = "Goal: Talk to the Other Fish"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="sharkzone" type="Panel" parent="HUD" unique_id=1657797317]
+visible = false
+offset_left = 1010.0
+offset_top = 17.0
+offset_right = 1121.0
+offset_bottom = 108.0
+theme = SubResource("Theme_1nvso")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsp51")
+
+[node name="Label" type="Label" parent="HUD/sharkzone" unique_id=995357269]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 14
+text = "WARNING:
+Shark zone
+entered!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="trail" type="Line2D" parent="." unique_id=500090791]
 script = ExtResource("5_4a3qj")
 
-[node name="shark" parent="." unique_id=1486787028 instance=ExtResource("9_gophc")]
-position = Vector2(9827, -2822)
+[node name="shark6" parent="." unique_id=1486787028 instance=ExtResource("9_gophc")]
+position = Vector2(21788, -3441)
+
+[node name="shark" parent="." unique_id=11236856 instance=ExtResource("9_gophc")]
+position = Vector2(30774, -5406)
+
+[node name="shark3" parent="." unique_id=1821373225 instance=ExtResource("9_gophc")]
+position = Vector2(25958, 4768)
+
+[node name="shark4" parent="." unique_id=878601276 instance=ExtResource("9_gophc")]
+position = Vector2(33123, 5958)
+
+[node name="shark5" parent="." unique_id=891036581 instance=ExtResource("9_gophc")]
+position = Vector2(35161, -1427)
 
 [node name="shark2" parent="." unique_id=971552262 instance=ExtResource("9_gophc")]
-position = Vector2(14894, 3775)
+position = Vector2(19464, 2034)
+
+[node name="shark7" parent="." unique_id=299542878 instance=ExtResource("9_gophc")]
+position = Vector2(24039, -7894)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1460935794]
+position = Vector2(20303, -7277)
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1516125156]
+position = Vector2(6532.949, 7120.3276)
+rotation = 0.35430184
+shape = SubResource("RectangleShape2D_r8uic")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 
 [editable path="npc3"]
