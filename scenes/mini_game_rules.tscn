@@ -6,7 +6,7 @@
 
 [node name="text" parent="." unique_id=1734454769 groups=["minigame_rules"] instance=ExtResource("1_2m0jg")]
 position = Vector2(575, 547)
-dialog_array = ["rules rules rules", "more rules rules rules", "even more rules rules rules", "hey now ur ready!"]
+dialog_array = ["You will be entering a mini game now. ", "You will no longer be able to boost or attack. Instead you will be able to place shells with the 'Q' key.", "Sharks are drawn to the noises made by shells. You can use this to distract them.", "The Goal is to turn on two plates at the same time. You can do this by using yourself, the shell, the sharks, or any other methods you see fit. ", "Good Luck!"]
 fish_name = "Welcome to the Mini Game!"
 
 [node name="Panel" parent="text" index="0" unique_id=633472790]

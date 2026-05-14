@@ -182,5 +182,7 @@ position = Vector2(-9, -4)
 shape = SubResource("RectangleShape2D_f40hg")
 
 [connection signal="body_entered" from="jaw_zone" to="." method="_on_jaw_zone_body_entered"]
+[connection signal="body_entered" from="start_chase_zone" to="." method="_on_detect_body_entered"]
+[connection signal="body_exited" from="start_chase_zone" to="." method="_on_detect_body_exited"]
 [connection signal="timeout" from="idle_wait_timer" to="." method="_on_idle_wait_timer_timeout"]
 [connection signal="body_entered" from="hitzone" to="." method="_on_hitzone_body_entered"]

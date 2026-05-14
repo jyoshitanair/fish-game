@@ -4,8 +4,10 @@ signal change_pos
 #sark 
 var _1_on_pos_player = false
 var _1_on_pos_shell = false
+var _1_on_pos_shark = false
 var _2_on_pos_player = false
 var _2_on_pos_shell = false
+var _2_on_pos_shark = false
 #vars
 var first_crab = false
 var first_time = true

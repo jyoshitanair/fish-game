@@ -17,11 +17,17 @@ var flip = false
 var i = 0.1
 var o = 0
 var attack_position = Vector2.ZERO
+var direction = Vector2(-1.0,1.0)
+var start_position
+var player
+var can_move = true
+var can_detect = false
 #STATES
+var retreating = false
 var is_attacking = false
-var can_chase = false 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	var hitzone = get_node("hitzone")
 	hitzone.add_to_group("shark")
 	add_to_group("shark")
@@ -29,69 +35,54 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	label.text = "%s"%health
 	update_animations()
-	##CONNECTING THE START CHASE ZONE
-	var starts = start_chase_zone.get_overlapping_bodies()
-	for start in starts:
-		if start.is_in_group("player") and start.alive:
-			if o == 0:
-				timer.start()
-				o = 1 
-			#going left
-			if scale.x > 0:
-				attack_position.x -= 15.0
-			else: 
-				attack_position.x += 15.0
-	##CONNECTING THE CHASE ZONE
-	var chases = chase_zone.get_overlapping_bodies()
-	if chases.size()==0:
-		can_chase = false
-		o = 0
-	for chase in chases: 
-		if chase.is_in_group("player") and chase.alive and can_chase:
-			print("CHASE")
-			##finding position 
-			##DISTANCE FORMULA = sqroot((x1-x2)^2 + (y1-y2)^2)
-			var direction = (chase.global_position - global_position).normalized()
-			var distance = global_position.distance_to(chase.global_position)
-			print(distance)
-			speed = clamp(3.0/distance *400,0.3,2.5)
-			cur_speed = lerp(cur_speed,speed,delta*2)
-			global_position = lerp(global_position, chase.global_position, 1 - exp(-cur_speed *delta))
-				##FLIPPING CALCS
-			var flipper = chase.global_position - global_position # negative means on the left, positive means on the right
-			old_flip = flipper.x > 5.0
+	print(" can_detect:", can_detect)
+	if can_move:
+		if player and can_detect:   
+			direction = (player.global_position - global_position).normalized()
+			var distance = global_position.distance_to(player.global_position)
+			speed = clamp(3.0/distance *400,0.3,10.5)
+			cur_speed = lerp(cur_speed,speed,delta*2)   
 			##ATTACK LOGIC
-			if distance <= 600.0 and not is_attacking:
+			if distance <= 600.0 and not is_attacking and not retreating:
+				start_position = global_position
 				attack_timer = 0.0
 				is_attacking = true
-				attack_position =chase.global_position +Vector2(sign(scale.x) *15, 0)
-				i = 0.1              
-					#jolt                                           
-			if is_attacking:  
+				attack_position = player.global_position + Vector2(sign(direction.x) * 15, 0)
+				i = 0.1      
+			elif not is_attacking and not retreating:     
+				velocity = direction*delta*600
+				move_and_slide()                  
+			if is_attacking: 
 				attack_timer += delta
 				i += (1.0 - i)*delta*0.07
 				global_position = lerp(global_position, attack_position, i)
-				if global_position.distance_to(attack_position)<=20 || attack_timer >= 2.00:
+				if global_position.distance_to(attack_position)<=20 or attack_timer >= 7.00:
 					attack_animation_play = true
-					is_attacking = false
-					i = 0.1	  				
+					global_position = start_position
+					is_attacking = false	
+					retreating = true
+			elif retreating: 
+				print("retreat")  
+				#direction = (player.global_position - global_position).normalized()
+				#global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
+				if global_position.distance_to(start_position) <15:
+					global_position = start_position
+					retreating = false
+	##FLIPPING CALCS
 	if flip != old_flip: 
-		scale.x *= -1
-	flip = old_flip
+		scale.x *= -1 
+		flip = old_flip 
 	move_and_slide()
 
 func update_animations() -> void: 
 	if attack_animation_play:      
 		sprite.play("attack")
 		attack_animation_play = false
-	elif can_chase:
-		pass
-		#print("detecting")
 	else:
 		sprite.play("idle")
 
 func _on_idle_wait_timer_timeout() -> void:
-	can_chase = true
+	pass
 func _on_jaw_zone_body_entered(body: Node2D) -> void:
 	###
 	pass
@@ -99,3 +90,10 @@ func _on_hitzone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and is_attacking:
 		is_attacking = false
 		body.health -= 5.0
+func _on_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		print(body.name)
+		can_detect = true
+func _on_detect_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		can_detect = false

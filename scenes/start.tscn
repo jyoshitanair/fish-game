@@ -114,13 +114,13 @@ position = Vector2(33123, 5958)
 position = Vector2(35161, -1427)
 
 [node name="shark2" parent="." unique_id=971552262 instance=ExtResource("9_gophc")]
-position = Vector2(19464, 2034)
+position = Vector2(2224, 198)
 
 [node name="shark7" parent="." unique_id=299542878 instance=ExtResource("9_gophc")]
 position = Vector2(24039, -7894)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1460935794]
-position = Vector2(20303, -7277)
+position = Vector2(21221, -8127)
 collision_mask = 7
 metadata/_edit_group_ = true
 

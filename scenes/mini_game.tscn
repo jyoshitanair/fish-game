@@ -11,18 +11,18 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_burph"]
 normal = Vector2(-0.9999839, 0.0056736674)
-distance = -5584.4917
+distance = -3524.21
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hd6k8"]
 normal = Vector2(0.99999714, 0.0023937693)
-distance = -4654.9126
+distance = -3826.9363
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_svrvl"]
-distance = -5797.0
+distance = -1987.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2sn1h"]
 normal = Vector2(0, 1)
-distance = -4156.0
+distance = -3684.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2sn1h"]
 atlas = ExtResource("4_3kuml")
@@ -189,7 +189,7 @@ disable_mode = 1
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1506630928]
-position = Vector2(0, -969)
+position = Vector2(0, -744)
 shape = SubResource("WorldBoundaryShape2D_burph")
 debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
 
@@ -198,11 +198,11 @@ position = Vector2(1150, 0)
 shape = SubResource("WorldBoundaryShape2D_hd6k8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1415013090]
-position = Vector2(0, 813)
+position = Vector2(0, 752)
 shape = SubResource("WorldBoundaryShape2D_svrvl")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1875450372]
-position = Vector2(-1185, 0)
+position = Vector2(-869, 565)
 shape = SubResource("WorldBoundaryShape2D_2sn1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious" unique_id=672809536]
@@ -272,7 +272,7 @@ position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_hd6k8")
 
 [node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
-position = Vector2(-1686, 83)
+position = Vector2(-1679, -1374)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -309,7 +309,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291]
-position = Vector2(2164, 144)
+position = Vector2(1890, -1321)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
 
@@ -346,14 +346,19 @@ wait_time = 5.0
 one_shot = true
 
 [node name="sark1" type="Area2D" parent="." unique_id=1717063217 groups=["load_1"]]
+position = Vector2(417, 655)
 script = ExtResource("8_hd6k8")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sark1" unique_id=1617349199]
 position = Vector2(-2288, -1091)
 shape = SubResource("CircleShape2D_svrvl")
+metadata/_edit_group_ = true
 
 [node name="sark2" type="Area2D" parent="." unique_id=1446932310 groups=["load_2"]]
+position = Vector2(-739, -107)
 script = ExtResource("8_hd6k8")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sark2" unique_id=185476515]
 position = Vector2(2184, 1302)

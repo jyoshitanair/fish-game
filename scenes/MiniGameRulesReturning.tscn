@@ -6,7 +6,7 @@
 
 [node name="text" parent="." unique_id=1734454769 groups=["minigame_rules_returning"] instance=ExtResource("1_i25fl")]
 position = Vector2(575, 547)
-dialog_array = ["rules rules rules", "more rules rules rules", "even more rules rules rules", "hey now ur ready!"]
+dialog_array = ["You've beaten the mini game", "You will now return back to the main game"]
 fish_name = "You've won the mini game!"
 
 [node name="Panel" parent="text" index="0" unique_id=633472790]

@@ -77,7 +77,7 @@ func _return() ->void:
 		return
 	if is_in_group("minigame"):
 		if Manager.npc5_is_current:
-			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")
+			get_tree().change_scene_to_file("res://scenes/map_game.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	
 		return
