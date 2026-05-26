@@ -2,15 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://c2fet0nr1embr" path="res://assets/fonts/evil.ttf" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="2_oa1go"]
+[ext_resource type="VideoStream" uid="uid://401bpbbioprn" path="res://assets/videso/fish-video.ogv" id="2_rtw2f"]
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://dsvo5dpscf5wl" path="res://scripts/buttonbiggernow.gd" id="4_oa1go"]
-
-[sub_resource type="Gradient" id="Gradient_tbmy8"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jk1qb"]
-gradient = SubResource("Gradient_tbmy8")
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_5dd4i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
 
@@ -48,11 +43,29 @@ anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 646.0
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=398242454]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1694175475]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 649.0
-texture = SubResource("GradientTexture1D_jk1qb")
+offset_right = 931.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=807834632]
+layout_mode = 0
+offset_left = 704.0
+offset_top = -37.0
+offset_right = 1237.0
+offset_bottom = 694.0
+stream = ExtResource("2_rtw2f")
+volume_db = -80.0
+speed_scale = 0.377
+autoplay = true
+expand = true
+buffering_msec = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=390486771]
+position = Vector2(898.5, 318)
+scale = Vector2(0.16766664, 0.3379383)
+texture = ExtResource("2_oa1go")
 
 [node name="Label" type="Label" parent="Control" unique_id=642295848]
 layout_mode = 0
@@ -63,14 +76,6 @@ offset_bottom = 393.0
 theme_override_fonts/font = ExtResource("1_wu84c")
 theme_override_font_sizes/font_size = 250
 text = "FISH"
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1329716654]
-layout_mode = 0
-offset_left = 553.0
-offset_top = 3.0
-offset_right = 1151.0
-offset_bottom = 648.0
-stream = SubResource("VideoStreamTheora_5dd4i")
 
 [node name="Label2" type="Label" parent="Control" unique_id=2105937284]
 layout_mode = 0
