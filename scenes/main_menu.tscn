@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://b0uewp2qyfrci"]
+
+[ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://c2fet0nr1embr" path="res://assets/fonts/evil.ttf" id="2_8ln24"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="3_rtw2f"]
+[ext_resource type="Script" uid="uid://dsvo5dpscf5wl" path="res://scripts/buttonbiggernow.gd" id="4_oa1go"]
+
+[sub_resource type="Gradient" id="Gradient_tbmy8"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jk1qb"]
+gradient = SubResource("Gradient_tbmy8")
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_5dd4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbmy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flqon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcqid"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ajci"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7b55j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pajh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7ex8"]
+
+[node name="MainMenu" type="Node2D" unique_id=564973696]
+
+[node name="Control" type="Control" parent="." unique_id=1039535116]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=398242454]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+texture = SubResource("GradientTexture1D_jk1qb")
+
+[node name="Label" type="Label" parent="Control" unique_id=642295848]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 88.0
+offset_right = 756.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("1_wu84c")
+theme_override_font_sizes/font_size = 250
+text = "FISH"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1329716654]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 3.0
+offset_right = 1151.0
+offset_bottom = 648.0
+stream = SubResource("VideoStreamTheora_5dd4i")
+
+[node name="Label2" type="Label" parent="Control" unique_id=2105937284]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 310.0
+offset_right = 650.0
+offset_bottom = 359.0
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 35
+text = "Something's Fishy. . ."
+
+[node name="Button2" type="Button" parent="Control" unique_id=1696161761]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 393.0
+offset_right = 276.0
+offset_bottom = 454.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lgwnu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wu84c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tbmy8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jk1qb")
+text = "PLAY"
+alignment = 0
+script = ExtResource("4_oa1go")
+
+[node name="Button" type="Button" parent="Control" unique_id=775611587]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 477.0
+offset_right = 272.0
+offset_bottom = 538.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flqon")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8ln24")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rcqid")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ajci")
+text = "SETTINGS"
+alignment = 0
+script = ExtResource("4_oa1go")
+
+[node name="Button3" type="Button" parent="Control" unique_id=1743834115]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 554.0
+offset_right = 276.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_rtw2f")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lgwnu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7b55j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5pajh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j7ex8")
+text = "Quit"
+alignment = 0
+script = ExtResource("4_oa1go")
+
+[connection signal="mouse_entered" from="Control/Button2" to="Control/Button2" method="_1on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button2" to="Control/Button2" method="_1on_mouse_exited"]
+[connection signal="pressed" from="Control/Button2" to="Control/Button2" method="_1on_pressed"]
+[connection signal="mouse_entered" from="Control/Button" to="Control/Button2" method="_2on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="Control/Button2" method="_2on_button_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Button3" to="Control/Button2" method="_3on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button3" to="Control/Button2" method="_3on_button_3_mouse_exited"]

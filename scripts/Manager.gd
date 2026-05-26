@@ -15,7 +15,8 @@ var npc1_is_current = true
 var npc2_is_current = false
 var npc3_is_current = false
 var npc4_is_current = false
-var npc5_is_current
+var npc5_is_current = false
+var npc6_is_current = false
 var fish_position = Vector2(903,399)
 var text = "Goal: Talk to the Other Fish"
 var music

@@ -21,9 +21,9 @@ var just_pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Manager.npc5_is_current:
+	if Manager.npc6_is_current:
 		dialog_array = [
-			"Oh! You actually made it back! I thought the sharks wouldduve gotten you for sure",
+			"Oh! You actually made it back! I thought the sharks wouldda gotten you for sure",
 			"Perhaps...you won't die out there. But just PERHAPS",
 			"Alright then. Here's a map for you. I hope you don't die ...or whatever. Not like I care.",
 			"Good luck I guess."
@@ -76,7 +76,7 @@ func _return() ->void:
 		get_tree().change_scene_to_file("res://scenes/main.tscn")	
 		return
 	if is_in_group("minigame"):
-		if Manager.npc5_is_current:
+		if Manager.npc6_is_current:
 			get_tree().change_scene_to_file("res://scenes/map_game.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	

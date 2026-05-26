@@ -25,3 +25,6 @@ AI USAGE:
    - ChatGPT for debugging
    - All code and logic written in concept authentically by me
    - All art done by me (Well not YET - rn credits to Kenny from itch io!)
+
+video credit:
+	Boyan Minchev on pexels.com
