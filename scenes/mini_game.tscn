@@ -178,7 +178,7 @@ radius = 2872.91
 [sub_resource type="CircleShape2D" id="CircleShape2D_svrvl"]
 radius = 176.78235
 
-[node name="mini_game" type="Node2D" unique_id=440806270]
+[node name="mini_game" type="Node2D" unique_id=440806270 groups=["minigamer"]]
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
 

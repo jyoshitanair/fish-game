@@ -27,7 +27,7 @@ func dialog_enter(player) -> void:
 		Manager.text = "Goal: Find Bobu's Wife"
 	if num ==5:
 		Manager.text = "Goal: Return Bobu's Wife"
-	if num == 6:
+	if num == 7:
 		num =1
 	group_name = rest + str(num)
 	if group_name == "npc3" and Manager.first_crab:

@@ -28,3 +28,4 @@ AI USAGE:
 
 video credit:
 	Boyan Minchev on pexels.com
+music: underwater symphony_1 by bernivoyage https://pixabay.com/music/pop-underwater-symphony-1-291195/

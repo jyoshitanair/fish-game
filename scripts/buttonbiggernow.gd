@@ -9,7 +9,6 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 func _on_button_3_pressed() -> void:
 	get_tree().quit()
-
 ##1
 func _1on_mouse_entered() -> void:
 	button1.add_theme_font_size_override("font_size",43)

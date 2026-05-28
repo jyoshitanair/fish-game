@@ -3,7 +3,8 @@ extends Button
 @onready var button3: Button = $"../Button4"
 @onready var button1: Button = $"."
 @onready var button3alt: Button = $"."
-
+@onready var buttonsubmit: Button = $"../Button"
+@onready var line_edit: LineEdit = $"../LineEdit"
 ##1
 func _1on_mouse_entered() -> void:
 	button1.add_theme_font_size_override("font_size",63)
@@ -44,3 +45,18 @@ func _on_button_3_pressed() -> void:
 #actual settings
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/actual-settings.tscn")
+func _on_buttonsub_pressed() -> void:
+	Manager.urname = line_edit.text
+
+func _on_v_slider_value_changed(value: float) -> void:
+	Manager.volume = value
+
+func _on_option_button_item_selected(index: int) -> void:
+	if index == 0: 
+		Manager.music.stream = load("res://assets/music/normal.ogg")
+	if index == 1:
+		Manager.music.stream = load("res://assets/music/Cats.mp3")
+	if index == 2:
+		Manager.music.stream = load("res://assets/music/Saja Boys - Soda Pop (Lyrics) _ K-Pop Demon Hunters Soundtrack.mp3")
+	if index ==3: 
+		Manager.music.stream = load("res://assets/music/나지막이 (리노) Limbo (Lee Know).mp3")

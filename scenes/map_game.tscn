@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_gbp1a"]
 
-[node name="MapGame" type="Node2D" unique_id=248558265]
+[node name="MapGame" type="Node2D" unique_id=248558265 groups=["theend"]]
 
-[node name="text" parent="." unique_id=1734454769 groups=["minigame_rules_returning"] instance=ExtResource("1_gbp1a")]
+[node name="text" parent="." unique_id=1734454769 groups=["theend"] instance=ExtResource("1_gbp1a")]
 position = Vector2(575, 547)
 dialog_array = ["You aquire the map and make the journey to the mainland.", "You meet tons of new friends and encounter many dangers, but it was all worth it for this moment.", "Or was it? ", "When you go back to your sad tank, and sad human, you miss the exciting life you had back then.", "You decided to go back to the ocean after all with Dash, Finnegan, Bobu and your other friends. ", "The End."]
 fish_name = "Afterwards..."
