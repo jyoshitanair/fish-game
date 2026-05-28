@@ -3,7 +3,7 @@ var alr_won = false
 @onready var mini_game: Node2D = $".."
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if!alr_won:
+	if !alr_won:
 		if (
 			#case 1 shark+ shark
 			(Manager._2_on_pos_shark and Manager._1_on_pos_shark) or
@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 			
 		):
 			get_tree().change_scene_to_file("res://scenes/MiniGameRulesReturning.tscn")
-		alr_won = true
+			alr_won = true
 #sark1
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

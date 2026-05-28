@@ -63,8 +63,13 @@ expand = true
 buffering_msec = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=390486771]
-position = Vector2(898.5, 318)
-scale = Vector2(0.16766664, 0.3379383)
+position = Vector2(861.00006, 318)
+scale = Vector2(0.1708333, 0.3379383)
+texture = ExtResource("2_oa1go")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=39809277]
+position = Vector2(712, 319)
+scale = Vector2(0.07508332, 0.3379383)
 texture = ExtResource("2_oa1go")
 
 [node name="Label" type="Label" parent="Control" unique_id=642295848]
