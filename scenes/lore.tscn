@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://12bfa0k8imas"]
+
+[ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_qel7j"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="2_oo4qk"]
+[ext_resource type="Script" uid="uid://dteygotpp4apb" path="res://scripts/settings.gd" id="3_fiw8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7dn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xhytr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldtwi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeid1"]
+
+[node name="Lore" type="Node2D" unique_id=567216225]
+
+[node name="Control" type="Control" parent="." unique_id=536173295]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=949709733]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1161.0
+offset_bottom = 662.0
+color = Color(0.79126674, 0.87810856, 0.9117764, 1)
+
+[node name="Label" type="Label" parent="Control" unique_id=450920895]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.84487367, 0.3747194, 0.20196098, 1)
+theme_override_fonts/font = ExtResource("1_qel7j")
+theme_override_font_sizes/font_size = 120
+text = "Lore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Control" unique_id=1261938650]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 536.0
+offset_right = 279.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0.23152643, 0.22778785, 0.52375, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_oo4qk")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5iqog")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g7dn5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xhytr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ldtwi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qeid1")
+text = "RETURN"
+alignment = 0
+script = ExtResource("3_fiw8w")

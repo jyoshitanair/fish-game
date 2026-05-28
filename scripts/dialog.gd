@@ -21,7 +21,7 @@ var just_pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Manager.npc6_is_current:
+	if Manager.npc5_is_current:
 		dialog_array = [
 			"Oh! You actually made it back! I thought the sharks wouldda gotten you for sure",
 			"Perhaps...you won't die out there. But just PERHAPS",

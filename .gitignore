@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+*.ogv
+assets/videso/fish-video.ogv

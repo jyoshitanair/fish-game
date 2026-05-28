@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d3y8pwrj7wh5k"]
+
+[ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_ojysl"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="2_bu30r"]
+[ext_resource type="Script" uid="uid://dteygotpp4apb" path="res://scripts/settings.gd" id="3_3afqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5rjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8wn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a0md"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eoavs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6vvn"]
+
+[node name="ActualSettings" type="Node2D" unique_id=1116869980]
+
+[node name="Control" type="Control" parent="." unique_id=397872532]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=750509469]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1161.0
+offset_bottom = 662.0
+color = Color(0.79126674, 0.87810856, 0.9117764, 1)
+
+[node name="Label" type="Label" parent="Control" unique_id=651759058]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.84487367, 0.3747194, 0.20196098, 1)
+theme_override_fonts/font = ExtResource("1_ojysl")
+theme_override_font_sizes/font_size = 108
+text = "Actual settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Control" unique_id=1795839602]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 536.0
+offset_right = 279.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0.23152643, 0.22778785, 0.52375, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_bu30r")
+theme_override_font_sizes/font_size = 59
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j5rjj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t8wn2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0a0md")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eoavs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l6vvn")
+text = "RETURN"
+alignment = 0
+script = ExtResource("3_3afqc")
+
+[node name="LineEdit" type="LineEdit" parent="Control" unique_id=677653014]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 222.0
+offset_right = 1090.0
+offset_bottom = 271.0
+placeholder_text = "Name? "
+
+[node name="Label2" type="Label" parent="Control" unique_id=2087336009]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 170.0
+offset_right = 430.0
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_bu30r")
+theme_override_font_sizes/font_size = 30
+text = "What should we call you?"
