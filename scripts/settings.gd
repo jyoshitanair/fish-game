@@ -1,7 +1,8 @@
 extends Button
+@onready var button2: Button = $"../Button2"
+@onready var button3: Button = $"../Button4"
 @onready var button1: Button = $"."
-@onready var button2: Button = $"../Button3"
-@onready var button3: Button = $"../Button2"
+@onready var button3alt: Button = $"."
 
 ##1
 func _1on_mouse_entered() -> void:
@@ -17,13 +18,22 @@ func _2on_button_mouse_entered() -> void:
 func _2on_button_mouse_exited() -> void:
 	button2.add_theme_font_size_override("font_size",59)
 	button2.add_theme_constant_override("outline_size", 0)
-##3
+##3 aka return
 func _3on_button_3_mouse_entered() -> void:
-	button3.add_theme_font_size_override("font_size",63)
-	button3.add_theme_constant_override("outline_size", 9)
+	if button3:
+		button3.add_theme_font_size_override("font_size",63)
+		button3.add_theme_constant_override("outline_size", 9)
+	else:
+		button3alt.add_theme_font_size_override("font_size",63)
+		button3alt.add_theme_constant_override("outline_size", 9)
+		
 func _3on_button_3_mouse_exited() -> void:
-	button3.add_theme_font_size_override("font_size",59)
-	button3.add_theme_constant_override("outline_size", 0)
+	if button3:
+		button3.add_theme_font_size_override("font_size",59)
+		button3.add_theme_constant_override("outline_size", 0)
+	else:
+		button3alt.add_theme_font_size_override("font_size",59)
+		button3alt.add_theme_constant_override("outline_size", 0)
 
 #lore
 func _on_pressed() -> void:

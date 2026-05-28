@@ -60,3 +60,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qeid1")
 text = "RETURN"
 alignment = 0
 script = ExtResource("3_fiw8w")
+
+[connection signal="mouse_entered" from="Control/Button3" to="Control/Button3" method="_3on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button3" to="Control/Button3" method="_3on_button_3_mouse_exited"]
+[connection signal="pressed" from="Control/Button3" to="Control/Button3" method="_on_pressed"]
