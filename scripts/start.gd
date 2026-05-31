@@ -4,7 +4,7 @@ var dialog
 var change_to_go_left = false
 var in_shark_zone = false
 @onready var text: Label = $HUD/popup/text
-@onready var area_2d: Area2D = $Area2D
+@onready var area_2d: Area2D = $border
 @onready var sharkzone: Panel = $HUD/sharkzone
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

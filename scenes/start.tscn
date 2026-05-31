@@ -33,12 +33,12 @@ corner_radius_bottom_left = 20
 size = Vector2(25475.498, 20388.988)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pgjjs"]
-normal = Vector2(-0.9999839, 0.0056736674)
-distance = -35729.035
+normal = Vector2(-0.9999858, 0.0053175846)
+distance = -35739.492
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1nvso"]
 normal = Vector2(0.9999662, 0.008223608)
-distance = 13579.98
+distance = 15556.549
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gsp51"]
 distance = -2263.0
@@ -147,6 +147,7 @@ shape = SubResource("RectangleShape2D_r8uic")
 [node name="detectopetronious" type="Area2D" parent="." unique_id=654256613]
 
 [node name="world boundary" type="StaticBody2D" parent="detectopetronious" unique_id=2146591466]
+position = Vector2(55, 0)
 disable_mode = 1
 collision_layer = 32
 collision_mask = 16
@@ -174,7 +175,7 @@ shape = SubResource("WorldBoundaryShape2D_pgjjs")
 debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious" unique_id=716760479]
-position = Vector2(1150, 0)
+position = Vector2(1153, 0)
 shape = SubResource("WorldBoundaryShape2D_1nvso")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious" unique_id=417023559]

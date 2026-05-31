@@ -5,6 +5,7 @@ signal clicked
 const SPEED = 300.0
 const CHARGE_SPEED = 800.0
 ##VARS
+var bubblegun = preload("res://scenes/bubblegun.tscn")
 var new_spot = Vector2(0.0,0.0)
 var direction = Vector2(-1.0,0.0)
 var alive = true
@@ -22,6 +23,7 @@ var change_timer = false
 var attack = false
 var can_move = true
 var hitzone_valid = false
+var bullet
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
@@ -29,7 +31,7 @@ var hitzone_valid = false
 @onready var hitonetimer: Timer = $hitonetimer
 
 func _ready() -> void: 
-	global_position = Manager.fish_position
+	#global_position = Manager.fish_position
 	var hitzone = get_node("hitzone")
 	hitzone.add_to_group("player")
 	print(hitzone.get_groups())
@@ -39,7 +41,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if health == 0.0:
+	if health <= 0.0:
 		alive = false
 		get_tree().quit()
 	velocity.x = direction.x * delta * speed #fps
@@ -85,9 +87,13 @@ func _physics_process(delta: float) -> void:
 				speed = SPEED
 				boost_timer.start()
 	if Input.is_action_pressed("charge") and can_charge:
-		can_move = false
+		bullet = bubblegun.instantiate()
+		var timer = bullet.get_node_or_null("Timer")
+		if bullet.is_inside_tree():
+			timer.start()
+		bullet.global_position = global_position
 		if can_tween == true:
-			tweeny(Vector2(0.5,0.5))
+			tweeny(Vector2(0.5,0.5),bullet.get_node_or_null("Sprite2D"))
 			can_tween = false
 		if boostbar >= 3.0: 
 			print("full")
@@ -101,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		attack_timer.start()
 		if tween != null: 
 			tween.kill()
-		tweeny(Vector2(0.25,0.25))
+		tweeny(Vector2(0.25,0.25),bullet.get_node_or_null("Sprite2D"))
 	####ATTACKING
 	if attack: 
 		if direction == Vector2(0.0,0.0):
@@ -123,31 +129,36 @@ func _physics_process(delta: float) -> void:
 func _on_boost_timer_timeout() -> void:
 	change_timer= false
 	can_boost = true
-func tweeny(vector) -> void: 
+func tweeny(vector,bulletsprite) -> void: 
 	var speed 
 	tween = create_tween()
 	if vector == Vector2(0.5,0.5):
 		speed = 3.0
 	else: 
 		speed= 0.04
-	tween.tween_property(animated_sprite_2d, "scale", vector, speed)
+	tween.tween_property(bulletsprite, "scale", vector, speed)
 
 func _on_attack_timer_timeout() -> void:
 	can_charge = true 
 
-func _on_hitonetimer_timeout() -> void:
-	pass
-	#hitzone_valid = false 
-
-func _on_detection_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-func _on_hitzone_area_entered(area: Area2D) -> void:
-	print("area hit")
-	print(area.name)
-	print(area.get_groups())
-	print(hitzone_valid)
-	if area.is_in_group("shark") and hitzone_valid:
-		print("area hit")
-		area.get_parent().health -= 5
 func _init():
 	print(is_inside_tree())
+
+func _on_diemf_body_entered(body: Node2D) -> void:
+	if body.is_in_group("shark"):
+		print("HEHE")
+		randomize()
+		if health - randi_range(1,10) <= 0:
+			health = 0 
+		else:
+			health -= randi_range(1,10)
+
+
+func _on_hitzone_body_entered(body: Node2D) -> void:
+	print("body hit")
+	print(body.name)
+	print(body.get_groups())
+	print(hitzone_valid)
+	if body.is_in_group("shark") and hitzone_valid:
+		print("area hit")
+		body.get_parent().health -= 5
