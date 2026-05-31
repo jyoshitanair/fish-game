@@ -5,6 +5,9 @@ signal clicked
 const SPEED = 300.0
 const CHARGE_SPEED = 800.0
 ##VARS
+var bullet_moving = false
+var charging = false
+var got_any_bullets = false
 var bubblegun = preload("res://scenes/bubblegun.tscn")
 var new_spot = Vector2(0.0,0.0)
 var direction = Vector2(-1.0,0.0)
@@ -86,20 +89,25 @@ func _physics_process(delta: float) -> void:
 				can_boost= false
 				speed = SPEED
 				boost_timer.start()
-	if Input.is_action_pressed("charge") and can_charge:
-		bullet = bubblegun.instantiate()
-		var timer = bullet.get_node_or_null("Timer")
-		if bullet.is_inside_tree():
-			timer.start()
-		bullet.global_position = global_position
-		if can_tween == true:
-			tweeny(Vector2(0.5,0.5),bullet.get_node_or_null("Sprite2D"))
-			can_tween = false
-		if boostbar >= 3.0: 
-			print("full")
-		else: 
+	if Input.is_action_pressed("charge") and can_charge and !bullet_moving:
+		if bullet == null:
+			bullet = bubblegun.instantiate()
+			add_child(bullet)
+			got_any_bullets = true
+			charging = true
+			var timer = bullet.get_node_or_null("Timer")
+			if bullet.is_inside_tree():
+				timer.start()
+			bullet.global_position = global_position
+		if bullet and charging:
+			if can_tween == true:
+				tweeny(Vector2(0.5,0.5),bullet.get_node_or_null("Sprite2D"))
+				can_tween = false
+		if boostbar <= 3.0: 
 			boostbar += delta
-	if Input.is_action_just_released("charge"):
+	if Input.is_action_just_released("charge") and boostbar != 0.0:
+		bullet_moving = true
+		charging = false
 		can_charge = false
 		attack = true
 		can_tween = true
@@ -107,8 +115,9 @@ func _physics_process(delta: float) -> void:
 		attack_timer.start()
 		if tween != null: 
 			tween.kill()
-		tweeny(Vector2(0.25,0.25),bullet.get_node_or_null("Sprite2D"))
-	####ATTACKING
+		#if bullet and bullet.get_node_or_null("Sprite2D"):
+			#tweeny(Vector2(0.25,0.25),bullet.get_node_or_null("Sprite2D"))
+	####ATTACKINGeee
 	if attack: 
 		if direction == Vector2(0.0,0.0):
 			direction = Vector2(-1.0,0.0)
@@ -121,11 +130,19 @@ func _physics_process(delta: float) -> void:
 			speed = SPEED
 			velocity = Vector2(0.0,0.0)
 		else:
-			speed = lerp(speed,500.0*boostbar,delta*(3*boostbar))
-			speed = clamp(speed,650.0,1000.0)
-			new_spot = direction * speed
-			position += velocity
-			boostbar -= delta
+			boostbar = clamp(boostbar, 0.5,3.0)
+			var target_speed = clamp(500.0*boostbar,650.0,1000.0)
+			speed = lerp(speed, target_speed,delta*3.0)
+			if bullet:
+				bullet.global_position += direction *speed *delta
+	##bullet gone womp womp
+	if bullet == null and attack and not can_charge: 
+		attack = false
+		can_charge = true
+		can_move = true
+		speed = SPEED
+		boostbar = 0.0
+		
 func _on_boost_timer_timeout() -> void:
 	change_timer= false
 	can_boost = true

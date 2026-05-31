@@ -7,6 +7,10 @@ script/source = "extends Node2D
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	get_parent().got_any_bullets = false
+	get_parent().bullet_moving = false
+	get_parent().boostbar = 0.0
+	print(get_parent().got_any_bullets)
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggsdv"]
@@ -21,7 +25,7 @@ scale = Vector2(0.038085938, 0.04492187)
 texture = ExtResource("1_ggsdv")
 
 [node name="Timer" type="Timer" parent="." unique_id=861677611]
-wait_time = 5.0
+wait_time = 4.0
 
 [node name="gun" type="Area2D" parent="." unique_id=164940023 groups=["gun"]]
 collision_layer = 32

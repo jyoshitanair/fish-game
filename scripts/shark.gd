@@ -23,13 +23,15 @@ var in_loop_timer = 0
 var can_move = true
 var new_target_pos
 var shell_mode = false
+var health = 100.0
 #defaults
 var moving_timer = 0
 var switcher = false
 @onready var timer: Timer = $idle_wait_timer
+@onready var chase_zone: Area2D = $flipper/chase_zone
 @onready var raycast: RayCast2D = $RayCast2D
-@onready var chase_zone: Area2D = $chase_zone
-@onready var health: Label = $Panel/Label
+@onready var label: Label = $Panel/Label
+@onready var flippernode: Node = $flipper
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -116,7 +118,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				old_flip = flipper.x > 5.0            	
 			if flip != old_flip: 
-				self.scale.x *= -1
+				flippernode.scale.x *= -1
 			flip = old_flip
 
 func _on_timer_timeout() -> void:
@@ -138,4 +140,5 @@ func _on_detect_body_exited(body: Node2D) -> void:
 
 func _on_hitzone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gun"):
-		print("shot")
+		health -= randi_range(5,20)
+		label.text = str(health)
