@@ -12,6 +12,8 @@ var _2_on_pos_player = false
 var _2_on_pos_shell = false
 var _2_on_pos_shark = false
 #vars
+var returning_from_mini_game = false
+var shark_mode = true
 var previstream
 var urname = "honored one"
 var first_crab = false

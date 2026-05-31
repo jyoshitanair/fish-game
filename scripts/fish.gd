@@ -39,7 +39,7 @@ var one_shark_chase = false
 @onready var toflipnode: Node2D = $toflipnode
 
 func _ready() -> void: 
-	#global_position = Manager.fish_position
+	global_position = Manager.fish_position
 	var hitzone = toflipnode.get_node("hitzone")
 	hitzone.add_to_group("player")
 	print(hitzone.get_groups())

@@ -42,6 +42,8 @@ func _ready() -> void:
 	timer.wait_time = randf_range(0.3,0.5)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if health <=0:
+		queue_free()
 	if can_move:
 		if target_pos:
 			in_loop_timer += 1 
@@ -131,7 +133,8 @@ func _on_detectopetronious_body_exited(body: Node2D) -> void:
 		direction = -direction
 func _on_hitzone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gun"):
-		health -= randi_range(5,20)
+		#health -= randi_range(5,20)
+		health -= 100
 		label.text = str(health)
 		area.queue_free()
 func _on_chase_zone_body_entered(body: Node2D) -> void:

@@ -8,6 +8,14 @@ var in_shark_zone = false
 @onready var sharkzone: Panel = $HUD/sharkzone
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Manager.returning_from_mini_game: 
+		var sharks = get_tree().get_nodes_in_group("shark")
+		for shark in sharks:
+			shark.queue_free()
+		var wifey = get_tree().get_first_node_in_group("npc4")
+		wifey.queue_free()
+		var trail = self.get_node("trail")
+		trail.target = self.get_node("npc3")
 	if in_shark_zone: 
 		sharkzone.visible = true
 	var player = get_tree().get_first_node_in_group("player")

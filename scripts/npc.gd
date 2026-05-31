@@ -24,7 +24,8 @@ func dialog_enter(player) -> void:
 	if num == 3:
 		Manager.text = "Goal: Find the grumpy crab"
 	if num == 4:
-		Manager.text = "Goal: Find Bobu's Wife"
+		if Manager.shark_mode:
+			Manager.text = "Goal: Kill the Sharks to Find Bobu's Wife."
 	if num ==5:
 		Manager.text = "Goal: Return Bobu's Wife"
 	if num == 7:
@@ -51,9 +52,21 @@ func _get_groups() -> void:
 		group_name = "npc5"
 	cur_name = group_name + "_is_current"
 	if Manager.get(cur_name) == true:
-		print(cur_name)
+		if cur_name == "npc4_is_current":
+			if Manager.shark_mode:
+				#disable her for now
+				visible = false
+				alert_area.monitoring = false
+				call_area.monitoring = false
+				return
 		alert_area.monitoring = true
 		call_area.monitoring = true
 	else:
 		alert_area.monitoring = false
 		call_area.monitoring = false
+func reveal_npc4() ->void:
+	visible = true 
+	alert_area.monitoring = true
+	call_area.monitoring = true
+	var label = get_tree().current_scene.get_node("start").get_node("HUD").get_node("popup").get_node("text")
+	label.text = "Goal: Find Bobu's Wife"

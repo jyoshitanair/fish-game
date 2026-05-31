@@ -119,6 +119,7 @@ animations = [{
 }]
 
 [node name="fish" type="CharacterBody2D" unique_id=1129562997 groups=["player"]]
+z_index = 20
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_8g0i4")
@@ -141,7 +142,7 @@ one_shot = true
 
 [node name="toflipnode" type="Node2D" parent="." unique_id=1451807438]
 
-[node name="diemf" type="Area2D" parent="toflipnode" unique_id=1502181930 groups=["player"]]
+[node name="diemf" type="Area2D" parent="toflipnode" unique_id=1502181930]
 collision_layer = 32
 collision_mask = 16
 

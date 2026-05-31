@@ -75,6 +75,7 @@ func _return() ->void:
 		return
 	if is_in_group("minigame_rules_returning"):
 		get_tree().change_scene_to_file("res://scenes/main.tscn")	
+		Manager.returning_from_mini_game = true
 		return
 	if is_in_group("minigame"):
 		if Manager.npc6_is_current:
