@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://cwa4iywlr4box"]
+
+[ext_resource type="VideoStream" uid="uid://401bpbbioprn" path="res://assets/videso/fish-video.ogv" id="1_r1fnm"]
+[ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="2_wen6a"]
+[ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="3_cml1b"]
+[ext_resource type="FontFile" uid="uid://c2fet0nr1embr" path="res://assets/fonts/evil.ttf" id="4_1xtef"]
+[ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="5_xmhi0"]
+[ext_resource type="Script" uid="uid://dsvo5dpscf5wl" path="res://scripts/buttonbiggernow.gd" id="6_xw83q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0akjr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_capb0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcmcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jl8xs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qn06s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrtv1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30wyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcd8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3fa8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbku2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwa2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4i0p2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_404jg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7q5rd"]
+
+[node name="Pause" type="Node2D" unique_id=236439628]
+
+[node name="Control" type="Control" parent="." unique_id=1525393834]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=820918105]
+layout_mode = 0
+offset_right = 931.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=968279498]
+layout_mode = 0
+offset_left = 704.0
+offset_top = -37.0
+offset_right = 1237.0
+offset_bottom = 694.0
+stream = ExtResource("1_r1fnm")
+volume_db = -80.0
+speed_scale = 0.377
+autoplay = true
+expand = true
+buffering_msec = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=800032018]
+position = Vector2(861.00006, 318)
+scale = Vector2(0.1708333, 0.3379383)
+texture = ExtResource("2_wen6a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1789366523]
+position = Vector2(712, 319)
+scale = Vector2(0.07508332, 0.3379383)
+texture = ExtResource("2_wen6a")
+
+[node name="Label" type="Label" parent="Control" unique_id=1263852224]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 88.0
+offset_right = 756.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("3_cml1b")
+theme_override_font_sizes/font_size = 250
+text = "FISH"
+
+[node name="Label2" type="Label" parent="Control" unique_id=533191391]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 310.0
+offset_right = 650.0
+offset_bottom = 359.0
+theme_override_fonts/font = ExtResource("4_1xtef")
+theme_override_font_sizes/font_size = 35
+text = "Something's Fishy. . ."
+
+[node name="Button2" type="Button" parent="Control" unique_id=1991315662]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 393.0
+offset_right = 276.0
+offset_bottom = 454.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_xmhi0")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0akjr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_capb0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gcmcy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jl8xs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qn06s")
+text = "CONTINUE"
+alignment = 0
+script = ExtResource("6_xw83q")
+
+[node name="Button" type="Button" parent="Control" unique_id=993867472]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 477.0
+offset_right = 272.0
+offset_bottom = 538.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_xmhi0")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vrtv1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_30wyh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gcd8f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t3fa8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nbku2")
+text = "SETTINGS"
+alignment = 0
+script = ExtResource("6_xw83q")
+
+[node name="Button3" type="Button" parent="Control" unique_id=547357697]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 554.0
+offset_right = 276.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_xmhi0")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0akjr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hwa2k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4i0p2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_404jg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7q5rd")
+text = "RAGE QUIT"
+alignment = 0
+script = ExtResource("6_xw83q")
+
+[connection signal="mouse_entered" from="Control/Button2" to="Control/Button2" method="_1on_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button2" to="Control/Button2" method="_1on_mouse_exited"]
+[connection signal="pressed" from="Control/Button2" to="Control/Button2" method="_1on_pressed"]
+[connection signal="mouse_entered" from="Control/Button" to="Control/Button2" method="_2on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button" to="Control/Button2" method="_2on_button_mouse_exited"]
+[connection signal="pressed" from="Control/Button" to="Control/Button2" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control/Button3" to="Control/Button2" method="_3on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button3" to="Control/Button2" method="_3on_button_3_mouse_exited"]
+[connection signal="pressed" from="Control/Button3" to="Control/Button2" method="_on_button_3_pressed"]

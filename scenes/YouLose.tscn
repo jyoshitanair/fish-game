@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dmox2dilvqenl"]
+
+[ext_resource type="Texture2D" uid="uid://cny77lcogar4c" path="res://assets/images/Illustration56.png" id="1_17mx2"]
+
+[node name="YouLose" type="Node2D" unique_id=1601075850]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1785833006]
+position = Vector2(550.5, 338.5)
+scale = Vector2(1.0286459, 1.0416666)
+texture = ExtResource("1_17mx2")

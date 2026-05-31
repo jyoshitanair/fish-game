@@ -3,6 +3,10 @@ var target_array = ["npc1",'npc2','npc3','npc4','npc5']
 var target
 var player
 func _ready() -> void:
+	if Manager.toggled:
+		visible = true
+	else:
+		visible = false
 	print("spawn")
 	width = 6
 	for i in target_array:

@@ -28,6 +28,9 @@ func _ready() -> void:
 		player.can_move = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		Manager.paused = true
+		get_tree().change_scene_to_file("res://scenes/pause.tscn")
 	if in_shark_zone: 
 		sharkzone.visible = true
 func setting_up_dialog() -> void: 

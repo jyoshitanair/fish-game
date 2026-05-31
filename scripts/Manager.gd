@@ -3,6 +3,7 @@ extends Node
 #signals 
 signal change_pos
 #sark 
+var toggled = true 
 var doneonce = true
 var volume = 0
 var _1_on_pos_player = false
@@ -12,6 +13,8 @@ var _2_on_pos_player = false
 var _2_on_pos_shell = false
 var _2_on_pos_shark = false
 #vars
+var first_dialog = true
+var paused = false
 var returning_from_mini_game = false
 var shark_mode = true
 var previstream

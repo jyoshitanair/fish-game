@@ -4,11 +4,12 @@ extends Button
 @onready var button3: Button = $"../Button3"
 #ah i also handle buttons clicks here. ig that filie name was pretty dumb oops
 func _1on_pressed() -> void:
+	Manager.paused = false
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 func _on_button_3_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/YouLose.tscn")
 ##1
 func _1on_mouse_entered() -> void:
 	button1.add_theme_font_size_override("font_size",43)

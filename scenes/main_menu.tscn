@@ -146,7 +146,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_7b55j")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_rtw2f")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_5pajh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_j7ex8")
-text = "Quit"
+text = "RAGE QUIT"
 alignment = 0
 script = ExtResource("4_oa1go")
 

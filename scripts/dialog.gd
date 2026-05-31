@@ -13,6 +13,7 @@ var per_letter_time = 0.06
 var index = 0 
 var count = 0 
 var just_pressed = false
+var flag_change = false
 ##GOAT ON READY
 @onready var text: RichTextLabel = $Panel/Panel/text
 @onready var timer: Timer = $Timer
@@ -21,15 +22,15 @@ var just_pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Manager.npc6_is_current:
+	if Manager.npc6_is_current and Manager.first_dialog:
 		dialog_array = [
 			"Oh! You actually made it back! I thought the sharks wouldda gotten you for sure",
 			"Perhaps...you won't die out there. But just PERHAPS",
 			"Alright then. Here's a map for you. I hope you don't die ...or whatever. Not like I care.",
 			"Good luck I guess."
 		]
-		Manager.first_crab = false
-		get_tree().change_scene_to_file("res://scenes/map_game.tscn")
+		Manager.first_dialog = false
+		flag_change = true 
 	label.text = fish_name
 	just_pressed = true
 	text.text = ""
@@ -70,6 +71,9 @@ func load_next_text() -> void:
 func _on_timer_timeout() -> void:
 	just_pressed = false
 func _return() ->void: 
+	if flag_change: 
+		get_tree().change_scene_to_file("res://scenes/map_game.tscn")
+		return
 	if is_in_group("minigame_rules"):
 		get_tree().change_scene_to_file("res://scenes/mini_game.tscn")	
 		return
@@ -84,7 +88,6 @@ func _return() ->void:
 			get_tree().change_scene_to_file("res://scenes/mini_game_rules.tscn")	
 		return
 	if is_in_group("theend"):
-		print("returning")
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/you win.tscn")
 		return
 	get_tree().change_scene_to_file("res://scenes/main.tscn")

@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 			healthadder = 0.0
 	if health <= 0.0:
 		alive = false
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://scenes/YouLose.tscn")
 	velocity.x = direction.x * delta * speed #fps
 	velocity.y = direction.y * delta * speed #fps
 

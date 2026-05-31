@@ -38,7 +38,10 @@ func _3on_button_3_mouse_exited() -> void:
 
 #lore
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	if Manager.paused:
+		get_tree().change_scene_to_file("res://scenes/pause.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 #return
 func _on_button_3_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/lore.tscn")
@@ -60,3 +63,9 @@ func _on_option_button_item_selected(index: int) -> void:
 		Manager.music.stream = load("res://assets/music/Saja Boys - Soda Pop (Lyrics) _ K-Pop Demon Hunters Soundtrack.mp3")
 	if index ==3: 
 		Manager.music.stream = load("res://assets/music/나지막이 (리노) Limbo (Lee Know).mp3")
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		Manager.toggled = true
+	else:
+		Manager.toggled = false
