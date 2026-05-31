@@ -129,13 +129,13 @@ position = Vector2(33123, 5958)
 position = Vector2(35161, -1427)
 
 [node name="shark2" parent="." unique_id=971552262 instance=ExtResource("9_gophc")]
-position = Vector2(21063, 1019)
+position = Vector2(21031, 1019)
 
 [node name="shark7" parent="." unique_id=299542878 instance=ExtResource("9_gophc")]
 position = Vector2(24039, -7894)
 
 [node name="border" type="Area2D" parent="." unique_id=1460935794]
-position = Vector2(21221, -8127)
+position = Vector2(20541, -8059)
 collision_mask = 7
 metadata/_edit_group_ = true
 
@@ -189,6 +189,18 @@ shape = SubResource("WorldBoundaryShape2D_r8uic")
 [connection signal="body_entered" from="border" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="border" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="detectopetronious" to="shark6" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark3" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark4" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark5" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark2" method="_on_detectopetronious_body_entered"]
+[connection signal="body_entered" from="detectopetronious" to="shark7" method="_on_detectopetronious_body_entered"]
 [connection signal="body_exited" from="detectopetronious" to="shark6" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark3" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark4" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark5" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark2" method="_on_detectopetronious_body_exited"]
+[connection signal="body_exited" from="detectopetronious" to="shark7" method="_on_detectopetronious_body_exited"]
 
 [editable path="npc3"]

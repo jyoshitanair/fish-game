@@ -7,10 +7,8 @@ script/source = "extends Node2D
 
 func _on_timer_timeout() -> void:
 	queue_free()
-	get_parent().got_any_bullets = false
-	get_parent().bullet_moving = false
-	get_parent().boostbar = 0.0
-	print(get_parent().got_any_bullets)
+	get_parent().get_node(\"fish\").bullet_moving = false
+	get_parent().get_node(\"fish\").boostbar = 0.0
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggsdv"]

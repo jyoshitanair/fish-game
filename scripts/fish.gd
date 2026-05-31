@@ -7,7 +7,6 @@ const CHARGE_SPEED = 800.0
 ##VARS
 var bullet_moving = false
 var charging = false
-var got_any_bullets = false
 var bubblegun = preload("res://scenes/bubblegun.tscn")
 var new_spot = Vector2(0.0,0.0)
 var direction = Vector2(-1.0,0.0)
@@ -19,6 +18,7 @@ var health = 100.0
 var boostbar = 0.0
 var tween 
 #STATES
+var bullet_speed
 var can_tween = true 
 var can_boost = true
 var can_charge = true
@@ -27,15 +27,20 @@ var attack = false
 var can_move = true
 var hitzone_valid = false
 var bullet
+var sendoffdirection
+var healthadder = 0.0
+var can_heal = false
+var one_shark_chase = false
 ##MY GOATS ON READY ONTOP
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $toflipnode/AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
 @onready var attack_timer: Timer = $attack_timer
 @onready var hitonetimer: Timer = $hitonetimer
+@onready var toflipnode: Node2D = $toflipnode
 
 func _ready() -> void: 
 	#global_position = Manager.fish_position
-	var hitzone = get_node("hitzone")
+	var hitzone = toflipnode.get_node("hitzone")
 	hitzone.add_to_group("player")
 	print(hitzone.get_groups())
 	add_to_group("player")
@@ -44,6 +49,22 @@ func _ready() -> void:
 	await get_tree().process_frame
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	one_shark_chase = false
+	##heal
+	for shark in get_tree().get_nodes_in_group("shark"):
+		if shark.can_detect:
+			one_shark_chase = true
+			break
+	if one_shark_chase:
+		can_heal = false
+	else:
+		can_heal = true
+	print(can_heal)
+	if health < 100 and can_heal:
+		healthadder += 4.0*delta
+		if healthadder>= 1.0:
+			health += int(healthadder)
+			healthadder = 0.0
 	if health <= 0.0:
 		alive = false
 		get_tree().quit()
@@ -74,7 +95,7 @@ func _physics_process(delta: float) -> void:
 			direction = Vector2(0.0,-1.0)
 		position += velocity
 		if flip != old_flip: 
-			scale.x *= -1
+			toflipnode.scale.x *= -1
 		flip = old_flip
 	move_and_slide()
 	#Speed up 
@@ -92,8 +113,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("charge") and can_charge and !bullet_moving:
 		if bullet == null:
 			bullet = bubblegun.instantiate()
-			add_child(bullet)
-			got_any_bullets = true
+			get_tree().current_scene.add_child(bullet)
 			charging = true
 			var timer = bullet.get_node_or_null("Timer")
 			if bullet.is_inside_tree():
@@ -106,6 +126,7 @@ func _physics_process(delta: float) -> void:
 		if boostbar <= 3.0: 
 			boostbar += delta
 	if Input.is_action_just_released("charge") and boostbar != 0.0:
+		sendoffdirection = direction
 		bullet_moving = true
 		charging = false
 		can_charge = false
@@ -132,9 +153,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			boostbar = clamp(boostbar, 0.5,3.0)
 			var target_speed = clamp(500.0*boostbar,650.0,1000.0)
-			speed = lerp(speed, target_speed,delta*3.0)
+			bullet_speed = lerp(speed, target_speed,delta*3.0)
 			if bullet:
-				bullet.global_position += direction *speed *delta
+				bullet.global_position += sendoffdirection *bullet_speed *delta
 	##bullet gone womp womp
 	if bullet == null and attack and not can_charge: 
 		attack = false
