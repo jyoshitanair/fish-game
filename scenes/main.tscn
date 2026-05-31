@@ -41,5 +41,5 @@ scale = Vector2(0.5, 0.5)
 
 [node name="start" parent="." unique_id=1876485158 instance=ExtResource("5_o6xl0")]
 
-[node name="fish" parent="." unique_id=1129562997 groups=["player"] instance=ExtResource("6_tefeu")]
-position = Vector2(903, 399)
+[node name="fish" parent="." unique_id=1129562997 instance=ExtResource("6_tefeu")]
+position = Vector2(13162, -521)

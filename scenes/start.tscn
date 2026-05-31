@@ -30,7 +30,22 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8uic"]
-size = Vector2(20624.223, 16356.544)
+size = Vector2(25475.498, 20388.988)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pgjjs"]
+normal = Vector2(-0.9999839, 0.0056736674)
+distance = -35729.035
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1nvso"]
+normal = Vector2(0.9999662, 0.008223608)
+distance = 13579.98
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gsp51"]
+distance = -2263.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r8uic"]
+normal = Vector2(0, 1)
+distance = -10829.0
 
 [node name="start" type="Node2D" unique_id=1876485158]
 script = ExtResource("1_1n0d2")
@@ -114,22 +129,65 @@ position = Vector2(33123, 5958)
 position = Vector2(35161, -1427)
 
 [node name="shark2" parent="." unique_id=971552262 instance=ExtResource("9_gophc")]
-position = Vector2(2224, 198)
+position = Vector2(21063, 1019)
 
 [node name="shark7" parent="." unique_id=299542878 instance=ExtResource("9_gophc")]
 position = Vector2(24039, -7894)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1460935794]
+[node name="border" type="Area2D" parent="." unique_id=1460935794]
 position = Vector2(21221, -8127)
 collision_mask = 7
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1516125156]
-position = Vector2(6532.949, 7120.3276)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border" unique_id=1516125156]
+position = Vector2(7125.8027, 8163.43)
 rotation = 0.35430184
 shape = SubResource("RectangleShape2D_r8uic")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="detectopetronious" type="Area2D" parent="." unique_id=654256613]
+
+[node name="world boundary" type="StaticBody2D" parent="detectopetronious" unique_id=2146591466]
+disable_mode = 1
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1131881552]
+position = Vector2(0, -744)
+shape = SubResource("WorldBoundaryShape2D_pgjjs")
+debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1769609419]
+position = Vector2(1150, 0)
+shape = SubResource("WorldBoundaryShape2D_1nvso")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1674027701]
+position = Vector2(0, 752)
+shape = SubResource("WorldBoundaryShape2D_gsp51")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1637501847]
+position = Vector2(-869, 565)
+shape = SubResource("WorldBoundaryShape2D_r8uic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectopetronious" unique_id=299553327]
+position = Vector2(0, -744)
+shape = SubResource("WorldBoundaryShape2D_pgjjs")
+debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious" unique_id=716760479]
+position = Vector2(1150, 0)
+shape = SubResource("WorldBoundaryShape2D_1nvso")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious" unique_id=417023559]
+position = Vector2(0, 752)
+shape = SubResource("WorldBoundaryShape2D_gsp51")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="detectopetronious" unique_id=2053712494]
+position = Vector2(-869, 565)
+shape = SubResource("WorldBoundaryShape2D_r8uic")
+
+[connection signal="body_entered" from="border" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="border" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="detectopetronious" to="shark6" method="_on_detectopetronious_body_entered"]
+[connection signal="body_exited" from="detectopetronious" to="shark6" method="_on_detectopetronious_body_exited"]
 
 [editable path="npc3"]

@@ -119,7 +119,7 @@ size = Vector2(2298, 1296)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nub35"]
 size = Vector2(27, 50)
 
-[node name="fish" type="CharacterBody2D" unique_id=1129562997]
+[node name="fish" type="CharacterBody2D" unique_id=1129562997 groups=["player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_8g0i4")
@@ -165,7 +165,7 @@ position = Vector2(-38.5, -7)
 shape = SubResource("RectangleShape2D_nub35")
 
 [node name="hitonetimer" type="Timer" parent="." unique_id=1306644876]
-wait_time = 1.6999999999999997
+wait_time = 1.6999999999999995
 one_shot = true
 
 [connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]

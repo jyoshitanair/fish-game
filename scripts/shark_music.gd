@@ -89,7 +89,6 @@ func _process(delta: float) -> void:
 					i += (1.0 - i)*delta*0.07
 					global_position = lerp(global_position, attack_position, i)
 					if global_position.distance_to(attack_position)<=20 or attack_timer >= 7.00:
-						#attack_animation_play = true
 						global_position = start_position
 						is_attacking = false	
 						direction = (player.global_position - global_position).normalized()
