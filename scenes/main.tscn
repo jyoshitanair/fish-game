@@ -12,10 +12,10 @@
 [node name="HUD" type="CanvasLayer" parent="." unique_id=34110784]
 
 [node name="boost" parent="HUD" unique_id=335986785 instance=ExtResource("5_tbgi4")]
-offset_left = 196.0
-offset_top = 16.0
-offset_right = -872.0
-offset_bottom = -558.0
+offset_left = 121.0
+offset_top = 564.0
+offset_right = -947.0
+offset_bottom = -10.0
 
 [node name="healthbar" parent="HUD" unique_id=690976557 instance=ExtResource("3_sugp2")]
 position = Vector2(18, 183)

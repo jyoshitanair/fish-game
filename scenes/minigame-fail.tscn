@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cv3ut8jaa3xv8"]
+
+[ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_k1von"]
+
+[node name="MinigameFail" type="Node2D" unique_id=169010849]
+
+[node name="text" parent="." unique_id=1734454769 groups=["minigame-failure"] instance=ExtResource("1_k1von")]
+position = Vector2(575, 547)
+dialog_array = ["Womp womp you got caught", "Let's run it back..."]
+fish_name = "AHH you got caught"
+
+[node name="Panel" parent="text" index="0" unique_id=633472790]
+offset_top = -546.0
+
+[node name="Label" parent="text/Panel/char-name" parent_id_path=PackedInt32Array(1734454769, 250364110) index="0" unique_id=1183826695]
+offset_left = 0.5
+offset_top = 2.0
+offset_right = -340.0
+offset_bottom = 2.0
+
+[node name="Panel" parent="text/Panel" index="1" unique_id=669308246]
+offset_bottom = 638.0
+
+[node name="text" parent="text/Panel/Panel" index="0" unique_id=700146816]
+offset_bottom = 435.0
+
+[node name="circle_why_so_hard" parent="text" index="1" unique_id=1837158979]
+visible = false
+
+[node name="AnimatedSprite2D" parent="text" index="2" unique_id=982056156]
+visible = false
+
+[editable path="text"]

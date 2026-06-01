@@ -43,6 +43,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if health <=0:
+		print("died of damage")
 		queue_free()
 	if can_move:
 		if target_pos:
@@ -83,7 +84,6 @@ func _physics_process(delta: float) -> void:
 						direction = (player.global_position - global_position).normalized()
 						retreating = true	
 				elif retreating: 
-					print("retreat")  
 					direction = (player.global_position - global_position).normalized()
 					var lerper3 = lerp(global_position,start_position,1 - exp(-6 *delta)) 
 					velocity = (lerper3 - global_position)/delta
@@ -133,16 +133,13 @@ func _on_detectopetronious_body_exited(body: Node2D) -> void:
 		direction = -direction
 func _on_hitzone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gun"):
-		#health -= randi_range(5,20)
-		health -= 100
+		health -= int(randi_range(10,30)*area.get_parent().boostbar)
 		label.text = str(health)
-		area.queue_free()
+		print("I'm deleting this ",area.get_parent())
+		area.get_parent().queue_free()
 func _on_chase_zone_body_entered(body: Node2D) -> void:
-	print("connect in")
 	if body.is_in_group("player"):
-		print("YER IN")
 		can_detect = true
 func _on_chase_zone_body_exited(body: Node2D) -> void:
-	print("connect out")
 	if body.is_in_group("player"):
 		can_detect = false

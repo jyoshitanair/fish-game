@@ -25,12 +25,12 @@ var can_charge = true
 var change_timer = false
 var attack = false
 var can_move = true
-var hitzone_valid = false
 var bullet
 var sendoffdirection
 var healthadder = 0.0
 var can_heal = false
 var one_shark_chase = false
+var hud
 ##MY GOATS ON READY ONTOP
 @onready var animated_sprite_2d: AnimatedSprite2D = $toflipnode/AnimatedSprite2D
 @onready var boost_timer: Timer = $boost_timer
@@ -42,13 +42,13 @@ func _ready() -> void:
 	global_position = Manager.fish_position
 	var hitzone = toflipnode.get_node("hitzone")
 	hitzone.add_to_group("player")
-	print(hitzone.get_groups())
 	add_to_group("player")
 	speed = SPEED
 	velocity = Vector2(-1.0,0.0)
 	await get_tree().process_frame
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	print(boostbar)
 	one_shark_chase = false
 	##heal
 	for shark in get_tree().get_nodes_in_group("shark"):
@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 		can_heal = false
 	else:
 		can_heal = true
-	print(can_heal)
 	if health < 100 and can_heal:
 		healthadder += 4.0*delta
 		if healthadder>= 1.0:
@@ -115,17 +114,23 @@ func _physics_process(delta: float) -> void:
 			bullet = bubblegun.instantiate()
 			get_tree().current_scene.add_child(bullet)
 			charging = true
-			var timer = bullet.get_node_or_null("Timer")
-			if bullet.is_inside_tree():
-				timer.start()
 			bullet.global_position = global_position
-		if bullet and charging:
+		if charging:
+			if is_instance_valid(bullet):
+				bullet.global_position = global_position
 			if can_tween == true:
 				tweeny(Vector2(0.5,0.5),bullet.get_node_or_null("Sprite2D"))
 				can_tween = false
-		if boostbar <= 3.0: 
-			boostbar += delta
-	if Input.is_action_just_released("charge") and boostbar != 0.0:
+			if boostbar <= 3.0: 
+				boostbar += delta
+			else:
+				boostbar = 3.0
+	if Input.is_action_just_released("charge") and boostbar != 0.0 and charging:
+		if bullet: 
+			bullet.boostbar = boostbar
+			var timer = bullet.get_node_or_null("Timer")
+			if bullet.is_inside_tree():
+				timer.start()
 		sendoffdirection = direction
 		bullet_moving = true
 		charging = false
@@ -133,70 +138,56 @@ func _physics_process(delta: float) -> void:
 		attack = true
 		can_tween = true
 		change_timer = true
-		attack_timer.start()
 		if tween != null: 
 			tween.kill()
-		#if bullet and bullet.get_node_or_null("Sprite2D"):
-			#tweeny(Vector2(0.25,0.25),bullet.get_node_or_null("Sprite2D"))
 	####ATTACKINGeee
 	if attack: 
 		if direction == Vector2(0.0,0.0):
 			direction = Vector2(-1.0,0.0)
-		hitzone_valid = true
 		hitonetimer.start()
 		if boostbar <= 0:
 			boostbar = 0.0
-			attack = false
-			can_move = true
-			speed = SPEED
-			velocity = Vector2(0.0,0.0)
 		else:
 			boostbar = clamp(boostbar, 0.5,3.0)
 			var target_speed = clamp(500.0*boostbar,650.0,1000.0)
 			bullet_speed = lerp(speed, target_speed,delta*3.0)
 			if bullet:
 				bullet.global_position += sendoffdirection *bullet_speed *delta
-	##bullet gone womp womp
-	if bullet == null and attack and not can_charge: 
+	if attack and (not is_instance_valid(bullet) or boostbar <=0.0):
+		print("DEAD")
 		attack = false
-		can_charge = true
+		bullet_moving = false
 		can_move = true
 		speed = SPEED
 		boostbar = 0.0
-		
+		bullet  = null
+		attack_timer.start()
+	var hud = get_tree().get_first_node_in_group("BAR")
+	if is_instance_valid(bullet):
+		if hud: 
+			hud.lock = true
+	else:
+		if hud: 
+			hud.lock = false
 func _on_boost_timer_timeout() -> void:
 	change_timer= false
 	can_boost = true
 func tweeny(vector,bulletsprite) -> void: 
 	var speed 
 	tween = create_tween()
+	tween.set_parallel(false)
 	if vector == Vector2(0.5,0.5):
 		speed = 3.0
 	else: 
 		speed= 0.04
 	tween.tween_property(bulletsprite, "scale", vector, speed)
 
-func _on_attack_timer_timeout() -> void:
-	can_charge = true 
-
-func _init():
-	print(is_inside_tree())
-
 func _on_diemf_body_entered(body: Node2D) -> void:
 	if body.is_in_group("shark"):
-		print("HEHE")
 		randomize()
-		if health - randi_range(1,10) <= 0:
+		if health - randi_range(20,40) <= 0:
 			health = 0 
 		else:
-			health -= randi_range(1,10)
-
-
-func _on_hitzone_body_entered(body: Node2D) -> void:
-	print("body hit")
-	print(body.name)
-	print(body.get_groups())
-	print(hitzone_valid)
-	if body.is_in_group("shark") and hitzone_valid:
-		print("area hit")
-		body.get_parent().health -= 5
+			health -= randi_range(20,40)
+func _on_attack_timer_timeout() -> void:
+	can_charge = true

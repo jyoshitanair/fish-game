@@ -23,7 +23,7 @@ height = 128
 fill = 2
 fill_from = Vector2(0.5091743, 0.5229358)
 
-[node name="boostcircle" type="Node2D" unique_id=690976557]
+[node name="boostcircle" type="Node2D" unique_id=690976557 groups=["BAR"]]
 script = ExtResource("1_3p36r")
 
 [node name="Panel" type="Panel" parent="." unique_id=160580060]

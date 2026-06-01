@@ -71,6 +71,9 @@ func load_next_text() -> void:
 func _on_timer_timeout() -> void:
 	just_pressed = false
 func _return() ->void: 
+	if is_in_group("minigame-failure"):
+		get_tree().change_scene_to_file("res://scenes/mini_game.tscn")	
+		return
 	if flag_change: 
 		get_tree().change_scene_to_file("res://scenes/map_game.tscn")
 		return

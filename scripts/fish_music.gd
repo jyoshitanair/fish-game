@@ -55,3 +55,10 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	timer.wait_time = randf_range(0.2,0.5)
 	can_move = true
+
+
+func _on_oohibeingdetected_area_entered(area: Area2D) -> void:
+	if area.is_in_group("shark-area"):
+		print("HIT")
+		get_tree().change_scene_to_file("res://scenes/minigame-fail.tscn")
+	

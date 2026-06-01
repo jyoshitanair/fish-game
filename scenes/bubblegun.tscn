@@ -4,9 +4,10 @@
 
 [sub_resource type="GDScript" id="GDScript_7rdj3"]
 script/source = "extends Node2D
-
+var boostbar = 0.0
 func _on_timer_timeout() -> void:
 	queue_free()
+	get_parent().get_node(\"fish\").attack_timer.start()
 	get_parent().get_node(\"fish\").bullet_moving = false
 	get_parent().get_node(\"fish\").boostbar = 0.0
 "
@@ -23,7 +24,7 @@ scale = Vector2(0.038085938, 0.04492187)
 texture = ExtResource("1_ggsdv")
 
 [node name="Timer" type="Timer" parent="." unique_id=861677611]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="gun" type="Area2D" parent="." unique_id=164940023 groups=["gun"]]
 collision_layer = 32

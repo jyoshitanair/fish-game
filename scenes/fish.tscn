@@ -132,10 +132,6 @@ shape = SubResource("RectangleShape2D_pgks6")
 wait_time = 3.0
 one_shot = true
 
-[node name="attack_timer" type="Timer" parent="." unique_id=93350150]
-wait_time = 5.0
-one_shot = true
-
 [node name="hitonetimer" type="Timer" parent="." unique_id=1306644876]
 wait_time = 1.6999999999999995
 one_shot = true
@@ -171,9 +167,13 @@ zoom = Vector2(0.5, 0.5)
 limit_enabled = false
 position_smoothing_enabled = true
 
+[node name="attack_timer" type="Timer" parent="." unique_id=474773532]
+wait_time = 2.5
+one_shot = true
+
 [connection signal="timeout" from="boost_timer" to="." method="_on_boost_timer_timeout"]
-[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="hitonetimer" to="." method="_on_hitonetimer_timeout"]
 [connection signal="body_entered" from="toflipnode/diemf" to="." method="_on_diemf_body_entered"]
 [connection signal="area_entered" from="toflipnode/hitzone" to="." method="_on_hitzone_area_entered"]
 [connection signal="body_entered" from="toflipnode/hitzone" to="." method="_on_hitzone_body_entered"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]

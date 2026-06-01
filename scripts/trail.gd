@@ -7,20 +7,16 @@ func _ready() -> void:
 		visible = true
 	else:
 		visible = false
-	print("spawn")
 	width = 6
 	for i in target_array:
 		var path = i + "_is_current"
 		if path == "npc5_is_current" and Manager.get(path):
-			print("npc 5 current!")
 			target = get_tree().get_first_node_in_group("npc3")
 		if path == "npc4_is_current" and Manager.get(path):
 			target = "shark"
 		else:
 			if Manager.get(path) == true:
-				print(i)
 				target = get_tree().get_first_node_in_group(i)
-				print(target)
 		var players = get_tree().get_nodes_in_group("player")
 		for playeret in players:
 			if playeret is CharacterBody2D:
@@ -33,12 +29,10 @@ func _process(delta: float) -> void:
 	if not player or not target:
 		clear_points()
 		return
-	print(target)
 	if target is String and target == "shark":
 		clear_points()
 		var sharks = get_tree().get_nodes_in_group("shark")
 		if sharks.size() == 0:
-			print("all dead")
 			target = get_tree().get_first_node_in_group("npc4")
 			Manager.shark_mode = false
 			var npc4 = get_tree().get_first_node_in_group("npc4")
