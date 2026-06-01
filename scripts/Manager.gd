@@ -3,6 +3,7 @@ extends Node
 #signals 
 signal change_pos
 #sark 
+var alive_shark_array = []
 var toggled = true 
 var doneonce = true
 var volume = 0
@@ -13,6 +14,14 @@ var _2_on_pos_player = false
 var _2_on_pos_shell = false
 var _2_on_pos_shark = false
 #vars
+var fish_health = 100
+var shark1_position 
+var shark2_position
+var shark3_position
+var shark4_position
+var shark5_position
+var shark6_position
+var shark7_position
 var first_dialog = true
 var paused = false
 var returning_from_mini_game = false

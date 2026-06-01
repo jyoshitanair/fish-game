@@ -113,25 +113,25 @@ vertical_alignment = 1
 [node name="trail" type="Line2D" parent="." unique_id=500090791]
 script = ExtResource("5_4a3qj")
 
-[node name="shark6" parent="." unique_id=1486787028 instance=ExtResource("9_gophc")]
+[node name="shark6" parent="." unique_id=1486787028 groups=["shark6"] instance=ExtResource("9_gophc")]
 position = Vector2(21788, -3441)
 
-[node name="shark" parent="." unique_id=11236856 instance=ExtResource("9_gophc")]
+[node name="shark" parent="." unique_id=11236856 groups=["shark1"] instance=ExtResource("9_gophc")]
 position = Vector2(30774, -5406)
 
-[node name="shark3" parent="." unique_id=1821373225 instance=ExtResource("9_gophc")]
+[node name="shark3" parent="." unique_id=1821373225 groups=["shark3"] instance=ExtResource("9_gophc")]
 position = Vector2(25958, 4768)
 
-[node name="shark4" parent="." unique_id=878601276 instance=ExtResource("9_gophc")]
+[node name="shark4" parent="." unique_id=878601276 groups=["shark4"] instance=ExtResource("9_gophc")]
 position = Vector2(33123, 5958)
 
-[node name="shark5" parent="." unique_id=891036581 instance=ExtResource("9_gophc")]
+[node name="shark5" parent="." unique_id=891036581 groups=["shark5"] instance=ExtResource("9_gophc")]
 position = Vector2(35161, -1427)
 
-[node name="shark2" parent="." unique_id=971552262 instance=ExtResource("9_gophc")]
+[node name="shark2" parent="." unique_id=971552262 groups=["shark2"] instance=ExtResource("9_gophc")]
 position = Vector2(21031, 1019)
 
-[node name="shark7" parent="." unique_id=299542878 instance=ExtResource("9_gophc")]
+[node name="shark7" parent="." unique_id=299542878 groups=["shark7"] instance=ExtResource("9_gophc")]
 position = Vector2(24039, -7894)
 
 [node name="border" type="Area2D" parent="." unique_id=1460935794]

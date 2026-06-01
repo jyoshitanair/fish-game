@@ -35,15 +35,24 @@ var switcher = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var group = self.get_groups()[1]
+	var groupname = "%s_position"%group
+	if Manager.get(groupname) != null:
+		global_position = Manager.get(groupname)
+	else:
+		Manager.set(groupname, global_position)
 	randomize()
 	add_to_group("shark")
 	start_position = global_position
 	player = get_tree().get_first_node_in_group("player")
 	timer.wait_time = randf_range(0.3,0.5)
+	if not Manager.alive_shark_array.has(group):
+		Manager.alive_shark_array.append(group)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if health <=0:
-		print("died of damage")
+		if Manager.alive_shark_array.has(self.get_groups()[1]):
+			Manager.alive_shark_array.erase(self.get_groups()[1])
 		queue_free()
 	if can_move:
 		if target_pos:
@@ -135,7 +144,6 @@ func _on_hitzone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gun"):
 		health -= int(randi_range(10,30)*area.get_parent().boostbar)
 		label.text = str(health)
-		print("I'm deleting this ",area.get_parent())
 		area.get_parent().queue_free()
 func _on_chase_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

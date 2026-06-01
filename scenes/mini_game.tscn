@@ -10,6 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://cnkrauesbqrxo" path="res://assets/music/base-mini-game-music.ogg" id="6_v2cs6"]
 [ext_resource type="Script" uid="uid://b4pnfrtsg05ef" path="res://scripts/shark_1.gd" id="8_hd6k8"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sn1h"]
+bg_color = Color(0.672543, 0.8492856, 0.9694206, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_burph"]
 normal = Vector2(-0.9999839, 0.0056736674)
 distance = -3524.21
@@ -182,16 +189,66 @@ size = Vector2(443, 223)
 [sub_resource type="CircleShape2D" id="CircleShape2D_svrvl"]
 radius = 176.78235
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sn1h"]
-bg_color = Color(0.672543, 0.8492856, 0.9694206, 1)
-corner_radius_top_left = 500
-corner_radius_top_right = 500
-corner_radius_bottom_right = 500
-corner_radius_bottom_left = 500
-
 [node name="mini_game" type="Node2D" unique_id=440806270 groups=["minigamer"]]
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
+
+[node name="Panel" type="Panel" parent="." unique_id=1151103279]
+offset_left = -2049.0
+offset_top = -609.0
+offset_right = -1702.0
+offset_bottom = -258.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1222758326]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -11.5
+offset_right = 87.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_svrvl")
+theme_override_font_sizes/font_size = 50
+text = "PUT 
+SOMETHING
+ HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="." unique_id=1360385045]
+offset_left = 1267.0
+offset_top = 1016.0
+offset_right = 1624.0
+offset_bottom = 1373.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Panel2" unique_id=249387300]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -133.5
+offset_right = 121.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_svrvl")
+theme_override_font_sizes/font_size = 50
+text = "PUT 
+SOMETHING
+ HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="detectopetronious" type="Area2D" parent="." unique_id=906821431]
 
@@ -380,63 +437,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sark2" unique_id=185476515]
 position = Vector2(2184, 1302)
 shape = SubResource("CircleShape2D_svrvl")
-
-[node name="Panel" type="Panel" parent="." unique_id=1151103279]
-offset_left = -2049.0
-offset_top = -609.0
-offset_right = -1702.0
-offset_bottom = -258.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
-
-[node name="Label" type="Label" parent="Panel" unique_id=1222758326]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.5
-offset_top = -11.5
-offset_right = 87.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_svrvl")
-theme_override_font_sizes/font_size = 50
-text = "PUT 
-SOMETHING
- HERE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel2" type="Panel" parent="." unique_id=1360385045]
-offset_left = 1267.0
-offset_top = 1016.0
-offset_right = 1624.0
-offset_bottom = 1373.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Panel2" unique_id=249387300]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -133.5
-offset_right = 121.0
-offset_bottom = 133.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_svrvl")
-theme_override_font_sizes/font_size = 50
-text = "PUT 
-SOMETHING
- HERE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_entered" from="detectopetronious" to="shark" method="_on_detectopetronious_body_entered"]
 [connection signal="body_exited" from="detectopetronious" to="shark" method="_on_detectopetronious_body_exited"]

@@ -39,7 +39,8 @@ var hud
 @onready var toflipnode: Node2D = $toflipnode
 
 func _ready() -> void: 
-	global_position = Manager.fish_position
+	health = Manager.fish_health
+	#global_position = Manager.fish_position
 	var hitzone = toflipnode.get_node("hitzone")
 	hitzone.add_to_group("player")
 	add_to_group("player")
@@ -48,7 +49,6 @@ func _ready() -> void:
 	await get_tree().process_frame
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	print(boostbar)
 	one_shark_chase = false
 	##heal
 	for shark in get_tree().get_nodes_in_group("shark"):
@@ -162,7 +162,8 @@ func _physics_process(delta: float) -> void:
 		boostbar = 0.0
 		bullet  = null
 		attack_timer.start()
-	var hud = get_tree().get_first_node_in_group("BAR")
+	if get_tree() != null:
+		var hud = get_tree().get_first_node_in_group("BAR")
 	if is_instance_valid(bullet):
 		if hud: 
 			hud.lock = true
@@ -185,9 +186,9 @@ func tweeny(vector,bulletsprite) -> void:
 func _on_diemf_body_entered(body: Node2D) -> void:
 	if body.is_in_group("shark"):
 		randomize()
-		if health - randi_range(20,40) <= 0:
+		if health - randi_range(5,20) <= 0:
 			health = 0 
 		else:
-			health -= randi_range(20,40)
+			health -= randi_range(5,20)
 func _on_attack_timer_timeout() -> void:
 	can_charge = true

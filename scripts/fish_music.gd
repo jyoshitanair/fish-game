@@ -1,5 +1,4 @@
 extends CharacterBody2D
-@onready var music: Panel = $to_flip/music
 @onready var shell_spawn: Marker2D = $to_flip/shell_spawn
 @onready var timer: Timer = $Timer
 @onready var to_flip: Node = $to_flip
@@ -13,12 +12,10 @@ const speed = 1000.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.wait_time = randf_range(0.2,0.5)
-	music.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if alive:
 		if Input.is_action_just_pressed("music"):
-			music.show()
 			var shells = get_tree().get_nodes_in_group("shell")
 			if shells.size() >0:
 				for shell in shells:
