@@ -1,18 +1,6 @@
 [gd_scene format=3 uid="uid://8612b26gvafl"]
 
 [ext_resource type="Script" uid="uid://ud5ex3owis0v" path="res://scripts/npc.gd" id="1_xxcha"]
-[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="2_kh24r"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ul7y6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_kh24r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc6q4"]
 size = Vector2(733, 567)
@@ -23,9 +11,8 @@ size = Vector2(255, 158)
 [node name="npc" type="Node2D" unique_id=1818705560]
 script = ExtResource("1_xxcha")
 
-[node name="npc-sprite" type="AnimatedSprite2D" parent="." unique_id=968449032]
+[node name="npc-sprite" type="Sprite2D" parent="." unique_id=373369112]
 position = Vector2(0, -123)
-sprite_frames = SubResource("SpriteFrames_ul7y6")
 
 [node name="alert-area" type="Area2D" parent="." unique_id=1237859537]
 collision_mask = 3

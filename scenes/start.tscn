@@ -8,8 +8,11 @@
 [ext_resource type="Script" uid="uid://vxqxfsmlgco" path="res://scripts/trail.gd" id="5_4a3qj"]
 [ext_resource type="PackedScene" uid="uid://dybhal6qfvttn" path="res://scenes/cutscenes/cut_scene5.tscn" id="5_g38d0"]
 [ext_resource type="PackedScene" uid="uid://7bmfgain7d4s" path="res://scenes/cutscenes/cut_scene4.tscn" id="5_pob1m"]
+[ext_resource type="Texture2D" uid="uid://dr4gf4xa385ap" path="res://assets/images/fish/2026_02_26_10q_Kleki-removebg-preview.png" id="5_r8uic"]
 [ext_resource type="PackedScene" uid="uid://biea00otmgddn" path="res://scenes/cutscenes/cut_scene6.tscn" id="7_p0nl4"]
+[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="7_x1pfr"]
 [ext_resource type="PackedScene" uid="uid://bj435kbpkfqc1" path="res://scenes/shark.tscn" id="9_gophc"]
+[ext_resource type="Texture2D" uid="uid://btkyyx2yht0sq" path="res://assets/images/fish/2026_02_26_118_Kleki-removebg-preview.png" id="9_n0tym"]
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="9_pgjjs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g38d0"]
@@ -56,17 +59,21 @@ position = Vector2(-25, 54)
 [node name="npc2" parent="." unique_id=1818705560 groups=["npc2"] instance=ExtResource("2_1n0d2")]
 position = Vector2(-2968, -3410)
 path = ExtResource("4_4a3qj")
+sprite_image = ExtResource("5_r8uic")
 
 [node name="npc1" parent="." unique_id=1594842539 groups=["npc1"] instance=ExtResource("2_1n0d2")]
 path = ExtResource("5_pob1m")
+sprite_image = ExtResource("7_x1pfr")
 
 [node name="npc3" parent="." unique_id=1973271730 groups=["npc3"] instance=ExtResource("2_1n0d2")]
 position = Vector2(-2916, 3395)
 path = ExtResource("5_g38d0")
+sprite_image = ExtResource("9_n0tym")
 
 [node name="npc4" parent="." unique_id=1911182180 groups=["npc4"] instance=ExtResource("2_1n0d2")]
 position = Vector2(27033, -2142)
 path = ExtResource("7_p0nl4")
+sprite_image = ExtResource("7_x1pfr")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1697843219]
 

@@ -1,11 +1,15 @@
 extends Node2D
 @onready var call_area: Area2D = $"call-area"
 @export var path: PackedScene
+@export var sprite_image = Texture2D
+@onready var npc_sprite: Sprite2D = $"npc-sprite"
 @onready var alert_area: Area2D = $"alert-area"
 var group_name
 var cur_name
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
+	npc_sprite.texture = sprite_image
+	npc_sprite.scale = Vector2(0.5,0.5)
 	call_deferred("_get_groups")
 func _process(_delta: float) -> void:
 	##FINDING PLAYER INTERACTIONS

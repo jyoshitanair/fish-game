@@ -40,7 +40,7 @@ var hud
 
 func _ready() -> void: 
 	health = Manager.fish_health
-	#global_position = Manager.fish_position
+	global_position = Manager.fish_position
 	var hitzone = toflipnode.get_node("hitzone")
 	hitzone.add_to_group("player")
 	add_to_group("player")
