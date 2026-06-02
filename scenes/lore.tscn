@@ -3,6 +3,11 @@
 [ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_qel7j"]
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="2_oo4qk"]
 [ext_resource type="Script" uid="uid://dteygotpp4apb" path="res://scripts/settings.gd" id="3_fiw8w"]
+[ext_resource type="Texture2D" uid="uid://dr4gf4xa385ap" path="res://assets/images/npc/2026_02_26_10q_Kleki-removebg-preview.png" id="4_5iqog"]
+[ext_resource type="Texture2D" uid="uid://btkyyx2yht0sq" path="res://assets/images/npc/2026_02_26_118_Kleki-removebg-preview.png" id="5_g7dn5"]
+[ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="6_xhytr"]
+[ext_resource type="Texture2D" uid="uid://bub77p2ej08k3" path="res://assets/images/npc/Illustration100.PNG" id="7_xhytr"]
+[ext_resource type="Texture2D" uid="uid://cdup3jbwd0k1p" path="res://assets/images/npc/Illustration100 (1).PNG" id="8_ldtwi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5iqog"]
 
@@ -60,6 +65,123 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qeid1")
 text = "RETURN"
 alignment = 0
 script = ExtResource("3_fiw8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1252261187]
+position = Vector2(65, 196.00002)
+scale = Vector2(0.41837606, 0.42840376)
+texture = ExtResource("4_5iqog")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=883257240]
+position = Vector2(363.99997, 189)
+scale = Vector2(0.3012821, 0.29342726)
+texture = ExtResource("5_g7dn5")
+
+[node name="RichTextLabel" type="Label" parent="." unique_id=640642022]
+offset_left = 27.0
+offset_top = 252.0
+offset_right = 216.0
+offset_bottom = 291.0
+theme_override_colors/font_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_oo4qk")
+theme_override_font_sizes/font_size = 24
+text = "Finnegan"
+
+[node name="Label" type="Label" parent="RichTextLabel" unique_id=555589112]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 196.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.30490708, 0.35264575, 0.8136718, 1)
+theme_override_fonts/font = ExtResource("6_xhytr")
+theme_override_font_sizes/font_size = 18
+text = "Finnegan is a very 
+grumpy fish. He likes
+seaweed. He dislikes
+children. He may also
+possibly like Dash...."
+
+[node name="RichTextLabel2" type="Label" parent="." unique_id=1651661156]
+offset_left = 283.0
+offset_top = 257.0
+offset_right = 472.0
+offset_bottom = 296.0
+theme_override_colors/font_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_oo4qk")
+theme_override_font_sizes/font_size = 24
+text = "Bobu"
+
+[node name="Label" type="Label" parent="RichTextLabel2" unique_id=448860814]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 196.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.30490708, 0.35264575, 0.8136718, 1)
+theme_override_fonts/font = ExtResource("6_xhytr")
+theme_override_font_sizes/font_size = 18
+text = "Bobu almost got eaten
+when he got caught 
+and sent to the city.
+He's a grumpy grandpa
+and very traumatized"
+
+[node name="RichTextLabel3" type="Label" parent="." unique_id=630541507]
+offset_left = 775.0
+offset_top = 264.0
+offset_right = 964.0
+offset_bottom = 303.0
+theme_override_colors/font_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_oo4qk")
+theme_override_font_sizes/font_size = 24
+text = "Khelani"
+
+[node name="Label" type="Label" parent="RichTextLabel3" unique_id=941284196]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 196.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.30490708, 0.35264575, 0.8136718, 1)
+theme_override_fonts/font = ExtResource("6_xhytr")
+theme_override_font_sizes/font_size = 18
+text = "Bobu's wife. She puts 
+up with all his nonsense
+and is very bad-ass!
+She could've taken down
+the sharks on her own!"
+
+[node name="RichTextLabel4" type="Label" parent="." unique_id=119890637]
+offset_left = 523.0
+offset_top = 260.0
+offset_right = 712.0
+offset_bottom = 299.0
+theme_override_colors/font_color = Color(0.23137255, 0.22745098, 0.5254902, 1)
+theme_override_fonts/font = ExtResource("2_oo4qk")
+theme_override_font_sizes/font_size = 24
+text = "Dash"
+
+[node name="Label" type="Label" parent="RichTextLabel4" unique_id=2117352478]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 196.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.30490708, 0.35264575, 0.8136718, 1)
+theme_override_fonts/font = ExtResource("6_xhytr")
+theme_override_font_sizes/font_size = 18
+text = "Dash is a very cheery
+and helpful fish.
+He loves to collect 
+starfish for his 
+colletion. He may also 
+possibly like Finnegan...."
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1120650933]
+position = Vector2(590.37494, 192.375)
+scale = Vector2(0.07041672, 0.07062501)
+texture = ExtResource("7_xhytr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=141773471]
+position = Vector2(846.00006, 186)
+scale = Vector2(0.07516669, 0.094749995)
+texture = ExtResource("8_ldtwi")
 
 [connection signal="mouse_entered" from="Control/Button3" to="Control/Button3" method="_3on_button_3_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Button3" to="Control/Button3" method="_3on_button_3_mouse_exited"]

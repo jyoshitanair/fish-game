@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btkyyx2yht0sq"
-path="res://.godot/imported/2026_02_26_118_Kleki-removebg-preview.png-a7e9dc9678f56f7f13f969a967f19fb8.ctex"
+uid="uid://cdup3jbwd0k1p"
+path="res://.godot/imported/Illustration100 (1).PNG-bb8b989a1ee72f1250c7f842535a3b79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/fish/2026_02_26_118_Kleki-removebg-preview.png"
-dest_files=["res://.godot/imported/2026_02_26_118_Kleki-removebg-preview.png-a7e9dc9678f56f7f13f969a967f19fb8.ctex"]
+source_file="res://assets/images/npc/Illustration100 (1).PNG"
+dest_files=["res://.godot/imported/Illustration100 (1).PNG-bb8b989a1ee72f1250c7f842535a3b79.ctex"]
 
 [params]
 
