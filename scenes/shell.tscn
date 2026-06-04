@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://bn3mpijh1std3"]
 
-[ext_resource type="Texture2D" uid="uid://dlib5lxp4dldp" path="res://addons/icon.svg" id="1_bo4bk"]
 [ext_resource type="AudioStream" uid="uid://beq7wa174pfcv" path="res://assets/music/bubbling.ogg" id="2_sb42f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb42f"]
-size = Vector2(38, 38)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo4bk"]
+bg_color = Color(0.7686113, 0.6379524, 0.8757197, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb42f"]
+radius = 21.587032
 
 [node name="shell" type="Node2D" unique_id=1556653456]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1934409183]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_bo4bk")
 
 [node name="bubbles" type="AudioStreamPlayer2D" parent="." unique_id=2043844435]
 stream = ExtResource("2_sb42f")
@@ -18,7 +19,70 @@ autoplay = true
 max_distance = 1350.0
 parameters/looping = true
 
+[node name="Node" type="Node2D" parent="." unique_id=1306324645]
+position = Vector2(-13, -2)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Node" unique_id=1596372465]
+offset_left = -5.0000005
+offset_top = 10.000002
+offset_right = 9.6556835
+offset_bottom = 24.227345
+rotation = 4.6390853
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Panel2" type="Panel" parent="Node" unique_id=1868340859]
+offset_left = -2.0000002
+offset_top = -3.9999995
+offset_right = 12.6556835
+offset_bottom = 10.227343
+rotation = 5.4140115
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Panel3" type="Panel" parent="Node" unique_id=333552062]
+offset_left = 8.0
+offset_top = -4.0
+offset_right = 22.655684
+offset_bottom = 10.227343
+rotation = 6.2831855
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Panel5" type="Panel" parent="Node" unique_id=1366262418]
+offset_left = 14.0
+offset_top = 6.999999
+offset_right = 26.436752
+offset_bottom = 12.470769
+rotation = 2.4102998
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Panel6" type="Panel" parent="Node" unique_id=204984225]
+offset_left = 10.0
+offset_top = 1.9999981
+offset_right = 22.436752
+offset_bottom = 7.3605995
+rotation = 1.4433873
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Panel4" type="Panel" parent="Node" unique_id=533954486]
+offset_left = 8.0
+offset_top = 2.0000002
+offset_right = 20.436752
+offset_bottom = 7.3606014
+rotation = 0.863938
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+
+[node name="Line2D" type="Line2D" parent="Node" unique_id=171402798]
+points = PackedVector2Array(0, -5, 2, 1, 5, 6)
+width = 0.5
+default_color = Color(0.27660945, 5.5230037e-05, 0.27937618, 1)
+
+[node name="Line2D2" type="Line2D" parent="Node" unique_id=337394361]
+points = PackedVector2Array(16, -4, 15, 1, 12, 6)
+width = 0.5
+default_color = Color(0.27660945, 5.5230037e-05, 0.27937618, 1)
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1060159265 groups=["shell"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=140093972]
-shape = SubResource("RectangleShape2D_sb42f")
+shape = SubResource("CircleShape2D_sb42f")

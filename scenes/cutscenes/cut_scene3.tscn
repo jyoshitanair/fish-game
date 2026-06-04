@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://cremv5riy1bd0"]
 
+[ext_resource type="Texture2D" uid="uid://dr4gf4xa385ap" path="res://assets/images/npc/2026_02_26_10q_Kleki-removebg-preview.png" id="1_8p21a"]
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_e0g7e"]
 
 [node name="CutScene3" type="Node2D" unique_id=1997501665]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2071562301]
+offset_right = 1154.0
+offset_bottom = 649.0
+color = Color(0.60784316, 0.7137255, 0.77254903, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=33105122]
+position = Vector2(425.56247, 390.50003)
+scale = Vector2(2.0771365, 2.133803)
+texture = ExtResource("1_8p21a")
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_e0g7e")]
 position = Vector2(572, 542)

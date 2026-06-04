@@ -1,10 +1,118 @@
 [gd_scene format=3 uid="uid://jqvt5bo0jgdu"]
 
+[ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="1_4lbup"]
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_al7wj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q04sa"]
+bg_color = Color(0.8675389, 0.40756887, 0.38207862, 1)
+corner_radius_top_left = 3000
+corner_radius_bottom_right = 3000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seftb"]
+bg_color = Color(0.8251135, 0.384024, 0.22518662, 1)
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipidg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnq3b"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="CutScene2" type="Node2D" unique_id=1815766796]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=201254761]
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 1168.0
+offset_bottom = 669.0
+color = Color(0.606324, 0.7151366, 0.7741814, 1)
+
+[node name="Panel8" type="Panel" parent="ColorRect" unique_id=1642226326]
+layout_mode = 0
+offset_left = 442.99997
+offset_top = 62.999992
+offset_right = 546.44775
+offset_bottom = 216.79669
+rotation = -1.0437069
+theme_override_styles/panel = SubResource("StyleBoxFlat_q04sa")
+
+[node name="Panel5" type="Panel" parent="ColorRect" unique_id=763386393]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 88.0
+offset_right = 868.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_seftb")
+
+[node name="Panel2" type="Panel" parent="ColorRect" unique_id=1342610787]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 262.0
+offset_right = 668.0
+offset_bottom = 333.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipidg")
+
+[node name="Panel" type="Panel" parent="ColorRect" unique_id=996485575]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 264.0
+offset_right = 488.0
+offset_bottom = 335.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipidg")
+
+[node name="Panel3" type="Panel" parent="ColorRect" unique_id=870688349]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 275.0
+offset_right = 481.0
+offset_bottom = 321.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hnq3b")
+
+[node name="Panel4" type="Panel" parent="ColorRect" unique_id=16935651]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 274.0
+offset_right = 656.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hnq3b")
+
+[node name="Panel6" type="Panel" parent="ColorRect" unique_id=1578592719]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 356.0
+offset_right = 291.0
+offset_bottom = 465.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q04sa")
+
+[node name="Panel7" type="Panel" parent="ColorRect" unique_id=1160277498]
+layout_mode = 0
+offset_left = 950.99994
+offset_top = 335.0
+offset_right = 1069.0
+offset_bottom = 444.0
+rotation = 1.4695672
+theme_override_styles/panel = SubResource("StyleBoxFlat_q04sa")
+
+[node name="Line2D" type="Line2D" parent="ColorRect" unique_id=1358698493]
+points = PackedVector2Array(530, 395, 565, 386, 597, 394)
+default_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=1199701612]
+position = Vector2(603, 174)
+rotation = 1.6109389
+scale = Vector2(0.39118004, 0.65808666)
+texture = ExtResource("1_4lbup")
+
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_al7wj")]
 position = Vector2(572, 546)
-dialog_array = ["Where...where am I?", "The last thing I remeber was being in my tank", "I need to get back to the city as soon as possible"]
+dialog_array = ["Where...where am I?", "The last thing I remeber was being in my tank", "I need to get back to the city as soon as possible!"]
 fish_name = "You "

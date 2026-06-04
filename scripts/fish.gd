@@ -5,6 +5,10 @@ signal clicked
 const SPEED = 300.0
 const CHARGE_SPEED = 800.0
 ##VARS
+const MIN_X = -52000
+const MAX_X = 52000
+const MIN_Y = -12000
+const MAX_Y = 37000
 var bullet_moving = false
 var charging = false
 var bubblegun = preload("res://scenes/bubblegun.tscn")
@@ -93,6 +97,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = lerp(velocity.y, new_spot, delta*3)
 			direction = Vector2(0.0,-1.0)
 		position += velocity
+		position.x = clamp(position.x, MIN_X, MAX_X)
+		position.y = clamp(position.y, MIN_Y, MAX_Y)
 		if flip != old_flip: 
 			toflipnode.scale.x *= -1
 		flip = old_flip

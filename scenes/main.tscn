@@ -17,21 +17,6 @@ func _process(delta: float) -> void:
 		process_mode = Node.PROCESS_MODE_DISABLED
 "
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o6xl0"]
-normal = Vector2(-0.99999374, 0.0035335468)
-distance = -50439.676
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tipki"]
-distance = -40126.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_85g3d"]
-normal = Vector2(1, 0)
-distance = -53090.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_choun"]
-normal = Vector2(0, 1)
-distance = -13117.0
-
 [node name="main" type="Node2D" unique_id=295580096]
 script = SubResource("GDScript_tefeu")
 
@@ -71,19 +56,3 @@ scale = Vector2(0.5, 0.5)
 
 [node name="fish" parent="." unique_id=1129562997 instance=ExtResource("6_tefeu")]
 position = Vector2(18571, 1032)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1951583260]
-collision_layer = 255
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1905065534]
-shape = SubResource("WorldBoundaryShape2D_o6xl0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1586529478]
-shape = SubResource("WorldBoundaryShape2D_tipki")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=290806548]
-shape = SubResource("WorldBoundaryShape2D_85g3d")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1601785078]
-shape = SubResource("WorldBoundaryShape2D_choun")

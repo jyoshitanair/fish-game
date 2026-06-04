@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://biea00otmgddn"]
 
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_4iyo7"]
+[ext_resource type="Texture2D" uid="uid://cdup3jbwd0k1p" path="res://assets/images/npc/Illustration100 (1).PNG" id="1_tyy7c"]
 
 [node name="CutScene6" type="Node2D" unique_id=1001116550]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1941296857]
+offset_left = -47.0
+offset_top = -104.0
+offset_right = 1273.0
+offset_bottom = 683.0
+color = Color(0.60784316, 0.7137255, 0.77254903, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505994693]
+position = Vector2(592, 317.99997)
+scale = Vector2(0.4190834, 0.40700004)
+texture = ExtResource("1_tyy7c")
 
 [node name="text" parent="." unique_id=1734454769 groups=["minigame"] instance=ExtResource("1_4iyo7")]
 position = Vector2(572, 546)

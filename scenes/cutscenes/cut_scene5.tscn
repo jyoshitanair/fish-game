@@ -1,8 +1,26 @@
 [gd_scene format=3 uid="uid://dybhal6qfvttn"]
 
+[ext_resource type="Texture2D" uid="uid://btkyyx2yht0sq" path="res://assets/images/npc/2026_02_26_118_Kleki-removebg-preview.png" id="1_n75bl"]
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_uc2hm"]
+[ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="2_1lgc5"]
 
 [node name="CutScene5" type="Node2D" unique_id=1787076548]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=762148950]
+offset_right = 1154.0
+offset_bottom = 649.0
+color = Color(0.4200572, 0.53249663, 0.59410834, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=829181252]
+position = Vector2(559, 336.00003)
+scale = Vector2(1.6384616, 1.6384977)
+texture = ExtResource("1_n75bl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1069947377]
+position = Vector2(479, -136.00002)
+rotation = 1.5934856
+scale = Vector2(0.82371485, 1)
+texture = ExtResource("2_1lgc5")
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_uc2hm")]
 position = Vector2(572, 546)
