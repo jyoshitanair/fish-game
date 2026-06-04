@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bcudl1p34rcu4" path="res://scripts/minimap.gd" id="1_0pgu0"]
 [ext_resource type="Script" uid="uid://dih37irsesvhr" path="res://scripts/circle-but-for-mini-map.gd" id="2_dsx0k"]
-[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="2_uxthi"]
 [ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="3_dsx0k"]
+[ext_resource type="PackedScene" uid="uid://dmmbsmg0ilepi" path="res://scenes/startcopyforminimap.tscn" id="4_dsx0k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8tna"]
 atlas = ExtResource("3_dsx0k")
@@ -58,7 +58,7 @@ sprite_frames = SubResource("SpriteFrames_uxthi")
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
-[node name="world" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1752542113 instance=ExtResource("2_uxthi")]
+[node name="Startcopyforminimap" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1847366800 instance=ExtResource("4_dsx0k")]
 
 [node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=424898576]
 

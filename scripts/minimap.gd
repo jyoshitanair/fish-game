@@ -25,10 +25,6 @@ func _process(_delta: float) -> void:
 	fish_node = get_tree().get_first_node_in_group("player")
 	##player following
 	if fish_node:
-		#position_player.position = Vector2(
-			#fish_node.position.x/world_size.x*minimap_size.x,
-			#fish_node.position.y/world_size.y*minimap_size.y
-		#)
 		position_player.position = fish_node.position
 		if not position_player.global_position == old_position:
 			is_zooming = false

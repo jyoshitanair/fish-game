@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dmmbsmg0ilepi"]
+
+[ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_var5c"]
+[ext_resource type="PackedScene" uid="uid://8612b26gvafl" path="res://scenes/npc.tscn" id="2_rfbuw"]
+[ext_resource type="Script" uid="uid://blhfyoypi316n" path="res://scripts/npcminimap.gd" id="3_n7bm4"]
+[ext_resource type="PackedScene" uid="uid://bj435kbpkfqc1" path="res://scenes/shark.tscn" id="4_pvdf7"]
+
+[node name="Startcopyforminimap" type="Node2D" unique_id=1847366800]
+
+[node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_var5c")]
+position = Vector2(-25, 54)
+
+[node name="npc2" parent="." unique_id=1818705560 instance=ExtResource("2_rfbuw")]
+position = Vector2(-2968, -3410)
+script = ExtResource("3_n7bm4")
+
+[node name="npc1" parent="." unique_id=1536932107 instance=ExtResource("2_rfbuw")]
+script = ExtResource("3_n7bm4")
+
+[node name="npc3" parent="." unique_id=2023809466 instance=ExtResource("2_rfbuw")]
+position = Vector2(-2916, 3395)
+script = ExtResource("3_n7bm4")
+
+[node name="npc4" parent="." unique_id=172575491 instance=ExtResource("2_rfbuw")]
+position = Vector2(27033, -2142)
+script = ExtResource("3_n7bm4")
+
+[node name="shark6" parent="." unique_id=1486787028 instance=ExtResource("4_pvdf7")]
+position = Vector2(21788, -3441)
+script = ExtResource("3_n7bm4")
+
+[node name="shark" parent="." unique_id=397594781 instance=ExtResource("4_pvdf7")]
+position = Vector2(30774, -5406)
+script = ExtResource("3_n7bm4")
+
+[node name="shark3" parent="." unique_id=257691452 instance=ExtResource("4_pvdf7")]
+position = Vector2(25958, 4768)
+script = ExtResource("3_n7bm4")
+
+[node name="shark4" parent="." unique_id=1260526576 instance=ExtResource("4_pvdf7")]
+position = Vector2(33123, 5958)
+script = ExtResource("3_n7bm4")
+
+[node name="shark5" parent="." unique_id=1957911287 instance=ExtResource("4_pvdf7")]
+position = Vector2(35161, -1427)
+script = ExtResource("3_n7bm4")
+
+[node name="shark2" parent="." unique_id=1384111103 instance=ExtResource("4_pvdf7")]
+position = Vector2(21031, 1019)
+script = ExtResource("3_n7bm4")
+
+[node name="shark7" parent="." unique_id=1391950839 instance=ExtResource("4_pvdf7")]
+position = Vector2(24039, -7894)
+script = ExtResource("3_n7bm4")
+
+[editable path="npc3"]
