@@ -72,8 +72,8 @@ func _physics_process(delta: float) -> void:
 	if health <= 0.0:
 		alive = false
 		get_tree().change_scene_to_file("res://scenes/YouLose.tscn")
-	velocity.x = direction.x * delta * speed #fps
-	velocity.y = direction.y * delta * speed #fps
+	velocity.x = direction.x * speed #fps
+	velocity.y = direction.y * speed #fps
 
 ##MOVEVMENT INPUTS
 	if can_move:
@@ -109,7 +109,7 @@ func _physics_process(delta: float) -> void:
 		emit_signal("clicked",false)
 	else:
 		emit_signal("clicked",true)
-	if Input.is_action_pressed("boost"):
+	if Input.is_action_pressed("boost") and velocity != Vector2.ZERO:
 		if can_boost:
 			speed = lerp(speed,500.0,delta*3)
 			if speed >=450:
@@ -157,8 +157,8 @@ func _physics_process(delta: float) -> void:
 			boostbar = 0.0
 		else:
 			boostbar = clamp(boostbar, 0.5,3.0)
-			var target_speed = clamp(500.0*boostbar,650.0,1000.0)
-			bullet_speed = lerp(speed, target_speed,delta*3.0)
+			var target_speed = clamp(500.0*boostbar*1.2,1050.0,2000.0)
+			bullet_speed = lerp(700.0, target_speed,delta*3.0)
 			if bullet:
 				bullet.global_position += sendoffdirection *bullet_speed *delta
 	if attack and (not is_instance_valid(bullet) or boostbar <=0.0):
