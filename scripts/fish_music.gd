@@ -11,7 +11,11 @@ var can_move = true
 const speed = 1000.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	global_position = Manager.fish_mini_game_pos
 	timer.wait_time = randf_range(0.2,0.5)
+	if Manager.shell_mini_game_pos != null:
+		call_deferred("spawn_shell",Manager.shell_mini_game_pos)
+		Manager.shell_mini_game_pos = null
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if alive:
@@ -20,13 +24,7 @@ func _physics_process(delta: float) -> void:
 			if shells.size() >0:
 				for shell in shells:
 					shell.get_parent().queue_free()
-			var shell = shell_path.instantiate()
-			shell.global_position = shell_spawn.global_position
-			get_parent().add_child(shell)
-			Manager.emit_signal("change_pos",shell.global_position)
-			can_move = false
-			timer.start()
-			shell.get_node("bubbles").playing = true
+			spawn_shell(shell_spawn.global_position)
 	##MOVEVMENT INPUTS
 		if can_move:
 			direction = Vector2.ZERO
@@ -57,4 +55,11 @@ func _on_timer_timeout() -> void:
 func _on_oohibeingdetected_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shark-area"):
 		get_tree().change_scene_to_file("res://scenes/minigame-fail.tscn")
-	
+func spawn_shell(spawn_position)->void: 
+	var shell = shell_path.instantiate()
+	shell.global_position = spawn_position
+	get_parent().add_child(shell)
+	Manager.emit_signal("change_pos",shell.global_position)
+	can_move = false
+	timer.start()
+	shell.get_node("bubbles").playing = true

@@ -19,6 +19,10 @@ config/icon="res://addons/icon.svg"
 
 Manager="*uid://bg3yvbsuqd88f"
 
+[display]
+
+window/size/initial_position_type=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

@@ -34,7 +34,12 @@ render_target_update_mode = 4
 
 [node name="Startcopyforminimap" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1847366800 instance=ExtResource("4_dsx0k")]
 
-[node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=424898576]
+[node name="mouse-cam" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/Startcopyforminimap" unique_id=424898576]
+scale = Vector2(3.3333333, 3.3333333)
+limit_left = -3000
+limit_top = -3000
+limit_right = 3000
+limit_bottom = 30000
 
 [node name="ColorRect" type="ColorRect" parent="erm-circle" unique_id=2130328952]
 offset_right = 150.0

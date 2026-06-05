@@ -5,6 +5,10 @@ extends Button
 @onready var button3alt: Button = $"."
 @onready var buttonsubmit: Button = $"../Button"
 @onready var line_edit: LineEdit = $"../LineEdit"
+@onready var check_button: CheckButton = $"../CheckButton"
+func _ready() -> void:
+	if check_button: 
+		check_button.button_pressed = Manager.toggled
 ##1
 func _1on_mouse_entered() -> void:
 	button1.add_theme_font_size_override("font_size",63)

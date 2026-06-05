@@ -3,6 +3,11 @@ extends Node
 #signals 
 signal change_pos
 #sark 
+var fish_mini_game_pos = Vector2(88.0,395.0)
+var shark1_mini_game_pos = Vector2(-2164.0,-1662.0)
+var shark2_mini_game_pos = Vector2(1890.0,-1321.0)
+var shell_mini_game_pos = null
+var mini_game_paused = false
 var alive_shark_array = []
 var toggled = true 
 var doneonce = true

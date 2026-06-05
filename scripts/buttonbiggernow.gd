@@ -4,8 +4,16 @@ extends Button
 @onready var button3: Button = $"../Button3"
 #ah i also handle buttons clicks here. ig that filie name was pretty dumb oops
 func _1on_pressed() -> void:
-	Manager.paused = false
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	if get_tree().current_scene.is_in_group("MAIN_MENU"):
+		Manager.paused = false
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		return
+	if Manager.paused == true:
+		Manager.paused = false
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	elif Manager.mini_game_paused == true:
+		Manager.mini_game_paused = false
+		get_tree().change_scene_to_file("res://scenes/mini_game.tscn")
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 func _on_button_3_pressed() -> void:

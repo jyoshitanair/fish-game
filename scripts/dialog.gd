@@ -73,6 +73,11 @@ func _on_timer_timeout() -> void:
 func _return() ->void: 
 	if is_in_group("minigame-failure"):
 		get_tree().change_scene_to_file("res://scenes/mini_game.tscn")	
+		Manager.fish_mini_game_pos = Vector2(88.0,395.0)
+		Manager.shark1_mini_game_pos = Vector2(-2164.0,-1662.0)
+		Manager.shark2_mini_game_pos = Vector2(1890.0,-1321.0)
+		Manager.shell_mini_game_pos = null
+		Manager.mini_game_paused = false
 		return
 	if flag_change: 
 		get_tree().change_scene_to_file("res://scenes/map_game.tscn")

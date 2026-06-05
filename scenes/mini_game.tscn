@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dwl5iq330xb56"]
 
+[ext_resource type="Script" uid="uid://bhedtns45r68e" path="res://scripts/mini_game.gd" id="1_2sn1h"]
 [ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_lmkgc"]
 [ext_resource type="Texture2D" uid="uid://bw67674oh7iyp" path="res://assets/images/shark/spritesheet (1).png" id="2_0gcsj"]
 [ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="2_svrvl"]
@@ -190,6 +191,7 @@ size = Vector2(443, 223)
 radius = 176.78235
 
 [node name="mini_game" type="Node2D" unique_id=440806270 groups=["minigamer"]]
+script = ExtResource("1_2sn1h")
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
 
@@ -333,7 +335,7 @@ shape = SubResource("RectangleShape2D_hd6k8")
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_hd6k8")
 
-[node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497]
+[node name="shark" type="CharacterBody2D" parent="." unique_id=1293253497 groups=["shark1"]]
 position = Vector2(-2164, -1662)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true
@@ -376,7 +378,7 @@ one_shot = true
 position = Vector2(20.5, -11.5)
 shape = SubResource("RectangleShape2D_2sn1h")
 
-[node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291]
+[node name="shark2" type="CharacterBody2D" parent="." unique_id=956396291 groups=["shark2"]]
 position = Vector2(1890, -1321)
 script = ExtResource("3_3kuml")
 metadata/_edit_group_ = true

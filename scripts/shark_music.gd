@@ -34,6 +34,9 @@ var switcher = false
 @onready var shell_timer: Timer = $shell_timer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var grpname = get_groups()[0]
+	grpname = "%s_mini_game_pos"%grpname
+	global_position = Manager.get(grpname)
 	randomize()
 	add_to_group("shark")
 	start_position = global_position

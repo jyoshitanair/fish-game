@@ -101,6 +101,18 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bb4x"]
+size = Vector2(12633.342, 58686.664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i5vd"]
+size = Vector2(106235, 19076.67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msrw4"]
+size = Vector2(19750.004, 58083.33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evc2t"]
+size = Vector2(110883.33, 15419.999)
+
 [node name="Startcopyforminimap" type="Node2D" unique_id=1847366800]
 scale = Vector2(0.3, 0.3)
 
@@ -185,3 +197,21 @@ sprite_frames = SubResource("SpriteFrames_msrw4")
 animation = &"attack"
 autoplay = "idle"
 script = ExtResource("3_n7bm4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1171552691]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1332049785]
+position = Vector2(48483.336, 12616.668)
+shape = SubResource("RectangleShape2D_6bb4x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1326286502]
+position = Vector2(-3569.1653, 40948.336)
+shape = SubResource("RectangleShape2D_0i5vd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=21701221]
+position = Vector2(-52848.336, 12618.336)
+shape = SubResource("RectangleShape2D_msrw4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=1207433335]
+position = Vector2(564.9994, -16256.666)
+shape = SubResource("RectangleShape2D_evc2t")

@@ -35,7 +35,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j7ex8"]
 
-[node name="MainMenu" type="Node2D" unique_id=564973696]
+[node name="MainMenu" type="Node2D" unique_id=564973696 groups=["MAIN_MENU"]]
 
 [node name="Control" type="Control" parent="." unique_id=1039535116]
 layout_mode = 3

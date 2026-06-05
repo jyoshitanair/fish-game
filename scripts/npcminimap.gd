@@ -14,4 +14,7 @@ func _ready() -> void:
 		scale = Vector2(0.3,0.3)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.position = cur_node.position
+	if cur_node:
+		self.position = cur_node.position
+	else:
+		queue_free()
