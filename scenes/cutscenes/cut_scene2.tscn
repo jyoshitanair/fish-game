@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="1_4lbup"]
 [ext_resource type="PackedScene" uid="uid://bmqawfow0lmf7" path="res://scenes/dialouge.tscn" id="1_al7wj"]
+[ext_resource type="Texture2D" uid="uid://cvpa07bctlqah" path="res://assets/images/fish/spritesheet (5).png" id="3_q04sa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q04sa"]
 bg_color = Color(0.8675389, 0.40756887, 0.38207862, 1)
@@ -116,3 +117,4 @@ texture = ExtResource("1_4lbup")
 position = Vector2(572, 546)
 dialog_array = ["Where...where am I?", "The last thing I remeber was being in my tank", "I need to get back to the city as soon as possible!"]
 fish_name = "You "
+fish_sprite = ExtResource("3_q04sa")

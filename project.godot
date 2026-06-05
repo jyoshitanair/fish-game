@@ -21,7 +21,7 @@ Manager="*uid://bg3yvbsuqd88f"
 
 [display]
 
-window/size/initial_position_type=0
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

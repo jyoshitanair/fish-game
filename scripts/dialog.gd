@@ -6,6 +6,7 @@ extends Node2D
 	"Nice to meet ya fishy"
 	]
 @export var fish_name = "bob"
+@export var fish_sprite= Texture2D
 var tween 
 var duration
 var base_time = 0.5
@@ -18,10 +19,19 @@ var flag_change = false
 @onready var text: RichTextLabel = $Panel/Panel/text
 @onready var timer: Timer = $Timer
 @onready var label: RichTextLabel = $"Panel/char-name/Label"
+@onready var animated_sprite_2d: Sprite2D = $AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animated_sprite_2d.position = Vector2(-538.0,-78.0)
+	animated_sprite_2d.texture = fish_sprite
+	var original_size = animated_sprite_2d.texture.get_size()
+	var x = 50/original_size.x
+	var y = 45/original_size.y
+	animated_sprite_2d.scale = Vector2(x,y)
+	if dialog_array[2] == "FAHHHHHH":
+		dialog_array[2] = "Oh your name is %s? That's such a pretty name! What brings you to this part of the sea?"%Manager.urname
 	if Manager.npc6_is_current and Manager.first_dialog:
 		dialog_array = [
 			"Oh! You actually made it back! I thought the sharks wouldda gotten you for sure",

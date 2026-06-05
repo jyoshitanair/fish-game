@@ -4,18 +4,6 @@
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="1_avunv"]
 [ext_resource type="FontFile" uid="uid://bckcmssoejbqn" path="res://assets/fonts/normal-text.ttf" id="2_hgtjj"]
 [ext_resource type="Script" uid="uid://c3qj5tq1q2ma5" path="res://scripts/circle.gd" id="3_3ggh0"]
-[ext_resource type="Texture2D" uid="uid://c85jwaplfd3vi" path="res://assets/images/npc/Male_7_Run6.png" id="3_tc1v4"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_svgti"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_tc1v4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="text" type="Node2D" unique_id=1734454769]
 script = ExtResource("1_3ggh0")
@@ -89,11 +77,10 @@ script = ExtResource("3_3ggh0")
 [node name="where_the_circle_is" type="Marker2D" parent="circle_why_so_hard" unique_id=801357590]
 position = Vector2(-481, -59)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=982056156]
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=751211338]
 z_index = 144
 position = Vector2(-538.00006, -118)
 scale = Vector2(0.38867196, 0.31249997)
-sprite_frames = SubResource("SpriteFrames_svgti")
 
 [node name="Timer" type="Timer" parent="." unique_id=867401290]
 wait_time = 0.1
