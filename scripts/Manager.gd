@@ -20,13 +20,13 @@ var _2_on_pos_shell = false
 var _2_on_pos_shark = false
 #vars
 var fish_health = 100
-var shark1_position 
-var shark2_position
-var shark3_position
-var shark4_position
-var shark5_position
-var shark6_position
-var shark7_position
+var shark1_position = Vector2(30774.0,-5406.0)
+var shark2_position = Vector2(21031.0,1019.0)
+var shark3_position = Vector2(25958.0,4768.0)
+var shark4_position = Vector2(33123.0,5958.0)
+var shark5_position = Vector2(35161.0,-1427.0)
+var shark6_position = Vector2(21788.0,-3441.0)
+var shark7_position = Vector2(24039.0,-7894.0)
 var first_dialog = true
 var paused = false
 var returning_from_mini_game = false

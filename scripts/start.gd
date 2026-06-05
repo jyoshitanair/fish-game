@@ -24,6 +24,10 @@ func _ready() -> void:
 	player.can_move = false
 	if Manager.first_time:
 		Manager.alive_shark_array.clear()
+		for shark in get_tree().get_nodes_in_group("shark"):
+			var s = shark.get_groups()[1]
+			if not Manager.alive_shark_array.has(s):
+				Manager.alive_shark_array.append(s)
 		call_deferred("setting_up_dialog")
 		Manager.first_time = false
 	else:
@@ -37,22 +41,18 @@ func delete_him() -> void:
 	if not Manager.returning_from_mini_game:
 		for shark in get_tree().get_nodes_in_group("shark"):
 			if not Manager.alive_shark_array.has(shark.get_groups()[1]):
-				Manager.alive_shark_array.erase(shark.get_groups()[1])
 				shark.queue_free()
-				print("DELETE HERE")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		Manager.paused = true
 		Manager.fish_health = get_tree().get_first_node_in_group("player").health
-		Manager.shark1_position = get_tree().get_first_node_in_group("shark1").global_position
-		Manager.shark2_position = get_tree().get_first_node_in_group("shark2").global_position
-		Manager.shark3_position = get_tree().get_first_node_in_group("shark3").global_position
-		Manager.shark4_position = get_tree().get_first_node_in_group("shark4").global_position
-		Manager.shark5_position = get_tree().get_first_node_in_group("shark5").global_position
-		Manager.shark6_position = get_tree().get_first_node_in_group("shark6").global_position
-		Manager.shark7_position = get_tree().get_first_node_in_group("shark7").global_position
 		Manager.fish_position = get_tree().get_first_node_in_group("player").global_position
+		for shark in get_tree().get_nodes_in_group("shark"):
+			var name = shark.get_groups()[1]
+			var group_pos = "%s_position"%name
+			Manager.set(group_pos, shark.global_position)
+			print(shark)
 		get_tree().change_scene_to_file("res://scenes/pause.tscn")
 	if in_shark_zone: 
 		sharkzone.visible = true
@@ -60,11 +60,9 @@ func setting_up_dialog() -> void:
 	get_tree().change_scene_to_packed(file)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("IN")
 	if body.is_in_group("player"):
 		sharkzone.visible = true
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("Out")
 	if body.is_in_group("player"):
 		sharkzone.visible = false

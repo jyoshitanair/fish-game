@@ -191,7 +191,6 @@ func _on_diemf_body_entered(body: Node2D) -> void:
 			health = 0 
 		else:
 			health -= randi_range(5,20)
-		print("HIT")
 		if bullet:
 			_reset()
 		await get_tree().create_timer(0.3).timeout
@@ -201,7 +200,6 @@ func _on_attack_timer_timeout() -> void:
 func _reset() -> void: 
 	if is_instance_valid(bullet):
 			bullet.queue_free()
-			print("DELTE")
 	if tween:
 		tween.kill()
 	attack = false

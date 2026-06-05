@@ -36,18 +36,13 @@ var switcher = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var group = self.get_groups()[1]
-	var groupname = "%s_position"%group
-	if Manager.get(groupname) != null:
-		global_position = Manager.get(groupname)
-	else:
-		Manager.set(groupname, global_position)
 	randomize()
 	add_to_group("shark")
-	start_position = global_position
 	player = get_tree().get_first_node_in_group("player")
+	start_position = global_position
 	timer.wait_time = randf_range(0.3,0.5)
-	if not Manager.alive_shark_array.has(group):
-		Manager.alive_shark_array.append(group)
+	var groupname = "%s_position"%group
+	global_position = Manager.get(groupname)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if health <=0:
