@@ -56,6 +56,5 @@ func _on_timer_timeout() -> void:
 
 func _on_oohibeingdetected_area_entered(area: Area2D) -> void:
 	if area.is_in_group("shark-area"):
-		print("HIT")
 		get_tree().change_scene_to_file("res://scenes/minigame-fail.tscn")
 	

@@ -9,7 +9,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sb42f"]
-radius = 21.587032
+radius = 45.01111
 
 [node name="shell" type="Node2D" unique_id=1556653456]
 
@@ -21,7 +21,7 @@ parameters/looping = true
 
 [node name="Node" type="Node2D" parent="." unique_id=1306324645]
 position = Vector2(-13, -2)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(3, 3)
 metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="Node" unique_id=1596372465]
@@ -31,6 +31,7 @@ offset_right = 9.6556835
 offset_bottom = 24.227345
 rotation = 4.6390853
 theme_override_styles/panel = SubResource("StyleBoxFlat_bo4bk")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel2" type="Panel" parent="Node" unique_id=1868340859]
 offset_left = -2.0000002
@@ -85,4 +86,5 @@ default_color = Color(0.27660945, 5.5230037e-05, 0.27937618, 1)
 [node name="Area2D" type="Area2D" parent="." unique_id=1060159265 groups=["shell"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=140093972]
+position = Vector2(12, 2)
 shape = SubResource("CircleShape2D_sb42f")

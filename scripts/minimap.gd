@@ -64,9 +64,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.global_position = mouse_position
 		cur_zoom = camera.zoom
 		return
-	if event.is_action("click") and is_on_mini_map: 
-		print("open big map")
-		
 ##CHECK IF IN MINIMAP FIRST OFC
 func _on_detection_for_mouse_mouse_entered() -> void:
 	is_on_mini_map = true

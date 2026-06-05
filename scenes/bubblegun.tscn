@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://qc3vqchi7pg6"]
 
+[ext_resource type="Texture2D" uid="uid://ndyc2yj2g8x5" path="res://assets/images/fish/Screenshot_2026-06-04_212848-removebg-preview.png" id="1_ggsdv"]
+
 [sub_resource type="GDScript" id="GDScript_7rdj3"]
 script/source = "extends Node2D
 var boostbar = 0.0
@@ -10,60 +12,26 @@ func _on_timer_timeout() -> void:
 	get_parent().get_node(\"fish\").boostbar = 0.0
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwfqu"]
-bg_color = Color(0.76721865, 0.82188606, 0.95017, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-corner_detail = 20
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggsdv"]
-radius = 12.0415945
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggsdv"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
+radius = 21.0
 
 [node name="Bubblegun" type="Node2D" unique_id=1206411]
 script = SubResource("GDScript_7rdj3")
 
-[node name="Panel" type="Panel" parent="." unique_id=1621531296]
-offset_left = -12.0
-offset_top = -15.0
-offset_right = 12.0
-offset_bottom = 9.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_vwfqu")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982577029]
+z_index = 4096
+position = Vector2(-3.7499998, -0.049998473)
+scale = Vector2(0.10087719, 0.10022831)
+texture = ExtResource("1_ggsdv")
 
 [node name="Timer" type="Timer" parent="." unique_id=861677611]
 wait_time = 3.0
 
 [node name="gun" type="Area2D" parent="." unique_id=164940023 groups=["gun"]]
-visible = false
 collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gun" unique_id=887630204]
-position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ggsdv")
-
-[node name="Panel2" type="Panel" parent="." unique_id=808515069]
-offset_left = -3.9999995
-offset_top = -14.0
-offset_right = 2.0000005
-offset_bottom = -5.0
-rotation = 0.7749262
-theme_override_styles/panel = SubResource("StyleBoxFlat_ggsdv")
-
-[node name="Panel3" type="Panel" parent="." unique_id=1694956847]
-offset_left = -8.093179
-offset_top = -0.3357942
-offset_right = -4.832319
-offset_bottom = 2.8063424
-rotation = 0.58119464
-theme_override_styles/panel = SubResource("StyleBoxFlat_ggsdv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

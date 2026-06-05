@@ -160,7 +160,6 @@ func _physics_process(delta: float) -> void:
 			if bullet:
 				bullet.global_position += sendoffdirection *bullet_speed *delta
 	if attack and (not is_instance_valid(bullet) or boostbar <=0.0):
-		print("DEAD")
 		attack = false
 		bullet_moving = false
 		can_move = true

@@ -94,7 +94,6 @@ func _process(delta: float) -> void:
 						direction = (player.global_position - global_position).normalized()
 						retreating = true
 				elif retreating: 
-					print("retreat")  
 					direction = (player.global_position - global_position).normalized()
 					global_position = lerp(global_position,start_position,1 - exp(-6 *delta))
 					if global_position.distance_to(start_position) <15:
@@ -103,7 +102,6 @@ func _process(delta: float) -> void:
 			else:
 				#first this dumb ahh needs to check if it's touching a wall. 
 				if hit_dat_wall: 
-					print("hit")
 					direction = Vector2(randf_range(-1,1),randf_range(-1,1)).normalized()
 				normal = true
 				moving_timer += 1
