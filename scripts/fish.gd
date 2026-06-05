@@ -5,6 +5,7 @@ signal clicked
 const SPEED = 300.0
 const CHARGE_SPEED = 800.0
 ##VARS
+var just_hit = false
 const MIN_X = -52000
 const MAX_X = 52000
 const MIN_Y = -12000
@@ -117,10 +118,11 @@ func _physics_process(delta: float) -> void:
 				boost_timer.start()
 	if Input.is_action_pressed("charge") and can_charge and !bullet_moving:
 		if bullet == null:
-			bullet = bubblegun.instantiate()
-			get_tree().current_scene.add_child(bullet)
-			charging = true
-			bullet.global_position = global_position
+			if get_tree().current_scene !=null:
+				bullet = bubblegun.instantiate()
+				get_tree().current_scene.add_child(bullet)
+				charging = true
+				bullet.global_position = global_position
 		if charging:
 			if is_instance_valid(bullet):
 				bullet.global_position = global_position
@@ -160,13 +162,7 @@ func _physics_process(delta: float) -> void:
 			if bullet:
 				bullet.global_position += sendoffdirection *bullet_speed *delta
 	if attack and (not is_instance_valid(bullet) or boostbar <=0.0):
-		attack = false
-		bullet_moving = false
-		can_move = true
-		speed = SPEED
-		boostbar = 0.0
-		bullet  = null
-		attack_timer.start()
+		_reset()
 	if get_tree() != null:
 		var hud = get_tree().get_first_node_in_group("BAR")
 	if is_instance_valid(bullet):
@@ -187,13 +183,36 @@ func tweeny(vector,bulletsprite) -> void:
 	else: 
 		speed= 0.04
 	tween.tween_property(bulletsprite, "scale", vector, speed)
-
 func _on_diemf_body_entered(body: Node2D) -> void:
-	if body.is_in_group("shark"):
+	if body.is_in_group("shark") and not just_hit:
+		just_hit= true
 		randomize()
 		if health - randi_range(5,20) <= 0:
 			health = 0 
 		else:
 			health -= randi_range(5,20)
+		print("HIT")
+		if bullet:
+			_reset()
+		await get_tree().create_timer(0.3).timeout
+		just_hit = false
 func _on_attack_timer_timeout() -> void:
 	can_charge = true
+func _reset() -> void: 
+	if is_instance_valid(bullet):
+			bullet.queue_free()
+			print("DELTE")
+	if tween:
+		tween.kill()
+	attack = false
+	bullet_moving = false
+	charging = false	
+	can_charge = false
+	can_move = true
+	can_tween =true
+	speed = SPEED
+	boostbar = 0.0
+	bullet  = null
+	if attack_timer.is_stopped() == false:
+		attack_timer.stop()
+	attack_timer.start()

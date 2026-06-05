@@ -24,12 +24,13 @@ var flag_change = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	animated_sprite_2d.position = Vector2(-538.0,-78.0)
-	animated_sprite_2d.texture = fish_sprite
-	var original_size = animated_sprite_2d.texture.get_size()
-	var x = 50/original_size.x
-	var y = 45/original_size.y
-	animated_sprite_2d.scale = Vector2(x,y)
+	if animated_sprite_2d:
+		animated_sprite_2d.position = Vector2(-538.0,-78.0)
+		animated_sprite_2d.texture = fish_sprite
+		var original_size = animated_sprite_2d.texture.get_size()
+		var x = 50/original_size.x
+		var y = 45/original_size.y
+		animated_sprite_2d.scale = Vector2(x,y)
 	if dialog_array[2] == "FAHHHHHH":
 		dialog_array[2] = "Oh your name is %s? That's such a pretty name! What brings you to this part of the sea?"%Manager.urname
 	if Manager.npc6_is_current and Manager.first_dialog:

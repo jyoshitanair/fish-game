@@ -144,7 +144,7 @@ func _on_hitzone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gun"):
 		health -= int(randi_range(10,30)*area.get_parent().boostbar)
 		label.text = str(health)
-		area.get_parent().queue_free()
+		get_tree().get_first_node_in_group("player")._reset()
 func _on_chase_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		can_detect = true
