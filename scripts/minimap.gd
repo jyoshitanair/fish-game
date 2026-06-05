@@ -1,8 +1,8 @@
 extends Control
 #the goats
-@onready var position_player: AnimatedSprite2D = $"erm-circle/SubViewportContainer/SubViewport/position_player"
+var position_player: AnimatedSprite2D
 @onready var camera: Camera2D = $"erm-circle/SubViewportContainer/SubViewport/mouse-cam"
-@onready var player_camera: Camera2D = $"erm-circle/SubViewportContainer/SubViewport/position_player/Camera2D"
+var player_camera: Camera2D
 #ZOOM
 var cur_zoom = Vector2.ONE
 var new_zoom: Vector2 
@@ -18,6 +18,8 @@ var world_size = Vector2(1152,648)
 var minimap_size = Vector2(150,150)
 #functions
 func _ready() -> void: 
+	position_player = get_tree().get_first_node_in_group("player_position")
+	player_camera = position_player.get_node("Camera2D")
 	camera.zoom = cur_zoom
 	player_camera.make_current()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

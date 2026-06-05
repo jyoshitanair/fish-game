@@ -1,56 +1,187 @@
 [gd_scene format=3 uid="uid://dmmbsmg0ilepi"]
 
 [ext_resource type="PackedScene" uid="uid://dalhj1lyx8cfm" path="res://scenes/world.tscn" id="1_var5c"]
-[ext_resource type="PackedScene" uid="uid://8612b26gvafl" path="res://scenes/npc.tscn" id="2_rfbuw"]
 [ext_resource type="Script" uid="uid://blhfyoypi316n" path="res://scripts/npcminimap.gd" id="3_n7bm4"]
-[ext_resource type="PackedScene" uid="uid://bj435kbpkfqc1" path="res://scenes/shark.tscn" id="4_pvdf7"]
+[ext_resource type="Texture2D" uid="uid://bub77p2ej08k3" path="res://assets/images/npc/Illustration100.PNG" id="4_pvdf7"]
+[ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="5_rfbuw"]
+[ext_resource type="Texture2D" uid="uid://dr4gf4xa385ap" path="res://assets/images/npc/2026_02_26_10q_Kleki-removebg-preview.png" id="5_t4kof"]
+[ext_resource type="Texture2D" uid="uid://btkyyx2yht0sq" path="res://assets/images/npc/2026_02_26_118_Kleki-removebg-preview.png" id="6_6bb4x"]
+[ext_resource type="Texture2D" uid="uid://cdup3jbwd0k1p" path="res://assets/images/npc/Illustration100 (1).PNG" id="7_0i5vd"]
+[ext_resource type="Texture2D" uid="uid://cm873dyrs5j3b" path="res://assets/images/shark/spritesheet (3).png" id="8_6bb4x"]
+[ext_resource type="Texture2D" uid="uid://bw67674oh7iyp" path="res://assets/images/shark/spritesheet (1).png" id="9_0i5vd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8tna"]
+atlas = ExtResource("5_rfbuw")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7bm4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8tna")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m6ut"]
+atlas = ExtResource("8_6bb4x")
+region = Rect2(0, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx357"]
+atlas = ExtResource("8_6bb4x")
+region = Rect2(1024, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbhwa"]
+atlas = ExtResource("8_6bb4x")
+region = Rect2(0, 576, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q38ne"]
+atlas = ExtResource("8_6bb4x")
+region = Rect2(1024, 576, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irb4t"]
+atlas = ExtResource("8_6bb4x")
+region = Rect2(0, 1152, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5iaq"]
+atlas = ExtResource("9_0i5vd")
+region = Rect2(0, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po4rd"]
+atlas = ExtResource("9_0i5vd")
+region = Rect2(1024, 0, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inbs7"]
+atlas = ExtResource("9_0i5vd")
+region = Rect2(0, 576, 1024, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f40hg"]
+atlas = ExtResource("9_0i5vd")
+region = Rect2(1024, 576, 1024, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msrw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m6ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx357")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbhwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q38ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irb4t")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5iaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po4rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inbs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f40hg")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [node name="Startcopyforminimap" type="Node2D" unique_id=1847366800]
+scale = Vector2(0.3, 0.3)
 
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_var5c")]
 position = Vector2(-25, 54)
 
-[node name="npc2" parent="." unique_id=1818705560 instance=ExtResource("2_rfbuw")]
-position = Vector2(-2968, -3410)
+[node name="position_player" type="AnimatedSprite2D" parent="." unique_id=1097647113 groups=["player_position"]]
+z_index = 500
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_n7bm4")
+
+[node name="Camera2D" type="Camera2D" parent="position_player" unique_id=1188026623]
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="npc1" type="Sprite2D" parent="." unique_id=869979012]
+scale = Vector2(0.066, 0.071500026)
+texture = ExtResource("4_pvdf7")
 script = ExtResource("3_n7bm4")
 
-[node name="npc1" parent="." unique_id=1536932107 instance=ExtResource("2_rfbuw")]
+[node name="npc2" type="Sprite2D" parent="." unique_id=1004024163]
+scale = Vector2(0.47264957, 0.41549295)
+texture = ExtResource("5_t4kof")
 script = ExtResource("3_n7bm4")
 
-[node name="npc3" parent="." unique_id=2023809466 instance=ExtResource("2_rfbuw")]
-position = Vector2(-2916, 3395)
+[node name="npc3" type="Sprite2D" parent="." unique_id=1707972631]
+scale = Vector2(0.36153847, 0.3544601)
+texture = ExtResource("6_6bb4x")
 script = ExtResource("3_n7bm4")
 
-[node name="npc4" parent="." unique_id=172575491 instance=ExtResource("2_rfbuw")]
-position = Vector2(27033, -2142)
+[node name="npc4" type="Sprite2D" parent="." unique_id=321210333]
+scale = Vector2(0.07733333, 0.0845)
+texture = ExtResource("7_0i5vd")
 script = ExtResource("3_n7bm4")
 
-[node name="shark6" parent="." unique_id=1486787028 instance=ExtResource("4_pvdf7")]
-position = Vector2(21788, -3441)
+[node name="shark1" type="AnimatedSprite2D" parent="." unique_id=1926415597]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark" parent="." unique_id=397594781 instance=ExtResource("4_pvdf7")]
-position = Vector2(30774, -5406)
+[node name="shark2" type="AnimatedSprite2D" parent="." unique_id=618998541]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark3" parent="." unique_id=257691452 instance=ExtResource("4_pvdf7")]
-position = Vector2(25958, 4768)
+[node name="shark3" type="AnimatedSprite2D" parent="." unique_id=2049743879]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark4" parent="." unique_id=1260526576 instance=ExtResource("4_pvdf7")]
-position = Vector2(33123, 5958)
+[node name="shark4" type="AnimatedSprite2D" parent="." unique_id=1412688]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark5" parent="." unique_id=1957911287 instance=ExtResource("4_pvdf7")]
-position = Vector2(35161, -1427)
+[node name="shark5" type="AnimatedSprite2D" parent="." unique_id=715299127]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark2" parent="." unique_id=1384111103 instance=ExtResource("4_pvdf7")]
-position = Vector2(21031, 1019)
+[node name="shark6" type="AnimatedSprite2D" parent="." unique_id=2081717759]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
 
-[node name="shark7" parent="." unique_id=1391950839 instance=ExtResource("4_pvdf7")]
-position = Vector2(24039, -7894)
+[node name="shark7" type="AnimatedSprite2D" parent="." unique_id=430031692]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_msrw4")
+animation = &"attack"
+autoplay = "idle"
 script = ExtResource("3_n7bm4")
-
-[editable path="npc3"]

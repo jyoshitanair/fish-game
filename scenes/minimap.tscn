@@ -2,23 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcudl1p34rcu4" path="res://scripts/minimap.gd" id="1_0pgu0"]
 [ext_resource type="Script" uid="uid://dih37irsesvhr" path="res://scripts/circle-but-for-mini-map.gd" id="2_dsx0k"]
-[ext_resource type="Texture2D" uid="uid://daxixtl4w0eul" path="res://assets/images/fish/spritesheet.png" id="3_dsx0k"]
 [ext_resource type="PackedScene" uid="uid://dmmbsmg0ilepi" path="res://scenes/startcopyforminimap.tscn" id="4_dsx0k"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8tna"]
-atlas = ExtResource("3_dsx0k")
-region = Rect2(0, 0, 512, 288)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uxthi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8tna")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dsx0k"]
 radius = 75.0
@@ -47,16 +31,6 @@ offset_bottom = 150.0
 handle_input_locally = false
 size = Vector2i(150, 150)
 render_target_update_mode = 4
-
-[node name="position_player" type="AnimatedSprite2D" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=824826023]
-z_index = 500
-texture_filter = 1
-scale = Vector2(0.15, 0.15)
-sprite_frames = SubResource("SpriteFrames_uxthi")
-
-[node name="Camera2D" type="Camera2D" parent="erm-circle/SubViewportContainer/SubViewport/position_player" unique_id=2089861196]
-position_smoothing_enabled = true
-position_smoothing_speed = 15.0
 
 [node name="Startcopyforminimap" parent="erm-circle/SubViewportContainer/SubViewport" unique_id=1847366800 instance=ExtResource("4_dsx0k")]
 
