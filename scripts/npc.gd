@@ -8,12 +8,13 @@ var group_name
 var cur_name
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
-	npc_sprite.texture = sprite_image
-	npc_sprite.position.y += 100
-	var original_size = npc_sprite.texture.get_size()
-	var x = 250/original_size.x
-	var y = 150/original_size.y
-	npc_sprite.scale = Vector2(x,y)
+	if npc_sprite and sprite_image:
+		npc_sprite.texture = sprite_image
+		npc_sprite.position.y += 100
+		var original_size = npc_sprite.texture.get_size()
+		var x = 250/original_size.x
+		var y = 150/original_size.y
+		npc_sprite.scale = Vector2(x,y)
 	call_deferred("_get_groups")
 func _process(_delta: float) -> void:
 	##FINDING PLAYER INTERACTIONS

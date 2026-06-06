@@ -27,7 +27,10 @@ offset_bottom = 435.0
 [node name="circle_why_so_hard" parent="text" index="1" unique_id=1837158979]
 visible = false
 
-[node name="AnimatedSprite2D" parent="text" index="2" unique_id=982056156]
+[node name="where_the_circle_is" parent="text/circle_why_so_hard" index="0" unique_id=801357590]
+visible = false
+
+[node name="AnimatedSprite2D" parent="text" index="2" unique_id=751211338]
 visible = false
 
 [editable path="text"]

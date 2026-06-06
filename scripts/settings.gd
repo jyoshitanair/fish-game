@@ -62,11 +62,11 @@ func _on_option_button_item_selected(index: int) -> void:
 	if index == 0: 
 		Manager.music.stream = load("res://assets/music/normal.ogg")
 	if index == 1:
-		Manager.music.stream = load("res://assets/music/Cats.mp3")
+		Manager.music.stream = load("res://assets/music/chrisdjyogi-vocaloid-electroswing-noir-creepy-alt-pop-439236.mp3")
 	if index == 2:
-		Manager.music.stream = load("res://assets/music/Saja Boys - Soda Pop (Lyrics) _ K-Pop Demon Hunters Soundtrack.mp3")
+		Manager.music.stream = load("res://assets/music/igorovsyannykov-underwater-audiopanther-311437.mp3")
 	if index ==3: 
-		Manager.music.stream = load("res://assets/music/나지막이 (리노) Limbo (Lee Know).mp3")
+		Manager.music.stream = load("res://assets/music/kontraa-water-afro-pop-music-445661.mp3")
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:

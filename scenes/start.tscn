@@ -34,7 +34,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8uic"]
-size = Vector2(25475.498, 20388.988)
+size = Vector2(39936, 59392)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pgjjs"]
 normal = Vector2(-0.9999858, 0.0053175846)
@@ -148,8 +148,7 @@ collision_mask = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border" unique_id=1516125156]
-position = Vector2(7125.8027, 8163.43)
-rotation = 0.35430184
+position = Vector2(16593, 20243)
 shape = SubResource("RectangleShape2D_r8uic")
 
 [node name="detectopetronious" type="Area2D" parent="." unique_id=654256613]
@@ -166,7 +165,7 @@ shape = SubResource("WorldBoundaryShape2D_pgjjs")
 debug_color = Color(0.75686276, 0.30980393, 0.24313726, 0.7921569)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1769609419]
-position = Vector2(1150, 0)
+position = Vector2(1150, -2)
 shape = SubResource("WorldBoundaryShape2D_1nvso")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="detectopetronious/world boundary" unique_id=1674027701]
@@ -212,3 +211,4 @@ shape = SubResource("WorldBoundaryShape2D_r8uic")
 [connection signal="body_exited" from="detectopetronious" to="shark7" method="_on_detectopetronious_body_exited"]
 
 [editable path="npc3"]
+[editable path="npc4"]
