@@ -4,7 +4,7 @@
 
 ---
 
-###Contents
+### Contents
 
 -[Access](#access)
 -[Description](#description)
@@ -72,8 +72,8 @@ But in the end things are not the way that they seem and you head back to the oc
 2) Interact with NPCs using Enter, skip dialog using enter
 3) boost using the B key and there is a cooldown of 3 sec. 
 	
-	-red when you can't boost, 
-	- green when you can! 
+
+	- red when you can't boost, green when you can! 
 	- you can not boost when you are not moving. 
 	- you will boost in the direction that you were going (works with diagonal movement too) 
 4) Fire a Bubble using the L key
@@ -188,10 +188,11 @@ There are three tabs here:
 
 ## LEARNING:
 	
-*After all after literally spending 70+ hours on this I must have learned something right?*
+#### *After all after literally spending 70+ hours on this I must have learned something right?*
+
 ---
 
-#####Learned:
+### Learned:
 ---
 1) I learned more about formatting md files and honestly this might be my best one yet!
 2) I learned how to switch between music - and I definetly used it a lot in my project!
@@ -204,7 +205,7 @@ There are three tabs here:
 9) Creating reusable files for things like dialog, npcs, sharks, ect that heavily relied on export vars :D
 10) Making/setting up Isometric tiles (I really want to try true isometric tiles in the future too!)
 
-#####Struggles :
+#### Struggles :
 	
 ---
 1) **The shark.** This took forever and every time something worked the other wouldn't! I really had to get
@@ -224,9 +225,9 @@ same size and the little circle with their sprite in it to show up!
 *...and more but those are the big ones*
 
 
-##CREDITS
+## CREDITS
 
-*because I didn't do everything myself!*
+####*because I didn't do everything myself!*
 
 ---
 1) Fonts
