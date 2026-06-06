@@ -197,13 +197,18 @@ A game where you are a fish just trynna live it out. But its not very easy being
 *because I didn't do everything myself!*
 ---
 	1) Fonts
+		* Untitled Font by luzwick, https://www.fontspace.com/untitled-font-f30368
+		* Handwriting Font by princess, https://www.fontspace.com/handwriting-font-f10680
+		* Battle Bingo by zeenesia studio, https://www.fontspace.com/battle-bingo-font-f67643
+		* Touch of Nature by Unauthorized Type, https://www.fontspace.com/touch-of-nature-font-f9784
 	2) Music
-		* Underwater - Audiopanther by igorovsyannykov,https://pixabay.com/music/upbeat-underwater-audiopanther-311437/
-		* Underwater symphony_1 by bernivoyage https://pixabay.com/music/pop-underwater-symphony-1-291195/
-		* Vocaloid Electroswing Noir -- Creepy Alt-Pop by ChrisDjYogi https://pixabay.com/music/pop-vocaloid-electroswing-noir-creepy-alt-pop-439236/
-		* Water | Afro-pop Music by kontraa https://pixabay.com/music/afrobeat-water-afro-pop-music-445661/
+		* Underwater - Audiopanther by igorovsyannykov, https://pixabay.com/music/upbeat-underwater-audiopanther-311437/
+		* Underwater symphony_1 by bernivoyage, https://pixabay.com/music/pop-underwater-symphony-1-291195/
+		* Vocaloid Electroswing Noir -- Creepy Alt-Pop by ChrisDjYogi, https://pixabay.com/music/pop-vocaloid-electroswing-noir-creepy-alt-pop-439236/
+		* Water | Afro-pop Music by kontraa, https://pixabay.com/music/afrobeat-water-afro-pop-music-445661/
+		*Bubbling by Infernus2(freesound), https://pixabay.com/sound-effects/nature-bubbling-6184/
+		*Underwater Cavern by Purrple Cat, https://pixabay.com/music/beats-underwater-cavern-482364/ 
 	3) Videos
-video credit:
-	Boyan Minchev on pexels.com
-music
+		Boyan Minchev on pexels.com, https://www.pexels.com/video/fishes-and-plants-in-aquarium-13320467/
+
 *Made with 💖 by jyoshita!*

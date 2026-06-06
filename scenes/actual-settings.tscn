@@ -205,10 +205,11 @@ alignment = 1
 item_count = 4
 popup/item_0/text = "Default"
 popup/item_0/id = 0
-popup/item_1/text = "Creepy"
+popup/item_1/text = "Creepy vocaloid"
 popup/item_1/id = 1
+popup/item_2/text = "underwater"
 popup/item_2/id = 2
-popup/item_3/text = "mah favorite song"
+popup/item_3/text = "water"
 popup/item_3/id = 3
 
 [node name="Label5" type="Label" parent="Control" unique_id=190753482]
