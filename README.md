@@ -1,9 +1,11 @@
 # Fish
 
-A game where you are a fish just trynna live it out. But its not very easy being a fish '
+##### A game where you are a fish just trynna live it out. But its not very easy being a fish '
+
 ---
 
 ###Contents
+
 -[Access](#access)
 -[Description](#description)
 -[How to play?](#how-to-play)
@@ -13,17 +15,25 @@ A game where you are a fish just trynna live it out. But its not very easy being
 -[Credits](#credits)
 
 ## ACCESS
+
 ---
-**Github Repo:**
-**Itch.io:**
+* **Github Repo:**
+
+
+* **Itch.io:**
 	
 ## DESCRIPTION
----
 #### Creation Details
 ---
-by: **jyoshitanair** (github)
-name: **fish** 
-made in: **Godot** Version 4.6.1 Stable gd script
+* by: **jyoshitanair** (github)
+
+
+* name: **fish** 
+
+
+* made in: **Godot** Version 4.6.1 Stable gd script
+
+
 
 #### Quick Overview
 ---
@@ -33,8 +43,9 @@ You are determined to find your human again and set out on a mission in the huge
 Along the way you meet many new friends until you eventually make it back.
 But in the end things are not the way that they seem and you head back to the ocean!
 
+
+
 ## HOW TO PLAY
----
 * follow the hints at the top to know what to do
 * attack with l to create a bubble and launch it
 * boost with b!
@@ -44,8 +55,11 @@ But in the end things are not the way that they seem and you head back to the oc
 * when in the mini game click q to make a shell
 * enter to skip dialog
 
+
+
 ## FEATURES
 * **Map:**
+---
 1) Shows the player's current position in the open world
 2) Zoom in and out using the mouse wheel (clamped at 0.1 minimum - 3.0 maximum)
 3) 1 Right click to reset the position and another to reset the zoom settings
@@ -53,9 +67,11 @@ But in the end things are not the way that they seem and you head back to the oc
 5) Clamped to not show extra world :D
 6) Utilizes a subviewport and switching between a player camera and mouse camera to keep accurate positioning
 * **Player:**
+---
 1) Movement using WASD/Arrow Keys
 2) Interact with NPCs using Enter, skip dialog using enter
 3) boost using the B key and there is a cooldown of 3 sec. 
+	
 	-red when you can't boost, 
 	- green when you can! 
 	- you can not boost when you are not moving. 
@@ -70,6 +86,7 @@ But in the end things are not the way that they seem and you head back to the oc
 6) Attacks deal 'randi_range(10,30)*area.get_parent().boostbar' damage
 	- random int from 10-30 * how long you held the boost bar for (0.1-3.0)
 * **NPCS:**	
+---
 1) 4 unique NPCs - and return back to one
 2) all the same code but different paths to return to at the end/unique dialog situations/variables/sprites
 3) sorted into unique cutscene scenes
@@ -77,6 +94,7 @@ But in the end things are not the way that they seem and you head back to the oc
 5) can not pause during this time (you will listen to them yap)
 6) Trails to guide you to them!
 * **Shark:**	
+---
 1) Handles movement through 4 states: Normal, Chasing, Attacking and Retreating
 	-	Normal means that they don't see a player in their collision shape range so they just wander picking a 
 	random direction with match. There are also timers to switch directions randomly every once in a while when the shark is in the 
@@ -95,15 +113,18 @@ and prevents them from leaving the designated shark area!
 	them really easy to kill! (if you want to take the easy way o|._.|o)
 4) Their death is handled in the start file and on pause they store if they are alive in an array and their position
 * **Tiles:**
+---
 - Isometric Design and randomly generated using probability: 
 	- I drew the tiles yaya :D and this was my first time making isometric tiles - SO much guess and check
 	- i used probabilities and collisions and matching corners and sides to create a terrain set!
 * **Health Bar:**
+---
 1) displays as a Bar and Number
 2) if you are out of the sharks hitbox then you will begin to progressively
 heal! don't die!
 3) Once you've been hit once though it will never go back up to 100 :O
 * **Attack Bar:**
+---
 1) Displays as a rectangular cool down for your attack ! 
 2)The cool down timer starts once the projectile (i call it a bubble gun!)
 has despawned (which it does automatically after a cooldown period (3 sec) or after it hits the shark)
@@ -111,10 +132,10 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 4) Shows up as green if there is a bubblegun in effect or if you can use the bubble gun
 5) Shows up as grey during the cooldown period. 
 * **Boost Bar:**
+---
 1)Shows up as red if you can boost and green if you can't! 
 2)A boost makes you lunge forward smoothly and there is a cooldown(3 sec) so you can't abuse it. 
-* **Menus:**
-**Start Menu:**
+* **Start Menu:**
 ---
 * Its such a beautiful UI I know. UwU
 * It has a super cool fish video on it
@@ -122,7 +143,7 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 * If you click start, you start
 * If you click settings, you are redirected to settings(see settings section)
 * If you click rage quit...you just instantly die lol
-**Pause Menu:**
+* **Pause Menu:**
 ---
 * This took forever!
 * You can pause as long as you are not inside dialog (including in the mini game!)
@@ -132,7 +153,7 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 * If you click continue, you continue
 * If you click settings, you are redirected to settings(see settings section)
 * If you click rage quit...you just instantly die lol
-**Settings Menu:**
+* **Settings Menu:**
 ---
 There are three tabs here: 
 1) Return (back to the pause/main menu)
@@ -152,8 +173,9 @@ There are three tabs here:
 	- create a shell (max one) and 
 4) The goal is to apply pressure onto the two blue plates (by using yourself, the sharks, or the shell) to escape!
 5) New music for this scene and if you are close to the shells you will hear bubbling!
-#AI USAGE: 
----
+
+
+## AI USAGE: 
 * ChatGPT and Gemini for debugging, for example:
 	- to learn about keyboard ghosting
 	- helping to switch organize the shark attack states
@@ -163,9 +185,12 @@ There are three tabs here:
 * But in the end all code and concepts are written authentically by me!
 * All the art is done by me (<3 i hope you likee itt) and the music is not Ai generated lol
 * And of course this read me is written by the one and only me :D
-#LEARNING:
+
+## LEARNING:
+	
 *After all after literally spending 70+ hours on this I must have learned something right?*
 ---
+
 #####Learned:
 ---
 1) I learned more about formatting md files and honestly this might be my best one yet!
@@ -178,7 +203,9 @@ There are three tabs here:
 8) Using a subviewport/subview for the first time! (for the mini-map)
 9) Creating reusable files for things like dialog, npcs, sharks, ect that heavily relied on export vars :D
 10) Making/setting up Isometric tiles (I really want to try true isometric tiles in the future too!)
+
 #####Struggles :
+	
 ---
 1) **The shark.** This took forever and every time something worked the other wouldn't! I really had to get
 organized with this one for it to work. It would spam attack, delete on spawn, or just respawn after pausing! 
@@ -195,8 +222,12 @@ I struggled to have the order working with the trails and returning to bobu at t
 same size and the little circle with their sprite in it to show up!
 
 *...and more but those are the big ones*
+
+
 ##CREDITS
+
 *because I didn't do everything myself!*
+
 ---
 1) Fonts
 * Untitled Font by luzwick, https://www.fontspace.com/untitled-font-f30368
