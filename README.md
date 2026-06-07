@@ -282,12 +282,16 @@ converting, compressing, and reducing file quality to eventually get it down to 
 
 #### Gameplay Screenshot:
 <img width="1135" height="626" alt="gameplay-fish" src="https://github.com/user-attachments/assets/e08700e1-548d-4da7-97d7-4c8537c4e698" />
+
 #### Cover on Itch Screenshot:
 <img width="976" height="456" alt="cover-fish" src="https://github.com/user-attachments/assets/88ef0e2f-6e0e-4df5-a3c3-2c38523c7006" />
+
 #### Example Dialogue Screenshot:
 <img width="1141" height="635" alt="dialog-fish" src="https://github.com/user-attachments/assets/e9abacc1-dedd-4e6a-984d-8780356444be" />
+
 #### Settings Menu Screenshot:
 <img width="1126" height="630" alt="settings-fish" src="https://github.com/user-attachments/assets/24356c3f-6b17-4e85-949b-2531797b0b5a" />
+
 #### Main Menu Screenshot:
 <img width="1137" height="622" alt="main-menu-fish" src="https://github.com/user-attachments/assets/fe992019-ea19-422d-a324-f9c20781de72" />
 
