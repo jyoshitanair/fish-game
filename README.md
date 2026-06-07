@@ -18,7 +18,7 @@
 *[Features](#features)
 
 
-*[Ai Useage](#ai-useage)
+*[Ai Usage](#ai-usage)
 
 
 *[Learning](#learning)
