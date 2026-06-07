@@ -6,27 +6,27 @@
 
 ### Contents
 
-*[Access](#access)
+* [Access](#access)
 
 
-*[Description](#description)
+* [Description](#description)
 
 
-*[How to play?](#how-to-play)
+* [How to play?](#how-to-play)
 
 
-*[Features](#features)
+* [Features](#features)
 
 
-*[Ai Usage](#ai-usage)
+* [Ai Usage](#ai-usage)
 
 
-*[Learning](#learning)
+* [Learning](#learning)
 
 
-*[Credits](#credits)
+* [Credits](#credits)
 
-*[Screenshots](#screenshots)
+* [Screenshots](#screenshots)
 
 ## ACCESS
 
@@ -78,16 +78,16 @@ But perhaps things may not be as good as you thought...?
 * right click on the map once to reset position and twice to reset the zoom
 * when in the mini game click q to make a shell (only one shell at a time)
 * enter to skip dialog
-*you can pause any time other than when in dialogue with p
+* you can pause any time other than when in dialogue with p
 
 #### HOW TO WIN
 
-*you have to make it back to the city and finish all the tasks at the top
+* You have to make it back to the city and finish all the tasks at the top
 
 #### HOW TO LOSE
 
-*you get a second chance when you die in the minigame
-*the only way you can lose forever is if your health goes under 0 in the main game
+* You get a second chance when you die in the minigame
+* The only way you can lose forever is if your health goes under 0 in the main game
 (so only when you die to the sharks)
 
 ## FEATURES
@@ -95,7 +95,7 @@ But perhaps things may not be as good as you thought...?
 * **Map:**
 1) Shows the player's current position in the open world
 2) Zoom in and out using the mouse wheel (clamped at 0.1 minimum - 3.0 maximum)
-3) 1 Right click to reset the position and another to reset the zoom settings
+3) Right click once to reset the position and another to reset the zoom settings
 4) Shows the NPCS and sharks even as they move! 
 5) Clamped to not show extra world :D
 6) Utilizes a subviewport and switching between a player camera and mouse camera to keep accurate positioning
@@ -108,7 +108,7 @@ But perhaps things may not be as good as you thought...?
 	- you can not boost when you are not moving. 
 	- you will boost in the direction that you were going (works with diagonal movement too) 
 4) Fire a Bubble using the L key
-	- the bar remains green as long as you can shoot/if there is a bubble in the world
+	- the bar remains green as long as you can shoot/if there is a bubble in the world otherwise it is grey
 	- when the bubble gets freed a cooldown of 3 secs starts and you can only attack again when it's over
 	- it will move in the last 4 way direction you were going in(up,down.left,right) - not diagonal compatible
 	- if you are attacking and get attacked the attack will stop and you will have to wait for the cooldown to end again
@@ -121,7 +121,7 @@ But perhaps things may not be as good as you thought...?
 1) 4 unique NPCs - and return back to one
 2) all the same code but different paths to return to at the end/unique dialog situations/variables/sprites
 3) sorted into unique cutscene scenes
-4) enter to skip/fastforward dialog
+4) enter to skip/fastforward dialog.
 5) can not pause during this time (you will listen to them yap)
 6) Trails to guide you to them!
 ---
@@ -147,13 +147,12 @@ and prevents them from leaving the designated shark area!
 * **Tiles:**
 - Isometric Design and randomly generated using probability: 
 	- I drew the tiles yaya :D and this was my first time making isometric tiles - SO much guess and check
-	- i used probabilities and collisions and matching corners and sides to create a terrain set!
+	- I used probabilities and collisions and matching corners and sides to create a terrain set!
 ---
 * **Health Bar:**
 1) displays as a Bar and Number
 2) if you are out of the sharks hitbox then you will begin to progressively
 heal! don't die!
-3) Once you've been hit once though it will never go back up to 100 :O
 ---
 * **Attack Bar:**
 1) Displays as a rectangular cool down for your attack ! 
@@ -165,11 +164,12 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 ---
 * **Boost Bar:**
 1)Shows up as red if you can boost and green if you can't! 
-2)A boost makes you lunge forward smoothly and there is a cooldown(3 sec) so you can't abuse it. 
+2)A boost makes you lunge forward smoothly and there is a cooldown(3 sec) so you can't abuse it.
+3)You can not boost when staying still.
 ---
 * **Start Menu:**
 * Its such a beautiful UI I know. UwU
-* It has a super cool fish video on it
+* It has a super cool fish video on it - slightly lagging due to severe compression
 * If you hover over the buttons they bold
 * If you click start, you start
 * If you click settings, you are redirected to settings(see settings section)
@@ -177,15 +177,17 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 ---
 * **Pause Menu:**
 * This took forever!
+*  If you hover over the buttons they get an outline
 * You can pause as long as you are not inside dialog (including in the mini game!)
 * It records the states of what sharks were alive and their health, the player's position, the current NPC, the shell position, and the players health
-(does not save the boost bar, attacks, direction ect though)
+(does NOT save the boost bar, attacks, direction ect though!)
 * Then it pauses the game and when you click to continue you will return to the same position that you were in before
 * If you click continue, you continue
-* If you click settings, you are redirected to settings(see settings section)
+* If you click settings, you are redirected to settings(see below)
 * If you click rage quit...you just instantly die lol
 ---
 * **Settings Menu:**
+
 There are three tabs here: 
 1) Return (back to the pause/main menu)
 2) Lore (to learn about the amazing lore behind these little fish goobers :D)
