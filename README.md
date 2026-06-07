@@ -213,8 +213,8 @@ There are three tabs here:
 	- helping to switch organize the shark attack states
 	- helping to learn about efficently camera switch
 	- helping to learn the scaling algorithm used in the dialog and npc files
-	- and just general debugging!
-* But in the end all code and concepts are written authentically by me!
+	- and just general debugging (like sometimes copy pasting debug print lines from AI but I deleted it later)!
+* But in the end all code and core concepts are written authentically by me!
 * All the art is done by me (<3 i hope you likee itt) and the music is not Ai generated lol
 * And of course this read me is written by the one and only me :D
 
