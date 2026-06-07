@@ -6,21 +6,23 @@
 
 ### Contents
 
--[Access](#access)
--[Description](#description)
--[How to play?](#how-to-play)
--[Features](#features)
--[Ai Useage](#ai-useage)
--[Learning](#learning)
--[Credits](#credits)
+*[Access](#access)
+*[Description](#description)
+*[How to play?](#how-to-play)
+*[Features](#features)
+*[Ai Useage](#ai-useage)
+*[Learning](#learning)
+*[Credits](#credits)
 
 ## ACCESS
 
 ---
-* **Github Repo:**
+* **Github Repo:** https://github.com/jyoshitanair/fish-game
 
 
 * **Itch.io:**
+
+(play in browser!)
 	
 ## DESCRIPTION
 #### Creation Details
@@ -28,7 +30,7 @@
 * by: **jyoshitanair** (github)
 
 
-* name: **fish** 
+* project name: **Fish** 
 
 
 * made in: **Godot** Version 4.6.1 Stable gd script
@@ -58,21 +60,19 @@ But in the end things are not the way that they seem and you head back to the oc
 
 
 ## FEATURES
-* **Map:**
 ---
+* **Map:**
 1) Shows the player's current position in the open world
 2) Zoom in and out using the mouse wheel (clamped at 0.1 minimum - 3.0 maximum)
 3) 1 Right click to reset the position and another to reset the zoom settings
 4) Shows the NPCS and sharks even as they move! 
 5) Clamped to not show extra world :D
 6) Utilizes a subviewport and switching between a player camera and mouse camera to keep accurate positioning
-* **Player:**
 ---
+* **Player:**
 1) Movement using WASD/Arrow Keys
 2) Interact with NPCs using Enter, skip dialog using enter
 3) boost using the B key and there is a cooldown of 3 sec. 
-	
-
 	- red when you can't boost, green when you can! 
 	- you can not boost when you are not moving. 
 	- you will boost in the direction that you were going (works with diagonal movement too) 
@@ -85,16 +85,16 @@ But in the end things are not the way that they seem and you head back to the oc
 	- You can only have one shell at a time
 6) Attacks deal 'randi_range(10,30)*area.get_parent().boostbar' damage
 	- random int from 10-30 * how long you held the boost bar for (0.1-3.0)
-* **NPCS:**	
 ---
+* **NPCS:**	
 1) 4 unique NPCs - and return back to one
 2) all the same code but different paths to return to at the end/unique dialog situations/variables/sprites
 3) sorted into unique cutscene scenes
 4) enter to skip/fastforward dialog
 5) can not pause during this time (you will listen to them yap)
 6) Trails to guide you to them!
-* **Shark:**	
 ---
+* **Shark:**	
 1) Handles movement through 4 states: Normal, Chasing, Attacking and Retreating
 	-	Normal means that they don't see a player in their collision shape range so they just wander picking a 
 	random direction with match. There are also timers to switch directions randomly every once in a while when the shark is in the 
@@ -112,49 +112,49 @@ and prevents them from leaving the designated shark area!
 	- 	this means that if you swim out far enough they will not be able to chase you again and it makes
 	them really easy to kill! (if you want to take the easy way o|._.|o)
 4) Their death is handled in the start file and on pause they store if they are alive in an array and their position
-* **Tiles:**
 ---
+* **Tiles:**
 - Isometric Design and randomly generated using probability: 
 	- I drew the tiles yaya :D and this was my first time making isometric tiles - SO much guess and check
 	- i used probabilities and collisions and matching corners and sides to create a terrain set!
-* **Health Bar:**
 ---
+* **Health Bar:**
 1) displays as a Bar and Number
 2) if you are out of the sharks hitbox then you will begin to progressively
 heal! don't die!
 3) Once you've been hit once though it will never go back up to 100 :O
-* **Attack Bar:**
 ---
+* **Attack Bar:**
 1) Displays as a rectangular cool down for your attack ! 
 2)The cool down timer starts once the projectile (i call it a bubble gun!)
 has despawned (which it does automatically after a cooldown period (3 sec) or after it hits the shark)
 3)This is a Texture Progress Bar
 4) Shows up as green if there is a bubblegun in effect or if you can use the bubble gun
 5) Shows up as grey during the cooldown period. 
-* **Boost Bar:**
 ---
+* **Boost Bar:**
 1)Shows up as red if you can boost and green if you can't! 
 2)A boost makes you lunge forward smoothly and there is a cooldown(3 sec) so you can't abuse it. 
-* **Start Menu:**
 ---
+* **Start Menu:**
 * Its such a beautiful UI I know. UwU
 * It has a super cool fish video on it
 * If you hover over the buttons they bold
 * If you click start, you start
 * If you click settings, you are redirected to settings(see settings section)
 * If you click rage quit...you just instantly die lol
-* **Pause Menu:**
 ---
+* **Pause Menu:**
 * This took forever!
 * You can pause as long as you are not inside dialog (including in the mini game!)
-* It records the states of what sharks were alive, the player's position, the current NPC, the shell position, and the players health
+* It records the states of what sharks were alive and their health, the player's position, the current NPC, the shell position, and the players health
 (does not save the boost bar, attacks, ect though)
 * Then it pauses the game and when you click to continue you will return to the same position that you were in before
 * If you click continue, you continue
 * If you click settings, you are redirected to settings(see settings section)
 * If you click rage quit...you just instantly die lol
-* **Settings Menu:**
 ---
+* **Settings Menu:**
 There are three tabs here: 
 1) Return (back to the pause/main menu)
 2) Lore (to learn about the amazing lore behind these little fish goobers :D)
@@ -163,6 +163,7 @@ There are three tabs here:
 	- change the volume
 	- change the song
 	- annddd toggle the trail hints on and off (although i will say without the trail hints on it's going to take forever to find anything)
+---
 * **Mini Game:**
 1) A very simple minigame that I implemented
 2) Sharks
@@ -190,7 +191,7 @@ There are three tabs here:
 	
 #### *After all after literally spending 70+ hours on this I must have learned something right?*
 
----
+
 
 ### Learned:
 ---
@@ -205,7 +206,7 @@ There are three tabs here:
 9) Creating reusable files for things like dialog, npcs, sharks, ect that heavily relied on export vars :D
 10) Making/setting up Isometric tiles (I really want to try true isometric tiles in the future too!)
 
-#### Struggles :
+### Struggles :
 	
 ---
 1) **The shark.** This took forever and every time something worked the other wouldn't! I really had to get
@@ -227,7 +228,7 @@ same size and the little circle with their sprite in it to show up!
 
 ## CREDITS
 
-####*because I didn't do everything myself!*
+#### *because I didn't do everything myself!*
 
 ---
 1) Fonts

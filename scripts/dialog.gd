@@ -40,8 +40,11 @@ func _ready() -> void:
 		dialog_array = [
 			"Oh! You actually made it back! I thought the sharks wouldda gotten you for sure",
 			"Perhaps...you won't die out there. But just PERHAPS",
-			"Alright then. Here's a map for you. I hope you don't die ...or whatever. Not like I care.",
-			"Good luck I guess."
+			"sigh...I suppose I should say thanks...what's your name?",
+			"%s? Well ... thanks %s"%[Manager.urname,Manager.urname],
+			"Now I don't know if this is of much help but I have a map for you",
+			"I hope you don't die ...or whatever. Not like I care.",
+			"Good luck I guess. Have a good time in your filthy city."
 		]
 		Manager.first_dialog = false
 		flag_change = true 

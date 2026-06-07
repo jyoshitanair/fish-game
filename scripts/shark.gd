@@ -42,7 +42,10 @@ func _ready() -> void:
 	start_position = global_position
 	timer.wait_time = randf_range(0.3,0.5)
 	var groupname = "%s_position"%group
+	var grouphealth = "%s_health"%group
 	global_position = Manager.get(groupname)
+	health = Manager.get(grouphealth)
+	label.text = str(health)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if health <=0:

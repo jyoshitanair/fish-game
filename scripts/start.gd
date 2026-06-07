@@ -50,8 +50,10 @@ func _process(delta: float) -> void:
 		Manager.fish_position = get_tree().get_first_node_in_group("player").global_position
 		for shark in get_tree().get_nodes_in_group("shark"):
 			var name = shark.get_groups()[1]
+			var group_health = "%s_health"%name
 			var group_pos = "%s_position"%name
 			Manager.set(group_pos, shark.global_position)
+			Manager.set(group_health, shark.health)
 			print(shark)
 		get_tree().change_scene_to_file("res://scenes/pause.tscn")
 	if in_shark_zone: 

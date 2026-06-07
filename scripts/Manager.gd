@@ -20,6 +20,13 @@ var _2_on_pos_shell = false
 var _2_on_pos_shark = false
 #vars
 var fish_health = 100
+var shark1_health = 100.0
+var shark2_health = 100.0
+var shark3_health = 100.0
+var shark4_health = 100.0
+var shark5_health = 100.0
+var shark6_health = 100.0
+var shark7_health = 100.0
 var shark1_position = Vector2(30774.0,-5406.0)
 var shark2_position = Vector2(21031.0,1019.0)
 var shark3_position = Vector2(25958.0,4768.0)
@@ -32,7 +39,7 @@ var paused = false
 var returning_from_mini_game = false
 var shark_mode = true
 var previstream
-var urname = "honored one"
+var urname = "the honored one"
 var first_crab = false
 var first_time = true
 var npc1_is_current = true

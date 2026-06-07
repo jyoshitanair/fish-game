@@ -97,7 +97,8 @@ theme_override_font_sizes/font_size = 18
 text = "Finnegan is a very 
 grumpy fish. He likes
 seaweed. He dislikes
-children. He may also
+children. He's really 
+smart and may also
 possibly like Dash...."
 
 [node name="RichTextLabel2" type="Label" parent="." unique_id=1651661156]
@@ -122,7 +123,9 @@ text = "Bobu almost got eaten
 when he got caught 
 and sent to the city.
 He's a grumpy grandpa
-and very traumatized"
+and very traumatized. 
+He's a bit lazy and very 
+cunning!"
 
 [node name="RichTextLabel3" type="Label" parent="." unique_id=630541507]
 offset_left = 775.0
@@ -136,17 +139,19 @@ text = "Khelani"
 
 [node name="Label" type="Label" parent="RichTextLabel3" unique_id=941284196]
 layout_mode = 0
-offset_top = 51.0
-offset_right = 196.0
-offset_bottom = 199.0
+offset_top = 41.0
+offset_right = 223.0
+offset_bottom = 283.0
 theme_override_colors/font_color = Color(0.30490708, 0.35264575, 0.8136718, 1)
 theme_override_fonts/font = ExtResource("6_xhytr")
 theme_override_font_sizes/font_size = 18
 text = "Bobu's wife. She puts 
 up with all his nonsense
-and is very bad-ass!
-She could've taken down
-the sharks on her own!"
+and runs a hardcore
+fight club (totallly legal)
+Honestly, she could've 
+taken down the sharks 
+on her own! She loves shrimp!"
 
 [node name="RichTextLabel4" type="Label" parent="." unique_id=119890637]
 offset_left = 523.0
@@ -170,7 +175,9 @@ text = "Dash is a very cheery
 and helpful fish.
 He loves to collect 
 starfish for his 
-colletion. He may also 
+colletion and loves
+bright and shiny things!
+ He may also 
 possibly like Finnegan...."
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1120650933]

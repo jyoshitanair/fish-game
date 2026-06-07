@@ -6,7 +6,7 @@
 
 [node name="text" parent="." unique_id=1734454769 groups=["minigame_rules"] instance=ExtResource("1_2m0jg")]
 position = Vector2(575, 547)
-dialog_array = ["You will be entering a mini game now. ", "You will no longer be able to boost or attack. Instead you will be able to place shells with the 'Q' key.", "Sharks are drawn to the noises made by shells. You can use this to distract them.", "The Goal is to turn on two plates at the same time. You can do this by using yourself, the shell, the sharks, or any other methods you see fit. ", "Good Luck!"]
+dialog_array = ["You will be entering a mini game now. ", "You will no longer be able to boost or attack. Instead you will be able to place shells with the 'Q' key.", "Sharks are drawn to the noises made by shells. You can use this to distract them.", "You will find two blue plates with the words put something here. These are pressure plates that need an object ontop of them to turn on", "If both pressure plates are activated at the same time you will win!", "Good Luck!"]
 fish_name = "Welcome to the Mini Game!"
 
 [node name="Panel" parent="text" index="0" unique_id=633472790]

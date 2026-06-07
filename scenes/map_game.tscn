@@ -6,7 +6,7 @@
 
 [node name="text" parent="." unique_id=1734454769 groups=["theend"] instance=ExtResource("1_gbp1a")]
 position = Vector2(575, 547)
-dialog_array = ["You aquire the map and make the journey to the mainland.", "You meet tons of new friends and encounter many dangers, but it was all worth it for this moment.", "Or was it? ", "When you go back to your sad tank, and sad human, you miss the exciting life you had back then.", "You decided to go back to the ocean after all with Dash, Finnegan, Bobu and your other friends. ", "The End."]
+dialog_array = ["You aquire the map and make the journey to the mainland.", "You meet tons of new friends and encounter many dangers, but it was all worth it for this moment.", "Or was it? ", "When you go back to your sad tank, and sad human, you miss the exciting life you had back then.", "You decided to go back to the ocean after all with Dash, Kailani,Finnegan, and Bobu. You continue to make more friends and have fun adventures", "The End."]
 fish_name = "Afterwards..."
 
 [node name="Panel" parent="text" index="0" unique_id=633472790]
@@ -27,7 +27,7 @@ offset_bottom = 435.0
 [node name="circle_why_so_hard" parent="text" index="1" unique_id=1837158979]
 visible = false
 
-[node name="AnimatedSprite2D" parent="text" index="2" unique_id=982056156]
+[node name="AnimatedSprite2D" parent="text" index="2" unique_id=751211338]
 visible = false
 
 [editable path="text"]
