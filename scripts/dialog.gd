@@ -24,10 +24,7 @@ var flag_change = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(npc_sprite)
-	print(fish_sprite)
 	if npc_sprite and fish_sprite !=null:
-		print("INIT")
 		npc_sprite.position = Vector2(-538.0,-78.0)
 		npc_sprite.texture = fish_sprite
 		var original_size = npc_sprite.texture.get_size()

@@ -69,6 +69,9 @@ func _physics_process(delta: float) -> void:
 		if healthadder>= 1.0:
 			health += int(healthadder)
 			healthadder = 0.0
+		if health == 99.0:
+			await get_tree().create_timer(0.3).timeout
+			health == 100.0
 	if health <= 0.0:
 		alive = false
 		get_tree().change_scene_to_file("res://scenes/YouLose.tscn")

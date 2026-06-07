@@ -47,13 +47,6 @@ func dialog_enter(player) -> void:
 	Manager.set(cur_name,false)
 	Manager.fish_position = player.global_position
 	get_tree().change_scene_to_packed(path)
-func _on_alertarea_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("mc detected")
-		_get_groups()
-func _on_alertarea_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("mc left")
 func _get_groups() -> void:
 	group_name = self.get_groups()[0]
 	##setting up the current

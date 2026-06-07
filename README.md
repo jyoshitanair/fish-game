@@ -148,7 +148,7 @@ has despawned (which it does automatically after a cooldown period (3 sec) or af
 * This took forever!
 * You can pause as long as you are not inside dialog (including in the mini game!)
 * It records the states of what sharks were alive and their health, the player's position, the current NPC, the shell position, and the players health
-(does not save the boost bar, attacks, ect though)
+(does not save the boost bar, attacks, direction ect though)
 * Then it pauses the game and when you click to continue you will return to the same position that you were in before
 * If you click continue, you continue
 * If you click settings, you are redirected to settings(see settings section)

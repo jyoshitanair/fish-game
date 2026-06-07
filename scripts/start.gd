@@ -54,7 +54,6 @@ func _process(delta: float) -> void:
 			var group_pos = "%s_position"%name
 			Manager.set(group_pos, shark.global_position)
 			Manager.set(group_health, shark.health)
-			print(shark)
 		get_tree().change_scene_to_file("res://scenes/pause.tscn")
 	if in_shark_zone: 
 		sharkzone.visible = true

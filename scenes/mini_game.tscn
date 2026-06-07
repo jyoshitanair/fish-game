@@ -196,10 +196,10 @@ script = ExtResource("1_2sn1h")
 [node name="world" parent="." unique_id=1752542113 instance=ExtResource("1_lmkgc")]
 
 [node name="Panel" type="Panel" parent="." unique_id=1151103279]
-offset_left = -2619.0
-offset_top = -1294.0
-offset_right = -2272.0
-offset_bottom = -943.0
+offset_left = -784.0
+offset_top = 214.0
+offset_right = -437.0
+offset_bottom = 565.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
 metadata/_edit_group_ = true
 
@@ -225,10 +225,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="." unique_id=1360385045]
-offset_left = 1896.0
-offset_top = 1318.0
-offset_right = 2253.0
-offset_bottom = 1675.0
+offset_left = -18.0
+offset_top = 282.0
+offset_right = 339.0
+offset_bottom = 639.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2sn1h")
 metadata/_edit_group_ = true
 
@@ -423,7 +423,7 @@ position = Vector2(20.5, -11.5)
 shape = SubResource("RectangleShape2D_2sn1h")
 
 [node name="sark1" type="Area2D" parent="." unique_id=1717063217 groups=["load_1"]]
-position = Vector2(-153, -30)
+position = Vector2(1682, 1478)
 script = ExtResource("8_hd6k8")
 metadata/_edit_group_ = true
 
@@ -433,7 +433,7 @@ shape = SubResource("CircleShape2D_svrvl")
 metadata/_edit_group_ = true
 
 [node name="sark2" type="Area2D" parent="." unique_id=1446932310 groups=["load_2"]]
-position = Vector2(-110, 195)
+position = Vector2(-2024, -841)
 script = ExtResource("8_hd6k8")
 metadata/_edit_group_ = true
 
