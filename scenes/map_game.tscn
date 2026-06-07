@@ -6,7 +6,7 @@
 
 [node name="text" parent="." unique_id=1734454769 groups=["theend"] instance=ExtResource("1_gbp1a")]
 position = Vector2(575, 547)
-dialog_array = ["You aquire the map and make the journey to the mainland.", "You meet tons of new friends and encounter many dangers, but it was all worth it for this moment.", "Or was it? ", "When you go back to your sad tank, and sad human, you miss the exciting life you had back then.", "You decided to go back to the ocean after all with Dash, Kailani,Finnegan, and Bobu. You continue to make more friends and have fun adventures", "The End."]
+dialog_array = ["You have finally aquire the map and make the journey to the mainland.", "Throughout this journey you have met tons of new friends and encountered many dangers along the way.", "But it's all paying off now -  for this moment!", "Or was it? ", "Your sad life, boring tank, and hateful human aren't as fun as the exciting life you had back then. And it's starting to get to you", "So you decided to go back to the ocean after all with Dash, Kailani,Finnegan, and Bobu. You continue to make more friends and have fun adventures", "The End."]
 fish_name = "Afterwards..."
 
 [node name="Panel" parent="text" index="0" unique_id=633472790]

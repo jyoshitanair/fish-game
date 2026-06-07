@@ -13,7 +13,6 @@ config_version=5
 config/name="fish"
 run/main_scene="uid://b0uewp2qyfrci"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://addons/icon.svg"
 
 [autoload]
 
@@ -25,7 +24,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -113,3 +112,5 @@ pause={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

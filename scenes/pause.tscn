@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwa4iywlr4box"]
 
-[ext_resource type="VideoStream" uid="uid://401bpbbioprn" path="res://assets/videso/fish-video.ogv" id="1_r1fnm"]
+[ext_resource type="VideoStream" uid="uid://cjwk2wavh8656" path="res://assets/videso/fish-video.ogv" id="1_r1fnm"]
 [ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="2_wen6a"]
 [ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="3_cml1b"]
 [ext_resource type="FontFile" uid="uid://c2fet0nr1embr" path="res://assets/fonts/evil.ttf" id="4_1xtef"]
@@ -90,7 +90,7 @@ offset_right = 650.0
 offset_bottom = 359.0
 theme_override_fonts/font = ExtResource("4_1xtef")
 theme_override_font_sizes/font_size = 35
-text = "Something's Fishy. . ."
+text = "Something Fishy I"
 
 [node name="Button2" type="Button" parent="Control" unique_id=1991315662]
 layout_mode = 0

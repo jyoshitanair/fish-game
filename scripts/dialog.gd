@@ -24,6 +24,8 @@ var flag_change = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if fish_name == "FAHH2":
+		fish_name = Manager.urname
 	if npc_sprite and fish_sprite !=null:
 		npc_sprite.position = Vector2(-538.0,-78.0)
 		npc_sprite.texture = fish_sprite

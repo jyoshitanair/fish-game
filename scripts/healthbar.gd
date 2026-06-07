@@ -3,6 +3,7 @@ extends Node2D
 @onready var label: Label = $Label
 var old_health
 var fish
+var hundredonce = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fish = get_tree().get_first_node_in_group("player")
@@ -12,3 +13,7 @@ func _process(delta: float) -> void:
 	if fish.health != old_health:
 		bar.size.x = fish.health * 1.8 #max of 100 makes it grand total of 180 px - the size of the bar in pxs
 		label.text = "%s"%fish.health
+		hundredonce = false
+	if fish.health == 100 and !hundredonce :
+		label.text = "100"
+		hundredonce = true

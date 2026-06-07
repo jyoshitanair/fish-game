@@ -115,6 +115,6 @@ texture = ExtResource("1_4lbup")
 
 [node name="text" parent="." unique_id=1734454769 instance=ExtResource("1_al7wj")]
 position = Vector2(572, 546)
-dialog_array = ["Where...where am I?", "The last thing I remeber was being in my tank", "I need to get back to the city as soon as possible!"]
-fish_name = "You "
+dialog_array = ["Where...where am I?", "The last thing I remeber was being in my fishbowl", "I need to get back to the city as soon as possible! Everyone probably misses me!", "C'mon we need to hurry! ", "... why aren't you moving?", "Oh right silly me! I forgot to explain how to play!", "You can move using WASD/Arrow keys, boost with 'B' , fire a bubble bullet with 'L' (hold to charge it and deal more damage!), and pause the game using 'P' as long as you are not talking to someone", "Oh! And there's a mini-map at the top corner. Use it to see where you are. You can move around with the mouse and zoom out/in using your mouse pad/wheel! And don't worry if you ever get lost right click once to reset your position settings and twice to reset the zoom settings. ", "Now, let's go find my fishbowl! I miss it already! Brr... the ocean is so cold!"]
+fish_name = "FAHH2"
 fish_sprite = ExtResource("3_q04sa")

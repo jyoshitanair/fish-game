@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bv2m3yap3lg33" path="res://assets/fonts/fish.ttf" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://c2fet0nr1embr" path="res://assets/fonts/evil.ttf" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://brqoxpm8c8rwn" path="res://assets/images/world/Illustration94 (1).PNG" id="2_oa1go"]
-[ext_resource type="VideoStream" uid="uid://401bpbbioprn" path="res://assets/videso/fish-video.ogv" id="2_rtw2f"]
+[ext_resource type="VideoStream" uid="uid://cjwk2wavh8656" path="res://assets/videso/fish-video.ogv" id="2_rtw2f"]
 [ext_resource type="FontFile" uid="uid://c7v7ffeifskst" path="res://assets/fonts/character-name.ttf" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://dsvo5dpscf5wl" path="res://scripts/buttonbiggernow.gd" id="4_oa1go"]
 
@@ -90,7 +90,7 @@ offset_right = 650.0
 offset_bottom = 359.0
 theme_override_fonts/font = ExtResource("2_8ln24")
 theme_override_font_sizes/font_size = 35
-text = "Something's Fishy. . ."
+text = "Something Fishy I"
 
 [node name="Button2" type="Button" parent="Control" unique_id=1696161761]
 layout_mode = 0

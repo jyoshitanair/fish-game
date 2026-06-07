@@ -1,28 +1,45 @@
 # Fish
 
-##### A game where you are a fish just trynna live it out. But its not very easy being a fish '
+##### A game where you are just a fish just trynna live it out. But its not very easy being a fish
 
 ---
 
 ### Contents
 
 *[Access](#access)
+
+
 *[Description](#description)
+
+
 *[How to play?](#how-to-play)
+
+
 *[Features](#features)
+
+
 *[Ai Useage](#ai-useage)
+
+
 *[Learning](#learning)
+
+
 *[Credits](#credits)
+
 
 ## ACCESS
 
 ---
 * **Github Repo:** https://github.com/jyoshitanair/fish-game
 
-
-* **Itch.io:**
-
+* **Itch.io:** https://jyoshitanair.itch.io/fish
 (play in browser!)
+
+	#### Note:
+	If your game is glitching/lagging when the fish moves it might be due to cache! I had the same issues
+	and switching to incognito, hard resetting the tab, or switching browsers might work.
+	For me it only seems to work on Google Chrome, but it might work on Edge/other for you 
+
 	
 ## DESCRIPTION
 #### Creation Details
@@ -36,28 +53,42 @@
 * made in: **Godot** Version 4.6.1 Stable gd script
 
 
+* exported and playable in *itch.io*
+
 
 #### Quick Overview
 ---
 This game was super inspired by Genshin Impact and in the future I would love to add more of those cool elements into my game
-You are roleplaying as a fish who was abandoned by their terrible owner and just dumped into the ocean. 
-You are determined to find your human again and set out on a mission in the huge ocean
-Along the way you meet many new friends until you eventually make it back.
-But in the end things are not the way that they seem and you head back to the ocean!
+such as expressions/gestures for the npc, an attack system, gambling, and puzzles.
 
+
+You are roleplaying as a fish who was abandoned by their terrible owner and just dumped into the ocean.
+But despite it all, you are determined to find your human again and get back in your fishbowl!
+So you set out on a mission in the huge ocean trying to find the city.
+Along the way you meet many new friends until you eventually make it back.
+But perhaps things may not be as good as you thought...?
 
 
 ## HOW TO PLAY
 * follow the hints at the top to know what to do
-* attack with l to create a bubble and launch it
-* boost with b!
+* attack with l to create a bubble and launch it. the longer you hold the more damage
+* boost with b
 * move with WASD/Arrow Keys
 * zoom in and out on the map with the keypad/mouse wheel
 * right click on the map once to reset position and twice to reset the zoom
-* when in the mini game click q to make a shell
+* when in the mini game click q to make a shell (only one shell at a time)
 * enter to skip dialog
+*you can pause any time other than when in dialogue with p
 
+#### HOW TO WIN
 
+*you have to make it back to the city and finish all the tasks at the top
+
+#### HOW TO LOSE
+
+*you get a second chance when you die in the minigame
+*the only way you can lose forever is if your health goes under 0 in the main game
+(so only when you die to the sharks)
 
 ## FEATURES
 ---
@@ -192,7 +223,6 @@ There are three tabs here:
 #### *After all after literally spending 70+ hours on this I must have learned something right?*
 
 
-
 ### Learned:
 ---
 1) I learned more about formatting md files and honestly this might be my best one yet!
@@ -222,6 +252,8 @@ of the nodes and dynamically connect multiple files (mainly fish,shark,and start
 4) **The NPCS...** They had a bunch of stuff in common but also so much *not* in common (a paradox...) and multiple unique situations.
 I struggled to have the order working with the trails and returning to bobu at the end! I also struggled to get the nodes to all become the
 same size and the little circle with their sprite in it to show up!
+5) **The Video** So apparently itch.io has a zip file limit of 200 mb. My video was literally 470mb at the start. I had to spend HOURS
+converting, compressing, and reducing file quality to eventually get it down to 13 mb (crazy right!) So if the video looks a bit slow...uh it is.
 
 *...and more but those are the big ones*
 
